@@ -2,14 +2,57 @@ group 'ru.inbox.savinov_vu'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
-apply plugin: 'war'
+apply plugin: 'idea'
+apply plugin: 'application'
 
-sourceCompatibility = 1.8
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+mainClassName = 'ConfigApp'
 
 repositories {
     mavenCentral()
 }
 
+
+
+
+
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
+    def sparkVersion = '2.5'
+    def jacksonVersion = '2.2.2'
+    def hibernateVersion = '5.2.3.Final'
+    def hibernateJpaPersistanceVersion = '1.0.0.Final'
+    def springVersion = '4.3.3.RELEASE'
+    def springDataJpaVersion = '1.2.0.RELEASE'
+    def javaxServletVersion = '3.0.1'
+    def hsqldbVersion = '2.3.4'
+    def postgresVersion = '9.1-901-1.jdbc4'
+    def jUnitVersion = '4.5'
+    def tomcatJdbc = '9.0.0.M11'
+
+    /*Spark*/
+    compile 'com.sparkjava:spark-core:' + sparkVersion
+    /*Jackson*/
+    compile 'com.fasterxml.jackson.core:jackson-core:' + jacksonVersion
+    compile 'com.fasterxml.jackson.core:jackson-databind:' + jacksonVersion
+    compile 'com.fasterxml.jackson.core:jackson-annotations:' + jacksonVersion
+    /*Hibernate*/
+    compile 'org.hibernate:hibernate-core:' + hibernateVersion
+    compile 'org.hibernate:hibernate-entitymanager:' + hibernateVersion
+    compile 'org.hibernate.javax.persistence:hibernate-jpa-2.1-api:' + hibernateJpaPersistanceVersion
+
+    /*Spring*/
+    compile 'org.springframework:spring-core:' + springVersion
+    compile 'org.springframework:spring-web:' + springVersion
+    compile 'org.springframework:spring-orm:' + springVersion
+    compile 'org.springframework:spring-context:' + springVersion
+    compile 'org.springframework.data:spring-data-jpa:' + springDataJpaVersion
+    /*JavaxServlet-API*/
+    compile 'javax.servlet:javax.servlet-api:' + javaxServletVersion
+    /*DB and DataSource*/
+    compile 'postgresql:postgresql:'+ postgresVersion
+    compile 'org.hsqldb:hsqldb:' + hsqldbVersion
+    compile 'org.apache.tomcat:tomcat-jdbc:' + tomcatJdbc
+    testCompile 'junit:junit:' + jUnitVersion
 }
