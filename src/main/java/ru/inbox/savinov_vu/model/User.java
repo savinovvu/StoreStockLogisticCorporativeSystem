@@ -1,9 +1,14 @@
 package ru.inbox.savinov_vu.model;
 
-/**
- * Created by skorpion on 02.11.16.
- */
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
+
 public class User {
-/*    @Enumerated(EnumType.STRING)*/
-    Role role;
+
+    private int id;
+
+    private String name;
+    @Enumerated(EnumType.STRING)
+    private Role role;
 }
