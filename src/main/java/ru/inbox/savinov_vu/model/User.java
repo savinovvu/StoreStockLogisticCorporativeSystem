@@ -20,9 +20,9 @@ public class User {
 
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "role")
-    @JsonProperty("role")
-    private Role role;
+    @Column(name = "roles")
+    @JsonProperty("roles")
+    private Role roles;
 
     public  User() {}
 
@@ -44,10 +44,10 @@ public class User {
     }
 
     public Role getRole() {
-        return role;
+        return roles;
     }
 
     public void setRole(Role role) {
-        this.role = role;
+        this.roles = role;
     }
 }
