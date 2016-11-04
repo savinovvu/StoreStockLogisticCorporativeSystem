@@ -11,6 +11,17 @@
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
        http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
+    <context:component-scan base-package="ru.inbox.savinov_vu"/>
+    <bean id="userController" class="ru.inbox.savinov_vu.controller.UserController" />
+    <bean id="orderController" class="ru.inbox.savinov_vu.controller.OrderController" />
+
+
+    <bean id="userService" class="ru.inbox.savinov_vu.service.UserServiceImpl" />
+    <bean id="orderService" class="ru.inbox.savinov_vu.service.OrderServiceImpl" />
+    <bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper"/>
+
+
+
     <context:property-placeholder location="classpath:db/db.properties"/>
 
 
@@ -20,8 +31,9 @@
     </jdbc:initialize-database>
 
 
-
-    <jpa:repositories base-package="ru.inbox.savinov_vu.repository"/>
+    <context:component-scan base-package="ru.inbox.savinov_vu.repository"/>
+    <jpa:repositories base-package="ru.inbox.savinov_vu.repository" entity-manager-factory-ref="entityManagerFactory"
+    transaction-manager-ref="transactionManager"/>
 
 
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
@@ -55,6 +67,8 @@
         <property name="username" value="${database.username}"/>
         <property name="password" value="${database.password}"/>
     </bean>
+
+
 
 
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">

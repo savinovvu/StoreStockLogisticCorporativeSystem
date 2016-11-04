@@ -13,8 +13,8 @@
     <bean id="orderController" class="ru.inbox.savinov_vu.controller.OrderController" />
 
 
-    <bean id="userService" class="ru.inbox.savinov_vu.service.OrderServiceImpl" />
-    <bean id="orderService" class="ru.inbox.savinov_vu.service.UserServiceImpl" />
+    <bean id="userService" class="ru.inbox.savinov_vu.service.UserServiceImpl" />
+    <bean id="orderService" class="ru.inbox.savinov_vu.service.OrderServiceImpl" />
     <bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper"/>
 
 

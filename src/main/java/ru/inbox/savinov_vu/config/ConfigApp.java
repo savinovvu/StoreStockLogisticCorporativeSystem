@@ -8,10 +8,12 @@ public class ConfigApp {
 
     public static void main(String[] args) {
 
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"context/context.xml"});
+       // ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"context/context.xml"});
         ClassPathXmlApplicationContext dbContext = new ClassPathXmlApplicationContext(new String[]{"db/db.xml"});
-        UserController userController = (UserController) context.getBean("userController");
-        OrderController orderController= (OrderController) context.getBean("orderController");
+      /*  UserController userController = (UserController) context.getBean("userController");
+        OrderController orderController= (OrderController) context.getBean("orderController");*/
+        UserController userController = (UserController) dbContext.getBean("userController");
+        OrderController orderController= (OrderController) dbContext.getBean("orderController");
         userController.start();
         orderController.start();
     }
