@@ -11,7 +11,7 @@ public class ProductServiceImpl  implements ProductService {
     ProductRepository repository;
     @Override
     public String getAll() {
-
+        repository.findAll().forEach(System.out::println);
         return null;
     }
 }
