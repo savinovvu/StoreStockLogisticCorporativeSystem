@@ -24,8 +24,13 @@ public class User {
     @JsonProperty("roles")
     private Role roles;
 
-    public  User() {}
+    @JsonProperty("active")
+    @Column(name = "active")
+    private boolean active;
 
+
+
+    public  User() {}
 
     public int getId() {
         return id;
@@ -43,12 +48,20 @@ public class User {
         this.name = name;
     }
 
-    public Role getRole() {
+    public Role getRoles() {
         return roles;
     }
 
-    public void setRole(Role role) {
-        this.roles = role;
+    public void setRoles(Role roles) {
+        this.roles = roles;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
     @Override
@@ -57,6 +70,7 @@ public class User {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", roles=" + roles +
+                ", active=" + active +
                 '}';
     }
 }

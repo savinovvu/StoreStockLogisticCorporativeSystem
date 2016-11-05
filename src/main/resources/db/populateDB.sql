@@ -3,11 +3,12 @@ DELETE FROM orders;
 DELETE FROM products;
 
 
-INSERT INTO users (id, userName, roles) VALUES
-  (1000, 'name1', 'ADMIN'),
-  (1001, 'name2', 'COMMANDER'),
-  (1002, 'name3', 'LOGISTIC'),
-  (1003, 'name4', 'VENDOR');
+INSERT INTO users (id, userName, roles, active) VALUES
+  (1000, 'name1', 'ADMIN', TRUE ),
+  (1001, 'name2', 'COMMANDER', TRUE ),
+  (1002, 'name3', 'LOGISTIC', TRUE ),
+  (1003, 'name4', 'VENDOR',TRUE ),
+  (1004, 'name4', 'VENDOR', FALSE );
 
 
 INSERT INTO orders (order_id, startDateTime) VALUES
