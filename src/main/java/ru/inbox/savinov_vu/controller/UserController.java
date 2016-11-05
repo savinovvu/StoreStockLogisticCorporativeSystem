@@ -6,9 +6,8 @@ import ru.inbox.savinov_vu.service.UserService;
 
 
 public class UserController {
-   // @Qualifier("userServiceImpl")
 
-    @Qualifier("userServiceImpl")
+    @Qualifier("userService")
     @Autowired
     UserService service;
 

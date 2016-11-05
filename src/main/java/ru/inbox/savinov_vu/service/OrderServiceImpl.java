@@ -2,10 +2,10 @@ package ru.inbox.savinov_vu.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import ru.inbox.savinov_vu.repository.OrderRepository;
 
-@Component
+@Service
 public class OrderServiceImpl implements OrderService {
 
     @Autowired
