@@ -24,8 +24,8 @@ public class Product {
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;
 
-    @Column(name = "startDate")
-    @JsonProperty("startDate")
+    @Column(name = "startDateTime")
+    @JsonProperty("startDateTime")
     @JsonSerialize(using = JsonDateSerializer.class)
     private LocalDateTime startDateTime;
 

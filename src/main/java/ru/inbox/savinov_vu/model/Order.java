@@ -19,13 +19,13 @@ public class Order {
     @JsonProperty("order_id")
     private int order_id;
 
-    @Column(name = "startDate")
-    @JsonProperty("startDate")
+    @Column(name = "startDateTime")
+    @JsonProperty("startDateTime")
     @JsonSerialize(using = JsonDateSerializer.class)
     private LocalDateTime startDateTime;
 
 
-    @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER, mappedBy = "order")
+    @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY, mappedBy = "order")
     @OrderBy("dateTime DESC")
     private List<Product> productList;
 
@@ -39,6 +39,14 @@ public class Order {
         this.order_id = order_id;
     }
 
+    public LocalDateTime getStartDateTime() {
+        return startDateTime;
+    }
+
+    public void setStartDateTime(LocalDateTime startDateTime) {
+        this.startDateTime = startDateTime;
+    }
+
     public List<Product> getProductList() {
         return productList;
     }
@@ -47,11 +55,13 @@ public class Order {
         this.productList = productList;
     }
 
-    public LocalDateTime getStartDateTime() {
-        return startDateTime;
+    @Override
+    public String toString() {
+        return "Order{" +
+                "order_id=" + order_id +
+                ", startDateTime=" + startDateTime +
+                ", productList=" +
+                '}';
     }
 
-    public void setStartDateTime(LocalDateTime startDateTime) {
-        this.startDateTime = startDateTime;
-    }
 }
