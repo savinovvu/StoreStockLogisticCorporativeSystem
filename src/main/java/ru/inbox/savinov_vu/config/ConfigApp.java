@@ -13,8 +13,8 @@ public class ConfigApp {
         UserController userController = (UserController) context.getBean("userController");
         OrderController orderController= (OrderController) context.getBean("orderController");
         ProductController productController= (ProductController) context.getBean("productController");
-        /*userController.start();
-        orderController.start();*/
+        userController.start();
+        orderController.start();
         productController.start();
 
     }
