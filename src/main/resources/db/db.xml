@@ -11,14 +11,6 @@
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
        http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
-    <context:component-scan base-package="ru.inbox.savinov_vu"/>
-    <bean id="userController" class="ru.inbox.savinov_vu.controller.UserController" />
-    <bean id="orderController" class="ru.inbox.savinov_vu.controller.OrderController" />
-
-
-    <bean id="userService" class="ru.inbox.savinov_vu.service.UserServiceImpl" />
-    <bean id="orderService" class="ru.inbox.savinov_vu.service.OrderServiceImpl" />
-    <bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper"/>
 
 
 
