@@ -11,10 +11,13 @@
     <context:component-scan base-package="ru.inbox.savinov_vu"/>
     <bean id="userController" class="ru.inbox.savinov_vu.controller.UserController" />
     <bean id="orderController" class="ru.inbox.savinov_vu.controller.OrderController" />
+    <bean id="productController" class="ru.inbox.savinov_vu.controller.ProductController" />
 
 
     <bean id="userService" class="ru.inbox.savinov_vu.service.UserServiceImpl" />
     <bean id="orderService" class="ru.inbox.savinov_vu.service.OrderServiceImpl" />
+    <bean id="productService" class="ru.inbox.savinov_vu.service.ProductServiceImpl" />
+
     <bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper"/>
 
 
