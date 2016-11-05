@@ -1,7 +1,7 @@
-DELETE FROM user;
+DELETE FROM users;
 
 
-INSERT INTO user ( userName, roles ) VALUES
+INSERT INTO users ( userName, roles ) VALUES
     ('name1', 'ADMIN' ),
     ('name2', 'COMMANDER'),
     ('name3', 'LOGISTIC'),
