@@ -25,9 +25,9 @@ public class Order {
     private LocalDateTime startDateTime;
 
 
-    @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY, mappedBy = "order")
-    @OrderBy("dateTime DESC")
-    private List<Product> productList;
+    @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER, mappedBy = "order")
+ /*   @OrderBy("dateTime DESC")*/
+    private List<Product> products;
 
     public Order() {}
 
@@ -47,21 +47,20 @@ public class Order {
         this.startDateTime = startDateTime;
     }
 
-    public List<Product> getProductList() {
-        return productList;
+    public List<Product> getProducts() {
+        return products;
     }
 
-    public void setProductList(List<Product> productList) {
-        this.productList = productList;
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 
     @Override
     public String toString() {
         return "Order{" +
-                "order_id=" + order_id +
                 ", startDateTime=" + startDateTime +
-                ", productList=" +
+                ", order_id=" + order_id +
+                " products=" + products + " "+
                 '}';
     }
-
 }

@@ -15,7 +15,6 @@
 
     <context:property-placeholder location="classpath:db/db.properties"/>
 
-
     <jdbc:initialize-database data-source="dataSource" enabled="${database.init}" >
         <jdbc:script location="${jdbc.initLocation}"/>
         <jdbc:script encoding="utf-8" location="${jdbc.populateLocation}"/>

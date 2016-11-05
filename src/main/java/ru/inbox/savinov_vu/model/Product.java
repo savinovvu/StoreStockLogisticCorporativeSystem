@@ -63,4 +63,13 @@ public class Product {
     public void setStartDateTime(LocalDateTime startDateTime) {
         this.startDateTime = startDateTime;
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "product_id=" + product_id +
+                ", product_name='" + product_name + '\'' +
+                ", startDateTime=" + startDateTime +
+                '}';
+    }
 }
