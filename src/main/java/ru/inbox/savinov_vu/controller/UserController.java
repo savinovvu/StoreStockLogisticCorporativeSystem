@@ -1,9 +1,12 @@
 package ru.inbox.savinov_vu.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import ru.inbox.savinov_vu.service.UserService;
-import spark.Spark;
+
+import static spark.Spark.post;
+import static spark.Spark.staticFileLocation;
 
 
 public class UserController {
@@ -12,10 +15,18 @@ public class UserController {
     @Autowired
     UserService service;
 
-    public void start() {
-        service.getAllUsers();
+    @Autowired
+    ObjectMapper mapper;
 
-        Spark.get("/hello3", (req, res) -> "Hello World3");
+
+    public void start() {
+
+
+        staticFileLocation("/public");
+
+    post("/getAll", (req, res) ->{
+        return service.getAllUsers();
+    });
 
     }
 }

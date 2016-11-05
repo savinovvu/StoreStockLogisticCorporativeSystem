@@ -87,6 +87,27 @@ function sendJson(url, type, data) {
 }
 
 
+/*@Id
+ @GeneratedValue(strategy = GenerationType.AUTO)
+ @JsonProperty("id")
+ private int id;
+
+
+ @Column(name = "userName")
+ @JsonProperty("userName")
+ private String name;
+
+
+ @Enumerated(EnumType.STRING)
+ @Column(name = "roles")
+ @JsonProperty("roles")
+ private Role roles;
+
+ @JsonProperty("active")
+ @Column(name = "active")
+ private boolean active;*/
+
+
 function view(data) {
     $(".data").remove();
 
@@ -102,28 +123,29 @@ function view(data) {
         output += "</td>";
 
         output += "<td>";
-        output += "<input type=\"text\" name=\"productName\" id=\"productName-" + val.id + "\" value=\"" + val.productName + "\"  readonly/>";
+        output += "<input type=\"text\" name=\"productName\" id=\"productName-" + val.id + "\" value=\"" + val.userName + "\"  readonly/>";
         output += "</td>";
 
         output += "<td>";
-        output += "<input type=\"text\" name=\"price\" id=\"price-" + val.id + "\" value=\"" + val.productPrice + "\"  readonly/>";
-        output += "</td>";
-
-
-        output += "<td>";
-        output += "<input type=\"text\" name=\"validFrom\" id=\"validFrom-" + val.id + "\" value=\"" + (val.validFrom == null ? null : val.validFrom.toString().split("-").reverse().join("-")) + "\"  readonly/>";
+        output += "<input type=\"text\" name=\"price\" id=\"price-" + val.id + "\" value=\"" + val.roles + "\"  readonly/>";
         output += "</td>";
 
 
         output += "<td>";
-        output += "<input type=\"text\" name=\"validTo\" id=\"validTo-" + val.id + "\" value=\"" + (val.validTo == null ? null : val.validTo.toString().split("-").reverse().join("-")) + "\"  readonly/>";
+        output += "<input type=\"text\" name=\"price\" id=\"price-" + val.id + "\" value=\"" + val.active + "\"  readonly/>";
         output += "</td>";
 
+        if(val.active == true) {
+            output += "<td>" +
+                "<input type=\"button\" value=\"Уволить\" class=\"deleteButton btn\" onclick=\"remove(" + val.id + ")\">" +
+                "</td>";
+        }
 
-        output += "<td>" +
-            "<input type=\"button\" value=\"Удалить\" class=\"deleteButton btn\" onclick=\"remove(" + val.id + ")\">" +
-            "</td>";
-
+        if(val.active == false) {
+            output += "<td>" +
+                "<input type=\"button\" value=\"Восстановить\" class=\"Button btn\" onclick=\"remove(" + val.id + ")\">" +
+                "</td>";
+        }
         output += "</form> " +
             "</tr>";
 

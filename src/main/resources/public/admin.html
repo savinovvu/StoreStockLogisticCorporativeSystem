@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin</title>
+    <link href="css/index.css" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script language="javascript" type="text/javascript" src="jquery-2.1.4.min.js"></script>
     <script language="javascript" type="text/javascript" src="js/util.js"></script>
@@ -12,9 +13,9 @@
 
 
 <form id="addUser" action="javascript:void(null);" onsubmit="addUser()">
-    <input type="text" id="setName" name="name" placeholder="Введите имя" required>
-    <input type="number" id="setRole" name="productPrice" placeholder="product price" step="0.01" required>
-    <input type="submit" value="Добавить пользователя">
+    <input type="text" id="name" name="name" placeholder="Введите имя" required>
+    <input type="text" id="pin" name="pin" placeholder="Введите пин" step="1" required pattern="[0-9]{4}">
+    <input type="submit" class="btn" value="Добавить пользователя">
 </form>
 
 

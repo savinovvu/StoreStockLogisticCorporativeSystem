@@ -1,6 +1,8 @@
 package ru.inbox.savinov_vu.service;
 
- public interface UserService {
-  boolean getAllUsers();
+import com.fasterxml.jackson.core.JsonProcessingException;
+
+public interface UserService {
+  String getAllUsers() throws JsonProcessingException;
 
  }

@@ -11,7 +11,7 @@ public class OrderController {
     OrderService service;
 
     public void start() {
-        /*service.getAllOrders();*/
+
 
         Spark.get("/hello1", (req, res) -> "Hello World1");
 
