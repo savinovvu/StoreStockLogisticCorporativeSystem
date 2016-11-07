@@ -13,7 +13,10 @@ public class OrderController {
     public void start() {
 
 
-        Spark.get("/hello1", (req, res) -> "Hello World1");
+        Spark.get("/getAllOrders", (req, res) -> {
+            return service.getAllOrders();
+
+        });
 
 
     }

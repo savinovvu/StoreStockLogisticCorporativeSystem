@@ -1,6 +1,41 @@
 function getAll() {
-    send("/getAll", "POST");
+    send("/AllUsers", "GET");
 }
+
+
+
+function putUser() {
+    var data = {};
+    data["id"] = $("#userId").val();
+    data["userName"] = $("#name").val();
+    data["roles"] = $("#roles").val();
+    data["active"] = $("#active").val();
+
+   //var data= '{"id":1000,"roles":"ADMIN","active":true,"userName":"name1"}'
+    send("/putUser", "PUT", data);
+}
+
+/*function sendJson(url, type, data) {
+    $.ajax({
+
+        url: url,
+        type: type,
+        contentType: 'application/json',
+        dataType: 'json',
+        data: JSON.stringify(data),
+        success: function (data) {
+            alert("обновляем");
+            getAll();
+
+        },
+        error: function (x) {
+            alert("обновляем");
+            getAll();
+        }
+
+    });
+    return false;
+}*/
 
 
 function send(url, type, jsonData) {
@@ -8,15 +43,16 @@ function send(url, type, jsonData) {
 
         url: url,
         type: type,
-        contentType: 'application/text',
-        data: jsonData,
+        contentType: 'application/json',
+        data: JSON.stringify(jsonData),
         success: function (data) {
 
             view(JSON.parse(data));
 
         },
         error: function (x) {
-            alert('error');
+            alert("обновляем");
+            getAll();
         }
 
     });

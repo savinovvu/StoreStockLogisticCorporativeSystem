@@ -9,7 +9,7 @@ import javax.persistence.*;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+/*    @GeneratedValue(strategy = GenerationType.AUTO)*/
     @JsonProperty("id")
     private int id;
 

@@ -12,12 +12,22 @@
 <body onload="getAll()">
 
 
-<form id="addUser" action="javascript:void(null);" onsubmit="addUser()">
-    <input type="text" id="name" name="name" placeholder="Введите имя" required>
-    <input type="text" id="pin" name="pin" placeholder="Введите пин" step="1" required pattern="[0-9]{4}">
+<form id="putUser" action="javascript:void(null);" onsubmit="putUser()">
+    <input type="text" id="name" name="userName" placeholder="Введите имя" required>
+    <input type="text" id="userId" name="id" placeholder="Введите пин" step="1" required pattern="[0-9]{4}">
+    <select id="roles" name="roles">
+        <option disabled>Введите роль</option>
+        <option value="ADMIN">Сис.админ</option>
+        <option value="COMMANDER">Руководитель</option>
+        <option value="LOGISTIC">Кладовщик</option>
+        <option value="VENDOR">Продавец</option>
+    </select>
+    <input type="hidden" id="active" name="active" value="true">
     <input type="submit" class="btn" value="Добавить пользователя">
+
 </form>
 
+<div class="showUser"> </div>
 
 <table id="userT">
     <thead>
