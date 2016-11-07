@@ -1,5 +1,6 @@
 package ru.inbox.savinov_vu.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -20,12 +21,34 @@ public class UserController {
 
 
     public void start() {
-
+        System.out.println("ACtiveusers");
+        System.out.println("ACtiveusers");
+        System.out.println("ACtiveusers");
+        System.out.println("ACtiveusers");
+        System.out.println("ACtiveusers");
+        System.out.println("ACtiveusers");
+        System.out.println("ACtiveusers");
+        try {
+            System.out.println(service.getAllActiveUsers());
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        System.out.println("ACtiveusers");
+        System.out.println("ACtiveusers");
+        System.out.println("ACtiveusers");
+        System.out.println("ACtiveusers");
+        System.out.println("ACtiveusers");
+        System.out.println("ACtiveusers");
+        System.out.println("ACtiveusers");
 
         staticFileLocation("/public");
 
         get("/AllUsers", (req, res) -> {
             return service.getAllUsers();
+        });
+
+        get("/AllActiveUsers", (req, res) -> {
+            return service.getAllActiveUsers();
         });
 
         put("/putUser", (req, res) -> {
@@ -35,18 +58,8 @@ public class UserController {
         });
 
         post("/changeActiveUser", (req, res) -> {
-            System.out.println(req.body());
-            System.out.println(req.body());
-            System.out.println(req.body());
-            System.out.println(req.body());
             User user = mapper.readValue(req.body(), User.class);
-            System.out.println(user);
-            System.out.println(user);
-            System.out.println(user);
-            System.out.println(user);
-            System.out.println(user);
-
-             service.addUser(user);
+            service.addUser(user);
             return null;
         });
 

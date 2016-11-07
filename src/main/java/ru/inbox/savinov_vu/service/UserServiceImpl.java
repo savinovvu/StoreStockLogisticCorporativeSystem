@@ -19,11 +19,14 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String getAllUsers() throws JsonProcessingException {
-        System.out.println(mapper.writeValueAsString(repository.findAll()));
-        System.out.println(mapper.writeValueAsString(repository.findAll()));
-        System.out.println(mapper.writeValueAsString(repository.findAll()));
-        System.out.println(mapper.writeValueAsString(repository.findAll()));
+
         return mapper.writeValueAsString(repository.findAll());
+    }
+
+    @Override
+    public String getAllActiveUsers() throws JsonProcessingException {
+
+        return mapper.writeValueAsString(repository.getAllActiveUser());
     }
 
     @Override

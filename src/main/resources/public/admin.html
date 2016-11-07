@@ -9,7 +9,7 @@
     <script language="javascript" type="text/javascript" src="js/util.js"></script>
     <script language="javascript" type="text/javascript" src="js/admin.js"></script>
 </head>
-<body onload="getAll()">
+<body onload="getActive()">
 
 
 <form id="putUser" action="javascript:void(null);" onsubmit="putUser()">
@@ -27,7 +27,13 @@
 
 </form>
 
-<div class="showUser"> </div>
+
+
+
+<div class="showUserDiv">
+    <form id="showUser"></form>
+
+</div>
 
 <table id="userT">
     <thead>

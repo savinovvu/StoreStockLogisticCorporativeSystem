@@ -13,7 +13,22 @@ function changeActive(id, active){
 
 function getAll() {
     send("/AllUsers", "GET");
+    $("#showUser").remove();
+    var output = '<form id="showUser"  action="javascript:void(null);" onsubmit="getActive()">';
+    output += '<input type="submit" id="showUsers" value="Показать активных пользователей"></form> ';
+    $(".showUserDiv").append(output);
+
 }
+
+function getActive() {
+    send("/AllActiveUsers", "GET");
+    $("#showUser").remove();
+    var output = '<form id="showUser"  action="javascript:void(null);" onsubmit="getAll()">';
+    output += '<input type="submit" id="showUsers" value="Показать всех пользователей"></form> ';
+    $(".showUserDiv").append(output);
+}
+
+
 
 function putUser() {
     var data = {};
@@ -43,7 +58,7 @@ function send(url, type, jsonData) {
         },
         error: function (x) {
             alert("обновляем");
-            getAll();
+            getActive()
         }
 
     });
