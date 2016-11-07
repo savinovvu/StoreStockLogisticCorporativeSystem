@@ -24,12 +24,17 @@ public class UserController {
 
         staticFileLocation("/public");
 
-    get("/AllUsers", (req, res) ->{
-        return service.getAllUsers();
-    });
+        get("/AllUsers", (req, res) -> {
+            return service.getAllUsers();
+        });
 
-        put("/putUser", (req, res) ->{
-            System.out.println(req.body());
+        put("/putUser", (req, res) -> {
+            User user = mapper.readValue(req.body(), User.class);
+            service.addUser(user);
+            return null;
+        });
+
+        post("/changeActiveUser", (req, res) -> {
             System.out.println(req.body());
             System.out.println(req.body());
             System.out.println(req.body());
@@ -40,7 +45,8 @@ public class UserController {
             System.out.println(user);
             System.out.println(user);
             System.out.println(user);
-            service.addUser(user);
+
+             service.addUser(user);
             return null;
         });
 
