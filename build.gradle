@@ -4,6 +4,7 @@ version '1.0-SNAPSHOT'
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'application'
+apply plugin: 'war'
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
@@ -44,7 +45,7 @@ dependencies {
 
     /*Spring*/
     compile 'org.springframework:spring-core:' + springVersion
-    compile 'org.springframework:spring-web:' + springVersion
+    compile 'org.springframework:spring-webmvc:' + springVersion
     compile 'org.springframework:spring-orm:' + springVersion
     compile 'org.springframework:spring-context:' + springVersion
     compile 'org.springframework.data:spring-data-jpa:' + springDataJpaVersion
