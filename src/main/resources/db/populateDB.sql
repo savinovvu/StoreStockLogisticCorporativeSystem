@@ -8,6 +8,7 @@ INSERT INTO users (id, userName, roles, active) VALUES
   (1001, 'name2', 'COMMANDER', TRUE ),
   (1002, 'name3', 'LOGISTIC', TRUE ),
   (1003, 'name4', 'VENDOR',TRUE ),
+  (1005, 'Имя4', 'VENDOR',TRUE ),
   (1004, 'name4', 'VENDOR', FALSE );
 
 

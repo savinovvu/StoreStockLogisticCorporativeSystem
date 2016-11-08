@@ -4,9 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>StartManage</title>
-    <link href="<c:url value='/static/css/index.css' />" rel="stylesheet">
+
 
 </head>
 <body>

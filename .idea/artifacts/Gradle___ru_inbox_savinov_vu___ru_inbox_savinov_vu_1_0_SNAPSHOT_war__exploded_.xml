@@ -20,10 +20,11 @@
           <element id="library" level="project" name="Gradle: org.hibernate:hibernate-entitymanager:5.2.3.Final" />
           <element id="library" level="project" name="Gradle: org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-core:4.3.3.RELEASE" />
-          <element id="library" level="project" name="Gradle: org.springframework:spring-web:4.3.3.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-webmvc:4.3.3.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-orm:4.3.3.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-context:4.3.3.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework.data:spring-data-jpa:1.2.0.RELEASE" />
+          <element id="library" level="project" name="Gradle: jstl:jstl:1.2" />
           <element id="library" level="project" name="Gradle: postgresql:postgresql:9.1-901-1.jdbc4" />
           <element id="library" level="project" name="Gradle: org.hsqldb:hsqldb:2.3.4" />
           <element id="library" level="project" name="Gradle: org.apache.tomcat:tomcat-jdbc:9.0.0.M11" />
@@ -44,9 +45,10 @@
           <element id="library" level="project" name="Gradle: commons-logging:commons-logging:1.2" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-aop:4.3.3.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-beans:4.3.3.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-expression:4.3.3.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-web:4.3.3.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-jdbc:4.3.3.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-tx:4.3.3.RELEASE" />
-          <element id="library" level="project" name="Gradle: org.springframework:spring-expression:4.3.3.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework.data:spring-data-commons-core:1.4.0.RELEASE" />
           <element id="library" level="project" name="Gradle: org.slf4j:jcl-over-slf4j:1.6.1" />
           <element id="library" level="project" name="Gradle: org.aspectj:aspectjrt:1.6.12" />
@@ -65,7 +67,6 @@
           <element id="library" level="project" name="Gradle: org.eclipse.jetty:jetty-util:9.3.6.v20151106" />
           <element id="library" level="project" name="Gradle: org.eclipse.jetty:jetty-security:9.3.6.v20151106" />
           <element id="library" level="project" name="Gradle: javax.servlet:javax.servlet-api:3.1.0" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.3.3.RELEASE/729d7756ba6b41b6ae40be9dff076ba31946f923/spring-webmvc-4.3.3.RELEASE.jar" />
         </element>
       </element>
       <element id="directory" name="META-INF">

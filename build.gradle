@@ -49,10 +49,12 @@ dependencies {
     compile 'org.springframework:spring-orm:' + springVersion
     compile 'org.springframework:spring-context:' + springVersion
     compile 'org.springframework.data:spring-data-jpa:' + springDataJpaVersion
+    /*jstl*/
+    compile 'jstl:jstl:1.2'
     /*JavaxServlet-API*/
     compile 'javax.servlet:javax.servlet-api:' + javaxServletVersion
     /*DB and DataSource*/
-    compile 'postgresql:postgresql:'+ postgresVersion
+    compile 'postgresql:postgresql:' + postgresVersion
     compile 'org.hsqldb:hsqldb:' + hsqldbVersion
     compile 'org.apache.tomcat:tomcat-jdbc:' + tomcatJdbc
     testCompile 'junit:junit:' + jUnitVersion

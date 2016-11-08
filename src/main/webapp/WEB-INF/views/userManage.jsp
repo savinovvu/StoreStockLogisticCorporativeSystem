@@ -1,13 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Admin</title>
-    <link href="css/index.css" rel="stylesheet">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script language="javascript" type="text/javascript" src="jquery-2.1.4.min.js"></script>
-    <script language="javascript" type="text/javascript" src="js/util.js"></script>
-    <script language="javascript" type="text/javascript" src="js/admin.js"></script>
+    <title>UserManage</title>
+    <link href="<c:url value='/static/css/index.css' />" rel="stylesheet">
+    <script src="<c:url value="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"/>"></script>
+    <script src="<c:url value="/static/js/admin.js"/>"
+            type="text/javascript"></script>
+
+
 </head>
 <body onload="getActive()">
 
