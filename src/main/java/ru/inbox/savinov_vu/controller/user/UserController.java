@@ -1,7 +1,6 @@
 package ru.inbox.savinov_vu.controller.user;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
@@ -22,13 +21,9 @@ public class UserController {
     @Autowired
     UserService service;
 
-    @Autowired
-    ObjectMapper mapper;
-
-
 
     @ResponseBody
-   @GetMapping(value = "/all")
+    @GetMapping(value = "/all")
     public List<User> getAllUsers(Model model) throws JsonProcessingException {
         return service.getAllUsers();
 
@@ -38,8 +33,6 @@ public class UserController {
     @ResponseBody
     @GetMapping
     public List<User> getAllActiveUsers(Model model) throws JsonProcessingException {
-
-
         return service.getAllActiveUsers();
 
     }
@@ -48,10 +41,7 @@ public class UserController {
     @ResponseBody
     @PutMapping
     public List<User> putUser(Model model, @RequestBody User user) throws IOException {
-
-
         service.addUser(user);
-
         return service.getAllActiveUsers();
 
     }
@@ -62,7 +52,6 @@ public class UserController {
     public List<User> changeActiveUser(Model model, @RequestBody User user) throws IOException {
         service.addUser(user);
         return service.getAllUsers();
-
     }
 
 }
