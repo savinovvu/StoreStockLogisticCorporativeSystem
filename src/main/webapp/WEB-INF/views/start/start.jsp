@@ -23,6 +23,10 @@
     <input type="submit" name="viewAllUsers" value="Добавить заказ">
 </form>
 
+<form action="/editLocal" method="get">
+    <input type="submit" name="viewAllUsers" value="Управление местом">
+</form>
+
 
 
 </body>

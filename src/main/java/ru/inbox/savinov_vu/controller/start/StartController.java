@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import ru.inbox.savinov_vu.service.personal.UserService;
 
 @Controller
@@ -19,31 +19,29 @@ public class StartController {
 
     @RequestMapping("/")
     public String start(Model model)  {
-
-
         return "start/start";
     }
 
-    @RequestMapping(value = "/editUser", method = RequestMethod.GET)
+    @GetMapping(value = "/editUser" )
     public String editUser(Model model)  {
-
-
         return "personal/admin";
     }
 
 
-    @RequestMapping(value = "/editOrder", method = RequestMethod.GET)
+    @GetMapping(value = "/editOrder" )
     public String editOrder(Model model)  {
-
-
         return "goods/orderManage";
     }
 
-    @RequestMapping(value = "/addOrder", method = RequestMethod.GET)
+    @GetMapping(value = "/addOrder" )
     public String OrderAdd(Model model) throws JsonProcessingException {
 
-
         return "goods/orderAdd";
+    }
+
+    @GetMapping(value = "editLocal" )
+    public String editLocal(Model model){
+        return "local/local";
     }
 
 

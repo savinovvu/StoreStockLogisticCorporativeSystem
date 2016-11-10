@@ -8,19 +8,7 @@
 
 </head>
 <body>
-
-<form action="/editUser" method="post">
-    <input type="submit" name="viewAllUsers" value="Управление пользователями">
-</form>
-
-<form action="/editOrder" method="post">
-    <input type="submit" name="viewAllUsers" value="Управление заказами">
-</form>
-
-<form action="/addOrder" method="post">
-    <input type="submit" name="viewAllUsers" value="Добавить заказ">
-</form>
-
+управление заказами
 
 
 </body>
