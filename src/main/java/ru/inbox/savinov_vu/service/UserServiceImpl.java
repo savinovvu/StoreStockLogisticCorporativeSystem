@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import ru.inbox.savinov_vu.model.User;
 import ru.inbox.savinov_vu.repository.UserRepository;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
@@ -18,15 +20,16 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public String getAllUsers() throws JsonProcessingException {
+    public List<User> getAllUsers() throws JsonProcessingException {
 
-        return mapper.writeValueAsString(repository.findAll());
+        //return mapper.writeValueAsString(repository.findAll());
+        return repository.findAll();
     }
 
     @Override
-    public String getAllActiveUsers() throws JsonProcessingException {
+    public List<User> getAllActiveUsers() throws JsonProcessingException {
 
-        return mapper.writeValueAsString(repository.getAllActiveUser());
+        return repository.getAllActiveUser();
     }
 
     @Override

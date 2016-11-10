@@ -24,25 +24,24 @@ public class StartController {
         return "start";
     }
 
-    @RequestMapping(value = "/editUser", method = RequestMethod.POST)
+    @RequestMapping(value = "/editUser", method = RequestMethod.GET)
     public String editUser(Model model)  {
 
 
-        return "userManage";
+        return "admin";
     }
 
 
-    @RequestMapping(value = "/editOrder", method = RequestMethod.POST)
+    @RequestMapping(value = "/editOrder", method = RequestMethod.GET)
     public String editOrder(Model model)  {
 
 
         return "orderManage";
     }
 
-    @RequestMapping(value = "/addOrder", method = RequestMethod.POST)
+    @RequestMapping(value = "/addOrder", method = RequestMethod.GET)
     public String OrderAdd(Model model) throws JsonProcessingException {
 
-        System.out.println(service.getAllActiveUsers());
 
         return "orderAdd";
     }

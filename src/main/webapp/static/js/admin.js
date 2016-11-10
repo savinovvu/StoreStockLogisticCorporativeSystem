@@ -1,33 +1,38 @@
-
-function changeActive(id, active){
+function changeActive(id, active) {
     var data = {};
 
-    data["id"] = $("#id-"+id).val();
-    data["userName"] = $("#userName-"+id).val();
+    data["id"] = $("#id-" + id).val();
+    data["userName"] = $("#userName-" + id).val();
     data["roles"] = $("#roles-" + id).val();
     data["active"] = active;
-    alert("data: " + data);
-    send("/changeActiveUser", "POST", data);
+    send("/users", "POST", data);
+    changeAllToActiveButton();
 }
 
 
 function getAll() {
-    send("/AllUsers", "GET");
+    send("/users/all", "GET");
+    changeAllToActiveButton();
+}
+
+function changeAllToActiveButton() {
     $("#showUser").remove();
     var output = '<form id="showUser"  action="javascript:void(null);" onsubmit="getActive()">';
     output += '<input type="submit" id="showUsers" value="Показать активных пользователей"></form> ';
     $(".showUserDiv").append(output);
-
 }
 
 function getActive() {
-    send("/AllActiveUsers", "GET");
+    send("/users", "GET");
+    changeActiveToALLButton();
+}
+
+function changeActiveToALLButton() {
     $("#showUser").remove();
     var output = '<form id="showUser"  action="javascript:void(null);" onsubmit="getAll()">';
     output += '<input type="submit" id="showUsers" value="Показать всех пользователей"></form> ';
     $(".showUserDiv").append(output);
 }
-
 
 
 function putUser() {
@@ -38,13 +43,14 @@ function putUser() {
     data["active"] = $("#active").val();
 
 
-    send("/putUser", "PUT", data);
+    send("/users", "PUT", data);
+    changeActiveToALLButton();
+
 }
 
 
-
-
 function send(url, type, jsonData) {
+
     $.ajax({
 
         url: url,
@@ -53,12 +59,12 @@ function send(url, type, jsonData) {
         data: JSON.stringify(jsonData),
         success: function (data) {
 
-            view(JSON.parse(data));
+            view(data);
 
         },
         error: function (x) {
-            alert("обновляем");
-            getActive()
+            alert("error");
+
         }
 
     });
@@ -70,6 +76,7 @@ function view(data) {
 
     $(".data").remove();
     $.each(data, function (key, val) {
+
         var output = "";
 
         output = "<tr class='data'>" +
@@ -88,16 +95,15 @@ function view(data) {
         output += "</td>";
 
 
-
         if (val.active == true) {
             output += "<td>" +
-                "<input type=\"button\" value=\"Уволить\" class=\"deleteButton btn\" onclick=\"changeActive(" + val.id + " , false)\">" +
+                "<input type=\"button\" value=\"Запретить\" class=\"deleteButton btn\" onclick=\"changeActive(" + val.id + " , false)\">" +
                 "</td>";
         }
 
         if (val.active == false) {
             output += "<td>" +
-                "<input type=\"button\" value=\"Восстановить\" class=\"editButton btn\" onclick=\"changeActive(" + val.id + ", true)\">" +
+                "<input type=\"button\" value=\"Разрешить\" class=\"editButton btn\" onclick=\"changeActive(" + val.id + ", true)\">" +
                 "</td>";
         }
         output += "</form> " +

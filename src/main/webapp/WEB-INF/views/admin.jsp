@@ -29,7 +29,7 @@
         <option value="VENDOR">Продавец</option>
     </select>
     <input type="hidden" id="active" name="active" value="true">
-    <input type="submit" class="btn" value="Добавить пользователя">
+    <input type="submit" class="btn" value="Добавить/Редактировать по id">
 
 </form>
 

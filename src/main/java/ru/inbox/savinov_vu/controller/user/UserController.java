@@ -12,8 +12,10 @@ import ru.inbox.savinov_vu.model.User;
 import ru.inbox.savinov_vu.service.UserService;
 
 import java.io.IOException;
+import java.util.List;
 
 @Controller
+@RequestMapping(value = "/users", produces = MediaType.APPLICATION_JSON_VALUE)
 public class UserController {
 
     @Qualifier("userService")
@@ -24,31 +26,18 @@ public class UserController {
     ObjectMapper mapper;
 
 
-    @ResponseBody
-    @RequestMapping(value = "/xxx", method = RequestMethod.GET)
-    public String getAll(Model model)  {
-
-
-        return "русский текст";
-
-    }
-
 
     @ResponseBody
-    @RequestMapping(value = "/AllUsers", method = RequestMethod.GET)
-    public String getAllUsers(Model model) throws JsonProcessingException {
-
-        System.out.println(service.getAllUsers());
-
-
+   @GetMapping(value = "/all")
+    public List<User> getAllUsers(Model model) throws JsonProcessingException {
         return service.getAllUsers();
 
     }
 
 
     @ResponseBody
-    @RequestMapping(value = "/AllActiveUsers", method = RequestMethod.GET)
-    public String getAllActiveUsers(Model model) throws JsonProcessingException {
+    @GetMapping
+    public List<User> getAllActiveUsers(Model model) throws JsonProcessingException {
 
 
         return service.getAllActiveUsers();
@@ -57,23 +46,9 @@ public class UserController {
 
 
     @ResponseBody
-    @RequestMapping(value = "/putUser", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
-    public String putUser(Model model, @RequestBody String json) throws IOException {
-        System.out.println("json1");
-        System.out.println("json");
-        System.out.println("json");
-        System.out.println("json");
-        System.out.println("json");
-        System.out.println("json");
-        System.out.println("json");
-        System.out.println(json);
-        System.out.println("json");
-        System.out.println("json");
-        System.out.println("json");
-        System.out.println("json");
-        System.out.println("json");
-        System.out.println("json");
-        User user = mapper.readValue(json, User.class);
+    @PutMapping
+    public List<User> putUser(Model model, @RequestBody User user) throws IOException {
+
 
         service.addUser(user);
 
@@ -83,27 +58,10 @@ public class UserController {
 
 
     @ResponseBody
-    @RequestMapping(value = "/changeActiveUser", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public String changeActiveUser(Model model, @RequestBody String json) throws IOException {
-        System.out.println("json2");
-        System.out.println("json");
-        System.out.println("json");
-        System.out.println("json");
-        System.out.println("json");
-        System.out.println("json");
-        System.out.println("json");
-        System.out.println(json);
-        System.out.println("json");
-        System.out.println("json");
-        System.out.println("json");
-        System.out.println("json");
-        System.out.println("json");
-        System.out.println("json");
-
-        User user = mapper.readValue(json, User.class);
+    @PostMapping
+    public List<User> changeActiveUser(Model model, @RequestBody User user) throws IOException {
         service.addUser(user);
-
-        return service.getAllActiveUsers();
+        return service.getAllUsers();
 
     }
 

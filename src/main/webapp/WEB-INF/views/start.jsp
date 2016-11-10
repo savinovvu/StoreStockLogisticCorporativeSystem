@@ -11,15 +11,15 @@
 </head>
 <body>
 
-<form action="/editUser" method="post">
+<form action="/editUser" method="get">
     <input type="submit" name="viewAllUsers" value="Управление пользователями">
 </form>
 
-<form action="/editOrder" method="post">
+<form action="/editOrder" method="get">
     <input type="submit" name="viewAllUsers" value="Управление заказами">
 </form>
 
-<form action="/addOrder" method="post">
+<form action="/addOrder" method="get">
     <input type="submit" name="viewAllUsers" value="Добавить заказ">
 </form>
 

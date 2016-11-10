@@ -20,8 +20,8 @@ repositories {
 
 
 dependencies {
-    def sparkVersion = '2.5'
-    def jacksonVersion = '2.2.2'
+
+    def jacksonVersion = '2.8.4'
     def hibernateVersion = '5.2.3.Final'
     def hibernateJpaPersistanceVersion = '1.0.0.Final'
     def springVersion = '4.3.3.RELEASE'
@@ -32,8 +32,7 @@ dependencies {
     def jUnitVersion = '4.5'
     def tomcatJdbc = '9.0.0.M11'
 
-    /*Spark*/
-    compile 'com.sparkjava:spark-core:' + sparkVersion
+
     /*Jackson*/
     compile 'com.fasterxml.jackson.core:jackson-core:' + jacksonVersion
     compile 'com.fasterxml.jackson.core:jackson-databind:' + jacksonVersion
