@@ -1,4 +1,4 @@
-package ru.inbox.savinov_vu.util;
+package ru.inbox.savinov_vu.util.datetime;
 
 import org.springframework.format.Formatter;
 
@@ -8,10 +8,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
-/**
- * gkislin
- * 25.10.2016
- */
+
 public class DateTimeFormatters {
     public static class LocalDateFormatter implements Formatter<LocalDate> {
 

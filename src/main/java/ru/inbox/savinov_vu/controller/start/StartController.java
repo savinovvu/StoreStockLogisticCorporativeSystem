@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import ru.inbox.savinov_vu.service.UserService;
+import ru.inbox.savinov_vu.service.personal.UserService;
 
 @Controller
 public class StartController {
@@ -21,14 +21,14 @@ public class StartController {
     public String start(Model model)  {
 
 
-        return "start";
+        return "start/start";
     }
 
     @RequestMapping(value = "/editUser", method = RequestMethod.GET)
     public String editUser(Model model)  {
 
 
-        return "admin";
+        return "personal/admin";
     }
 
 
@@ -36,14 +36,14 @@ public class StartController {
     public String editOrder(Model model)  {
 
 
-        return "orderManage";
+        return "goods/orderManage";
     }
 
     @RequestMapping(value = "/addOrder", method = RequestMethod.GET)
     public String OrderAdd(Model model) throws JsonProcessingException {
 
 
-        return "orderAdd";
+        return "goods/orderAdd";
     }
 
 

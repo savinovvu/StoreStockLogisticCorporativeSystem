@@ -1,4 +1,4 @@
-package ru.inbox.savinov_vu.model;
+package ru.inbox.savinov_vu.model.personal;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -9,7 +9,6 @@ import javax.persistence.*;
 public class User {
 
     @Id
-/*    @GeneratedValue(strategy = GenerationType.AUTO)*/
     @JsonProperty("id")
     private int id;
 

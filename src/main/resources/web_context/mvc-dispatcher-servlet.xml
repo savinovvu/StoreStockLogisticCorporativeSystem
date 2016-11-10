@@ -30,8 +30,8 @@
     <bean class="org.springframework.format.support.FormattingConversionServiceFactoryBean" id="conversionService">
         <property name="formatters">
             <set>
-                <bean class="ru.inbox.savinov_vu.util.DateTimeFormatters.LocalTimeFormatter"/>
-                <bean class="ru.inbox.savinov_vu.util.DateTimeFormatters.LocalDateFormatter"/>
+                <bean class="ru.inbox.savinov_vu.util.datetime.DateTimeFormatters.LocalTimeFormatter"/>
+                <bean class="ru.inbox.savinov_vu.util.datetime.DateTimeFormatters.LocalDateFormatter"/>
             </set>
         </property>
     </bean>

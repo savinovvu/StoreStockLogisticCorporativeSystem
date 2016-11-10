@@ -8,8 +8,8 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import ru.inbox.savinov_vu.model.User;
-import ru.inbox.savinov_vu.service.UserService;
+import ru.inbox.savinov_vu.model.personal.User;
+import ru.inbox.savinov_vu.service.personal.UserService;
 
 import java.io.IOException;
 import java.util.List;

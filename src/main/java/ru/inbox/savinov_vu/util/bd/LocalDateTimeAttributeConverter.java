@@ -1,4 +1,4 @@
-package ru.inbox.savinov_vu.util;
+package ru.inbox.savinov_vu.util.bd;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;

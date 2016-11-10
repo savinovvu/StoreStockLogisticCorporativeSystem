@@ -14,9 +14,9 @@
     <bean id="productController" class="ru.inbox.savinov_vu.controller.product.ProductController" />
 
 
-    <bean id="userService" class="ru.inbox.savinov_vu.service.UserServiceImpl" />
-    <bean id="orderService" class="ru.inbox.savinov_vu.service.OrderServiceImpl" />
-    <bean id="productService" class="ru.inbox.savinov_vu.service.ProductServiceImpl" />
+    <bean id="userService" class="ru.inbox.savinov_vu.service.personal.UserServiceImpl" />
+    <bean id="orderService" class="ru.inbox.savinov_vu.service.goods.OrderServiceImpl" />
+    <bean id="productService" class="ru.inbox.savinov_vu.service.goods.ProductServiceImpl" />
 
     <bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper"/>
 

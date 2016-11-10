@@ -1,7 +1,7 @@
-package ru.inbox.savinov_vu.service;
+package ru.inbox.savinov_vu.service.personal;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import ru.inbox.savinov_vu.model.User;
+import ru.inbox.savinov_vu.model.personal.User;
 
 import java.util.List;
 

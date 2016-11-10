@@ -1,8 +1,8 @@
-package ru.inbox.savinov_vu.model;
+package ru.inbox.savinov_vu.model.goods;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import ru.inbox.savinov_vu.util.JsonDateSerializer;
+import ru.inbox.savinov_vu.util.json.JsonDateSerializer;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
