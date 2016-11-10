@@ -12,11 +12,35 @@ public class Local {
     @Id
     @JsonProperty("id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int local_id;
+    private int localId;
 
-    @Column(name = "userName")
-    @JsonProperty("userName")
-    private int local_Name;
+    @Column(name = "localName")
+    @JsonProperty("localName")
+    private int localName;
 
     Local() {}
+
+    public int getLocalId() {
+        return localId;
+    }
+
+    public void setLocalId(int localId) {
+        this.localId = localId;
+    }
+
+    public int getLocalName() {
+        return localName;
+    }
+
+    public void setLocalName(int localName) {
+        this.localName = localName;
+    }
+
+    @Override
+    public String toString() {
+        return "Local{" +
+                "localId=" + localId +
+                ", localName=" + localName +
+                '}';
+    }
 }
