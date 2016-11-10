@@ -31,12 +31,7 @@ public class User {
 
     public  User() {}
 
-    public User(int id, String name, Role roles, boolean active) {
-        this.id = id;
-        this.name = name;
-        this.roles = roles;
-        this.active = active;
-    }
+
 
     public int getId() {
         return id;
