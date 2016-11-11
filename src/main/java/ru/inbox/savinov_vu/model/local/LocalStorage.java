@@ -6,21 +6,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "localStorages")
+@Table(name = "locals")
 public class LocalStorage {
 
     @Id
+    @Column(name = "localId")
     @JsonProperty("id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int localId;
 
-    @Column(name = "localName")
+    @Column(name = "localname")
     @JsonProperty("localName")
     private String localName;
 
-
-
-    public LocalStorage() {}
 
     public int getLocalId() {
         return localId;
@@ -40,9 +38,9 @@ public class LocalStorage {
 
     @Override
     public String toString() {
-        return "Local{" +
+        return "LocalStorage{" +
                 "localId=" + localId +
-                ", localName=" + localName +
+                ", localName='" + localName + '\'' +
                 '}';
     }
 }

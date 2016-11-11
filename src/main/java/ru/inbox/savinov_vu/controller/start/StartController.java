@@ -20,30 +20,7 @@ public class StartController {
     @RequestMapping("/")
     public String start(Model model)  {
         LocalStorage localStorage = new LocalStorage();
-        localStorage.setLocalName("стораж");
-        System.out.println("Startметод");
-        System.out.println("Startметод");
-        System.out.println("Startметод");
-        System.out.println("Startметод");
-        System.out.println("Startметод");
-        System.out.println("Startметод");
-        System.out.println("Startметод");
-        System.out.println("Startметод");
-        localService.addLocal(localStorage);
-        System.out.println("добавили");
-        localService.getAllLocal().forEach(System.out::println);
-        System.out.println("updatile");
-        localStorage.setLocalId(1);
-        localStorage.setLocalName("стораж2 new");
-        localService.updateLocal(localStorage);
-        localService.getAllLocal().forEach(System.out::println);
-        System.out.println("удалили");
-        localService.deleteLocal(localStorage);
-        localService.getAllLocal().forEach(System.out::println);
-        System.out.println("удалено");
-
-
-        return "start/start";
+          return "start/start";
     }
 
     @GetMapping(value = "/editUser" )
