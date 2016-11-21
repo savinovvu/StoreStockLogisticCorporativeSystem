@@ -52,7 +52,8 @@ input:read-only {
     color: white;
     transform: scale(1.1);
     border-radius: 50%;
-
+    width: 90px;
+    width: 45px;
 }
 
 .btn:hover {
@@ -60,5 +61,6 @@ input:read-only {
     background: green;
     transform: scale(1.2);
     border-radius: 50%;
-
+    width: 90px;
+    width: 45px;
 }

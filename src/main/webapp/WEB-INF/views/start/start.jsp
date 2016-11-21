@@ -6,27 +6,28 @@
 <head>
     <meta charset="UTF-8">
     <title>StartManage</title>
-    <link href="<c:url value='/static/css/index.css' />" rel="stylesheet">
+    <link href="<c:url value='/static/css/start.css' />" rel="stylesheet">
 
 </head>
 <body>
 
+<div class="menu">
 <form action="/editUser" method="get">
-    <input type="submit" name="viewAllUsers" value="Управление пользователями">
+    <input class="btn"  type="submit" name="viewAllUsers" value="Управление пользователями">
 </form>
 
-<form action="/editOrder" method="get">
-    <input type="submit" name="viewAllUsers" value="Управление заказами">
+<form  action="/editOrder" method="get">
+    <input class="btn"  class="btn" type="submit" name="viewAllUsers" value="Управление заказами">
 </form>
 
 <form action="/addOrder" method="get">
-    <input type="submit" name="viewAllUsers" value="Добавить заказ">
+    <input class="btn" type="submit" name="viewAllUsers" value="Добавить заказ">
 </form>
 
 <form action="/editLocal" method="get">
-    <input type="submit" name="viewAllUsers" value="Управление местом">
+    <input class="btn"  type="submit" name="viewAllUsers" value="Управление местом">
 </form>
-
+</div>
 
 
 </body>

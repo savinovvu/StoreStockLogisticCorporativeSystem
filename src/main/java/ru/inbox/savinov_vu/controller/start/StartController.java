@@ -2,20 +2,17 @@ package ru.inbox.savinov_vu.controller.start;
 
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ru.inbox.savinov_vu.model.local.LocalStorage;
-import ru.inbox.savinov_vu.service.local.LocalService;
 
 @Controller
 public class StartController {
 
     // @Qualifier("userService")
-    @Autowired
-    LocalService localService;
+
 
     @RequestMapping("/")
     public String start(Model model)  {
@@ -40,10 +37,7 @@ public class StartController {
         return "goods/orderAdd";
     }
 
-    @GetMapping(value = "editLocal" )
-    public String editLocal(Model model){
-        return "local/local";
-    }
+
 
 
 }
