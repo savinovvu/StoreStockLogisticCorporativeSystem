@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -10,25 +9,25 @@
 
 </head>
 <body>
-
+<div class="parent">
 <div class="menu">
-<form action="/editUser" method="get">
-    <input class="btn"  type="submit" name="viewAllUsers" value="Управление пользователями">
-</form>
+    <form action="/editUser" method="get">
+        <input class="btn" type="submit" name="viewAllUsers" value="Управление пользователями">
+    </form>
 
-<form  action="/editOrder" method="get">
-    <input class="btn"  class="btn" type="submit" name="viewAllUsers" value="Управление заказами">
-</form>
+    <form action="/editOrder" method="get">
+        <input class="btn" class="btn" type="submit" name="viewAllUsers" value="Управление заказами">
+    </form>
 
-<form action="/addOrder" method="get">
-    <input class="btn" type="submit" name="viewAllUsers" value="Добавить заказ">
-</form>
+    <form action="/addOrder" method="get">
+        <input class="btn" type="submit" name="viewAllUsers" value="Добавить заказ">
+    </form>
 
-<form action="/editLocal" method="get">
-    <input class="btn"  type="submit" name="viewAllUsers" value="Управление местом">
-</form>
+    <form action="/editLocal" method="get">
+        <input class="btn" type="submit" name="viewAllUsers" value="Управление местом">
+    </form>
 </div>
-
+</div>
 
 </body>
 </html>
