@@ -3,10 +3,12 @@ package ru.inbox.savinov_vu.model.goods;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import ru.inbox.savinov_vu.model.goods.status.StatusProduct;
 import ru.inbox.savinov_vu.util.json.JsonDateSerializer;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "products")
@@ -20,6 +22,10 @@ public class Product {
     @Column(name = "product_name")
     private String product_name;
 
+    /*@ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "product_id", nullable = false)
+    private Product product;*/
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;
@@ -29,8 +35,10 @@ public class Product {
     @JsonSerialize(using = JsonDateSerializer.class)
     private LocalDateTime startDateTime;
 
-    public Product() {}
+    @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER, mappedBy = "product")
+    private List<StatusProduct> status;
 
+    public Product() {}
 
     public int getProduct_id() {
         return product_id;
@@ -64,12 +72,22 @@ public class Product {
         this.startDateTime = startDateTime;
     }
 
+    public List<StatusProduct> getStatus() {
+        return status;
+    }
+
+    public void setStatus(List<StatusProduct> status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
                 "product_id=" + product_id +
                 ", product_name='" + product_name + '\'' +
+
                 ", startDateTime=" + startDateTime +
+                ", status=" + status +
                 '}';
     }
 }

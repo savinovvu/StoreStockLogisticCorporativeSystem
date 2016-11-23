@@ -26,7 +26,6 @@ public class Order {
 
 
     @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER, mappedBy = "order")
- /*   @OrderBy("dateTime DESC")*/
     private List<Product> products;
 
     public Order() {}
@@ -54,6 +53,9 @@ public class Order {
     public void setProducts(List<Product> products) {
         this.products = products;
     }
+
+
+
 
     @Override
     public String toString() {

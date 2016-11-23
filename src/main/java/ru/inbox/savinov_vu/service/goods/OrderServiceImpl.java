@@ -13,6 +13,13 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public boolean getAllOrders() {
+        System.out.println("orderService");
+        System.out.println("orderService");
+        System.out.println("orderService");
+        System.out.println("orderService");
+        System.out.println("orderService");
+        System.out.println("orderService");
+
         System.out.println(orderRepository.findAll());
         return false;
     }
