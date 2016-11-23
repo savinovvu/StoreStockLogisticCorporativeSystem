@@ -56,13 +56,12 @@ public class Order {
 
 
 
-
     @Override
     public String toString() {
         return "Order{" +
+                "order_id=" + order_id +
                 ", startDateTime=" + startDateTime +
-                ", order_id=" + order_id +
-                " products=" + products + " "+
+                ", products=" + products +
                 '}';
     }
 }

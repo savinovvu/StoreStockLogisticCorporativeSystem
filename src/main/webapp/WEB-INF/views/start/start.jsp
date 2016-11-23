@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>StartManage</title>
-    <link href="<c:url value='/static/css/start.css' />" rel="stylesheet">
+    <link href="<c:url value='/static/css/start/start.css' />" rel="stylesheet">
 
 </head>
 <body>

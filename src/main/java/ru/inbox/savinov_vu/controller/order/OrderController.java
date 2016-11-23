@@ -17,8 +17,7 @@ public class OrderController {
 
     @GetMapping(value = "/editOrder")
     public String editOrder(Model model) {
-
-            System.out.println(service.getAllOrders());
+        
             return "goods/orderManage";
 
 

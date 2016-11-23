@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.webjars:datatables:1.10.12-1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.webjars/datatables/1.10.12-1/bd64aca37dbd43855abb164c0cb4b16082211307/datatables-1.10.12-1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.webjars/datatables/1.10.12-1/7e3becad5b2372d67b2266c87c8de00e745b7bc5/datatables-1.10.12-1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

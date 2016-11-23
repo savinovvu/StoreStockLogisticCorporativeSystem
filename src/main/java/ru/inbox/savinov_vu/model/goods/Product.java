@@ -85,7 +85,6 @@ public class Product {
         return "Product{" +
                 "product_id=" + product_id +
                 ", product_name='" + product_name + '\'' +
-
                 ", startDateTime=" + startDateTime +
                 ", status=" + status +
                 '}';

@@ -38,11 +38,11 @@ INSERT INTO locals (localId, localname) VALUES
   statusName   VARCHAR(255),
   statusDate  DATE,
   product_id INTEGER,*/
-INSERT INTO currentstatus (statusId, statusName, statusDate, product_id) VALUES
-  (1, 'Обработан', '2016-05-10',10000),
-  (2, 'Заказан', '2016-05-11',10001),
-  (3, 'Проверен_и_отложен', '2016-05-12',10002),
-  (4, 'Дозвон', '2016-05-13',10003),
-  (5, 'Выдан', '2016-05-14',10003);
+INSERT INTO currentstatus (statusId, statusName, statusDate, product_id, id) VALUES
+  (1, 'Обработан', '2016-05-10',10000, 1000),
+  (2, 'Заказан', '2016-05-11',10001, 1001),
+  (3, 'Проверен_и_отложен', '2016-05-12',10002, 1002),
+  (4, 'Дозвон', '2016-05-13',10003, 1003),
+  (5, 'Выдан', '2016-05-14',10003, 1004);
 
 

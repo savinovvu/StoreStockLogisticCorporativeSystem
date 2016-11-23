@@ -13,7 +13,7 @@ table {
 }
 
 tr {
-    color: green;
+    color: black;
 }
 
 thead tr {
@@ -48,19 +48,23 @@ input:read-only {
     background: blue;
 }
 
+.selectButton {
+    background: green;
+}
+
 .btn {
+
     color: white;
     transform: scale(1.1);
-    border-radius: 50%;
-    width: 90px;
-    width: 45px;
+    width: auto;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .btn:hover {
     color: yellow;
-    background: green;
+    background: blue;
     transform: scale(1.2);
-    border-radius: 50%;
-    width: 90px;
-    width: 45px;
+
 }
+

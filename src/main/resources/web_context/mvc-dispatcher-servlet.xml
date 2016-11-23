@@ -35,6 +35,8 @@
             </set>
         </property>
     </bean>
+    <mvc:resources mapping="/resources/**" location="/static/"/>
+
 
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"

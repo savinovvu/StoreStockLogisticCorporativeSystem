@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <title>UserManage</title>
-    <link href="<c:url value='/static/css/index.css' />" rel="stylesheet">
+    <link href="/static/css/index.css" rel="stylesheet">
     <script src="<c:url value="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"/>"></script>
     <script src="<c:url value="/static/js/personal/admin.js"/>"
             type="text/javascript"></script>

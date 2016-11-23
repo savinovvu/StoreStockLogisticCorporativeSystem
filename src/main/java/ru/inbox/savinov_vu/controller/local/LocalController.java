@@ -17,4 +17,16 @@ public class LocalController {
         model.addAttribute("locals", localService.getAllLocal());
         return "local/local";
     }
+
+    @GetMapping(value = "deleteLocal")
+    public String deleteLocal(Model model){
+        System.out.println("в методев методев методев методе");
+        System.out.println("в методев методев методев методе");
+        System.out.println("в методев методев методев методе");
+        System.out.println("в методев методев методев методе");
+        System.out.println("в методев методев методев методе");
+        System.out.println("в методев методев методев методе");
+        return "local/local";
+    }
+
 }
