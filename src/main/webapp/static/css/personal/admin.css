@@ -13,7 +13,8 @@ table {
 }
 
 tr {
-    color: green;
+    color: black;
+
 }
 
 thead tr {
@@ -29,36 +30,44 @@ td {
     border-left: none;
     border-right: none;
     text-align: center;
+
 }
 
 input {
     text-align: center;
     font-size: 14px;
+    background: white;
+    border: transparent;
 }
 
 input:read-only {
     border-color: transparent;
+    background: transparent;
 }
 
-.deleteButton {
+/*.deleteButton {
     background: red;
 }
 
 .editButton {
     background: blue;
-}
+}*/
 
-.btn {
+/*.btn {
     color: white;
     transform: scale(1.1);
     border-radius: 50%;
 
-}
+}*/
 
-.btn:hover {
+/*.btn:hover {
     color: yellow;
     background: green;
     transform: scale(1.2);
     border-radius: 50%;
 
-}
+}*/
+
+
+
+

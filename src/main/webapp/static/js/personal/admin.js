@@ -83,27 +83,27 @@ function view(data) {
             "<form id=\"form-" + val.id + "\">";
 
         output += "<td>";
-        output += "<input type=\"text\" name=\"id\" id=\"id-" + val.id + "\" value=\"" + val.id + "\" readonly />";
+        output += "<input type=\"text\"  name=\"id\" id=\"id-" + val.id + "\" value=\"" + val.id + "\" readonly />";
         output += "</td>";
 
         output += "<td>";
-        output += "<input type=\"text\" name=\"userName\" id=\"userName-" + val.id + "\" value=\"" + val.userName + "\"  readonly/>";
+        output += "<input type=\"text\"  name=\"userName\" id=\"userName-" + val.id + "\" value=\"" + val.userName + "\"  readonly/>";
         output += "</td>";
 
         output += "<td>";
-        output += "<input type=\"text\" name=\"roles\" id=\"roles-" + val.id + "\" value=\"" + val.roles + "\"  readonly/>";
+        output += "<input type=\"text\"  name=\"roles\" id=\"roles-" + val.id + "\" value=\"" + val.roles + "\"  readonly/>";
         output += "</td>";
 
 
         if (val.active == true) {
             output += "<td>" +
-                "<input type=\"button\" value=\"Запретить\" class=\"deleteButton btn\" onclick=\"changeActive(" + val.id + " , false)\">" +
+                "<input type=\"button\" value=\"Запретить\" class=\"btn btn-danger\" onclick=\"changeActive(" + val.id + " , false)\">" +
                 "</td>";
         }
 
         if (val.active == false) {
             output += "<td>" +
-                "<input type=\"button\" value=\"Разрешить\" class=\"editButton btn\" onclick=\"changeActive(" + val.id + ", true)\">" +
+                "<input type=\"button\" value=\"Разрешить\" class=\"btn btn-success\" onclick=\"changeActive(" + val.id + ", true)\">" +
                 "</td>";
         }
         output += "</form> " +
