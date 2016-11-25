@@ -18,7 +18,7 @@ function getAll() {
 function changeAllToActiveButton() {
     $("#showUser").remove();
     var output = '<form id="showUser"  action="javascript:void(null);" onsubmit="getActive()">';
-    output += '<input type="submit" id="showUsers" value="Показать активных пользователей"></form> ';
+    output += '<input type="submit" class="btn btn-info" id="showUsers" value="Показать активных пользователей"></form> ';
     $(".showUserDiv").append(output);
 }
 
@@ -29,8 +29,8 @@ function getActive() {
 
 function changeActiveToALLButton() {
     $("#showUser").remove();
-    var output = '<form id="showUser"  action="javascript:void(null);" onsubmit="getAll()">';
-    output += '<input type="submit" id="showUsers" value="Показать всех пользователей"></form> ';
+    var output = '<form id="showUser"    action="javascript:void(null);" onsubmit="getAll()">';
+    output += '<input type="submit" id="showUsers" class="btn btn-info" value="Показать всех пользователей"></form> ';
     $(".showUserDiv").append(output);
 }
 

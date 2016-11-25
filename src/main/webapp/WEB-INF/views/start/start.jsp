@@ -16,22 +16,24 @@
 <div class="parent">
 <div class="menu">
     <form action="/editUser" method="get">
-        <input class="btn btn-info" type="submit" name="viewAllUsers" value="Управление пользователями">
+        <input class="btn btn-primary" type="submit" name="viewAllUsers" value="Управление пользователями">
     </form>
 
     <form action="/editOrder" method="get">
-        <input class="btn btn-info" class="btn" type="submit" name="viewAllUsers" value="Управление заказами">
+        <input class="btn btn-primary" class="btn" type="submit" name="viewAllUsers" value="Управление заказами">
     </form>
 
     <form action="/addOrder" method="get">
-        <input class="btn btn-info" type="submit" name="viewAllUsers" value="Добавить заказ">
+        <input class="btn btn-primary" type="submit" name="viewAllUsers" value="Добавить заказ">
     </form>
 
     <form action="/editLocal" method="get">
-        <input class="btn btn-info" type="submit" name="viewAllUsers" value="Управление местом">
+        <input class="btn btn-primary" type="submit" name="viewAllUsers" value="Управление местом">
     </form>
 </div>
 </div>
+
+
 
 
 

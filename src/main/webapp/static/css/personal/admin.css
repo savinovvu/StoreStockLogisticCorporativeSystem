@@ -45,28 +45,62 @@ input:read-only {
     background: transparent;
 }
 
-/*.deleteButton {
-    background: red;
+.menu {
+
+    margin: auto;
+    background-color: transparent;
+
+
+    width: 30%;
+
 }
 
-.editButton {
-    background: blue;
-}*/
+.btn {
+    text-align: center;
+    font-size: 14px;
+    width: 100%;
+    margin: 5% auto;
+    box-shadow: 2px 2px 10px 2px black;
 
-/*.btn {
-    color: white;
-    transform: scale(1.1);
-    border-radius: 50%;
+}
 
-}*/
 
-/*.btn:hover {
-    color: yellow;
-    background: green;
-    transform: scale(1.2);
-    border-radius: 50%;
+#wrap{
+    display: none;
+    opacity: 0.8;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 16px;
+    background-color: rgba(1, 1, 1, 0.725);
+    z-index: 100;
+    overflow: auto;
+}
 
-}*/
+#window{
+    width: 400px;
+    height: 400px;
+    margin: 50px auto;
+    display: none;
+    background: #fff;
+    z-index: 200;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 16px;
+}
+
+.close{
+    margin-left: 364px;
+    margin-top: 4px;
+    cursor: pointer;
+}
+
+
 
 
 
