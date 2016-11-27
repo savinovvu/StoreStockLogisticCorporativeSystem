@@ -79,6 +79,14 @@ function send(url, type, jsonData) {
     return false;
 }
 
+/*    @Id
+ @GeneratedValue(strategy = GenerationType.AUTO)
+ @JsonProperty("product_id")
+ private int product_id;
+
+ @Column(name = "product_name")
+ @JsonProperty("product_name")
+ private String product_name;*/
 
 function view(data) {
 
@@ -97,17 +105,46 @@ function view(data) {
         output += "<td>";
         output += "<input type=\"text\"  name=\"startDateTime\" id=\"startDateTime-" + order.order_id + "\" value=\"" + order.startDateTime + "\"  readonly/>";
         output += "</td>";
-        output +="<td><table> <thead> <tr>";
+
+        output +="<td><table id=\"productT-"+order.order_id+"\" >" +
+            " <thead> ";
+
+        output += "<tr>";
+        output += "<td>";
+        output += "Артикул";
+        output += "</td>"
+
+        output += "<td>";
+        output += "Товар";
+        output += "</td>"
+
+        output += "</tr>";
+        output += "</thead>"
+        output +="</table></td>";
+
         $.each(order.products, function (key2, product) {
 
+            var productOutput = "";
+            productOutput = "<tr class='dataProduct'>" +
+                "<form id=\"formProduct-" + product.product_id+ "\">";
 
-            output += "<td>";
-            output += "<input type=\"text\"  name=\"product_name\" id=\"product_name-" + product.product_name + "\" value=\"" + product.product_name + "\"  readonly/>";
-            output += "</td> ";
+            productOutput += "<tr>";
 
+            productOutput += "<td>";
+            productOutput += "<input type=\"text\"  name=\"product_id\" id=\"product_id-" + product.product_id + "\" value=\"" + product.product_id + "\"  readonly/>";
+            productOutput += "</td>"
+
+            productOutput += "<td>";
+            productOutput += "<input type=\"text\"  name=\"product_name\" id=\"product_name-" + product.product_id + "\" value=\"" + product.product_name + "\"  readonly/>";
+            productOutput += "</td>"
+            productOutput += "</tr> ";
+            productOutput += "</form> " +
+                "</tr>";
+
+            $("#productT-"+10003).append(productOutput);
 
         });
-        output +=" <tr><thead></table></td>";
+
 
         output += "<td>";
         output += "<input type=\"text\"  name=\"roles\" id=\"roles-" + order.id + "\" value=\"" + order.roles + "\"  readonly/>";
@@ -138,7 +175,7 @@ function view(data) {
         output += "</form> " +
             "</tr>";
 
-        $("#userT").append(output);
+        $("#orderT").append(output);
 
 
     });
