@@ -27,11 +27,12 @@ public class User {
     @Column(name = "active")
     private boolean active;
 
-/*
+    /*
+
     @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER, mappedBy = "user")
     private List<StatusProduct> status;
-*/
 
+*/
 
 
     public  User() {}

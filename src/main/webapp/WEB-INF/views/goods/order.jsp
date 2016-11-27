@@ -12,7 +12,7 @@
     <script src="/static/js/plugins/bootstrap/bootstrap.min.js"></script>
     <script src="/static/js/util/util.js" type="text/javascript"></script>
 </head>
-<body>
+<body onload="getAll()">
 
 <div class="view-box">
     <div class="menu">
@@ -35,8 +35,9 @@
 
         <thead>
         <tr>
-            <td>id</td>
-            <td>name</td>
+            <td>OrderId</td>
+            <td>StartDateTime</td>
+            <td>ProductName</td>
             <td>group1</td>
             <td>group2</td>
             <td>group3</td>

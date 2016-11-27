@@ -1,10 +1,11 @@
 package ru.inbox.savinov_vu.model.goods;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import ru.inbox.savinov_vu.model.goods.status.StatusProduct;
-import ru.inbox.savinov_vu.util.json.JsonDateSerializer;
+import ru.inbox.savinov_vu.util.json.JsonDateTimeSerializer;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -20,21 +21,26 @@ public class Product {
     private int product_id;
 
     @Column(name = "product_name")
+    @JsonProperty("product_name")
     private String product_name;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;
 
     @Column(name = "startDateTime")
     @JsonProperty("startDateTime")
-    @JsonSerialize(using = JsonDateSerializer.class)
+    @JsonSerialize(using = JsonDateTimeSerializer.class)
     private LocalDateTime startDateTime;
 
     @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER, mappedBy = "product")
+    @JsonProperty("status")
     private List<StatusProduct> status;
 
-    public Product() {}
+    public Product() {
+
+    }
 
     public int getProduct_id() {
         return product_id;

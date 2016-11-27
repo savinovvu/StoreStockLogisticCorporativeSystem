@@ -2,7 +2,7 @@ package ru.inbox.savinov_vu.model.goods;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import ru.inbox.savinov_vu.util.json.JsonDateSerializer;
+import ru.inbox.savinov_vu.util.json.JsonDateTimeSerializer;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -21,11 +21,12 @@ public class Order {
 
     @Column(name = "startDateTime")
     @JsonProperty("startDateTime")
-    @JsonSerialize(using = JsonDateSerializer.class)
+    @JsonSerialize(using = JsonDateTimeSerializer.class)
     private LocalDateTime startDateTime;
 
 
     @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER, mappedBy = "order")
+    @JsonProperty("products")
     private List<Product> products;
 
     public Order() {}

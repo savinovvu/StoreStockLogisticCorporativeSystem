@@ -1,85 +1,78 @@
-function deletePriceDuringDate() {
-    var data = {};
-    data["id"] = 0;
-    data["productName"] = $("#deleteName").val();
-    data["validFrom"] = $("#deleteDateFrom").val();
-    data["validTo"] = $("#deleteDateTo").val();
-    alert("отклик");
-    sendJson("/deletePriceDuringDate", "POST", data);
+/*function changeActive(id, active) {
+ var data = {};
 
-}
-
-
-function setPriceDuringDate() {
-    var data = {};
-    data["id"] = 0;
-    data["productName"] = $("#setName").val();
-    data["productPrice"] = $("#setPrice").val();
-    data["validFrom"] = $("#setDateFrom").val();
-    data["validTo"] = $("#setDateTo").val();
-
-    sendJson("/setPriceDuringDate", "POST", data);
-
-}
-
-
-function findByNameAndDate() {
-    var data = $('#findByNameAndDate').serialize();
-    send("/findByNameAndDate", "GET", data);
-}
-
-
-function findByName() {
-    var data = $('#findByName').serialize();
-    send("/findByName", "GET", data);
-}
+ data["id"] = $("#id-" + id).val();
+ data["userName"] = $("#userName-" + id).val();
+ data["roles"] = $("#roles-" + id).val();
+ data["active"] = active;
+ send("/users", "POST", data);
+ changeAllToActiveButton();
+ }*/
 
 
 function getAll() {
-    send("/getAll", "POST");
+    send("/orders/all", "GET");
+    /*    changeAllToActiveButton();*/
 }
 
-function remove(id) {
-    id = "id=" + id;
-    send("/remove", "GET", id);
-}
+/*
+ function changeAllToActiveButton() {
+ $("#showUser").remove();
+ var output = '<form id="showUser"  action="javascript:void(null);" onsubmit="getActive()">';
+ output += '<input type="submit" class="btn btn-lg btn-info custombtn" id="showUsers" value="Показать активных пользователей"></form> ';
+ $(".showUserDiv").append(output);
+ }
+
+ function getActive() {
+ send("/users", "GET");
+ changeActiveToALLButton();
+ }
+
+ function changeActiveToALLButton() {
+ $("#showUser").remove();
+ var output = '<form id="showUser"    action="javascript:void(null);" onsubmit="getAll()">';
+ output += '<input type="submit" id="showUsers" class="btn btn-lg btn-info custombtn" value="Показать всех пользователей"></form> ';
+ $(".showUserDiv").append(output);
+ }
+ */
+
+/*
+ function putUser(id) {
+ var data = {};
+ if (id > 0) {
+ data["id"] = id;
+ } else {
+ data["id"] = $("#userId").val();
+ }
+
+ data["userName"] = $("#name").val();
+ data["roles"] = $("#roles").val();
+ data["active"] = $("#active").val();
 
 
-function send(url, type, data) {
-    $.ajax({
+ send("/users", "PUT", data);
+ addBlock('none');
+ changeActiveToALLButton();
 
-        url: url,
-        type: type,
-        contentType: 'application/text',
-        data: data,
-        success: function (data) {
-            view(JSON.parse(data));
 
-        },
-        error: function (x) {
+ }*/
 
-        }
 
-    });
-    return false;
-}
+function send(url, type, jsonData) {
 
-function sendJson(url, type, data) {
     $.ajax({
 
         url: url,
         type: type,
         contentType: 'application/json',
-        dataType: 'json',
-        data: JSON.stringify(data),
+        data: JSON.stringify(jsonData),
         success: function (data) {
-            alert("обновляем");
-            getAll();
+            view(data);
 
         },
         error: function (x) {
-            alert("обновляем");
-            getAll();
+            alert("error");
+
         }
 
     });
@@ -87,68 +80,63 @@ function sendJson(url, type, data) {
 }
 
 
-/*@Id
- @GeneratedValue(strategy = GenerationType.AUTO)
- @JsonProperty("id")
- private int id;
-
-
- @Column(name = "userName")
- @JsonProperty("userName")
- private String name;
-
-
- @Enumerated(EnumType.STRING)
- @Column(name = "roles")
- @JsonProperty("roles")
- private Role roles;
-
- @JsonProperty("active")
- @Column(name = "active")
- private boolean active;*/
-
-
 function view(data) {
+
     $(".data").remove();
+    $.each(data, function (key, order) {
 
-
-    $.each(data, function (key, val) {
         var output = "";
 
         output = "<tr class='data'>" +
-            "<form id=\"form-" + val.id + "\">";
+            "<form id=\"form-" + order.order_id + "\">";
 
         output += "<td>";
-        output += "<input type=\"text\" name=\"id\" id=\"id-" + val.id + "\" value=\"" + val.id + "\" readonly />";
+        output += "<input type=\"text\"  name=\"id\" id=\"id-" + order.order_id + "\" value=\"" + order.order_id + "\" readonly />";
         output += "</td>";
 
         output += "<td>";
-        output += "<input type=\"text\" name=\"productName\" id=\"productName-" + val.id + "\" value=\"" + val.userName + "\"  readonly/>";
+        output += "<input type=\"text\"  name=\"startDateTime\" id=\"startDateTime-" + order.order_id + "\" value=\"" + order.startDateTime + "\"  readonly/>";
         output += "</td>";
+        output +="<td><table> <thead> <tr>";
+        $.each(order.products, function (key2, product) {
+
+
+            output += "<td>";
+            output += "<input type=\"text\"  name=\"product_name\" id=\"product_name-" + product.product_name + "\" value=\"" + product.product_name + "\"  readonly/>";
+            output += "</td> ";
+
+
+        });
+        output +=" <tr><thead></table></td>";
 
         output += "<td>";
-        output += "<input type=\"text\" name=\"price\" id=\"price-" + val.id + "\" value=\"" + val.roles + "\"  readonly/>";
+        output += "<input type=\"text\"  name=\"roles\" id=\"roles-" + order.id + "\" value=\"" + order.roles + "\"  readonly/>";
         output += "</td>";
 
 
-        output += "<td>";
-        output += "<input type=\"text\" name=\"price\" id=\"price-" + val.id + "\" value=\"" + val.active + "\"  readonly/>";
-        output += "</td>";
-
-        if(val.active == true) {
+        if (order.active == true) {
             output += "<td>" +
-                "<input type=\"button\" value=\"Уволить\" class=\"deleteButton btn\" onclick=\"remove(" + val.id + ")\">" +
+                "<input type=\"button\" value=\"Запретить\" class=\"btn btn-danger\" onclick=\"changeActive(" + order.id + " , false)\">" +
                 "</td>";
         }
 
-        if(val.active == false) {
+        if (order.active == false) {
             output += "<td>" +
-                "<input type=\"button\" value=\"Восстановить\" class=\"Button btn\" onclick=\"remove(" + val.id + ")\">" +
+                "<input type=\"button\" value=\"Разрешить\" class=\"btn btn-success\" onclick=\"changeActive(" + order.id + ", true)\">" +
                 "</td>";
         }
+
+
+        /*  output += "<td>" +
+         "<input type=\"button\" value=\"Обновить\" class=\"btn btn-success\" onclick=\"addBlock( 'block'," + val.id + ")\">" +
+         "</td>";*/
+        output += '<td>' +
+            '<button type="button" class="btn btn-success" onclick="addBlock(' + order.id + ')"  data-toggle="modal"  data-target="#myModal"' +
+            '>Обновить</button>' +
+            '</td>';
+
         output += "</form> " +
             "</tr>";
-
 
         $("#userT").append(output);
 

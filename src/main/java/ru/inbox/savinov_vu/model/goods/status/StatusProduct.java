@@ -1,16 +1,19 @@
 package ru.inbox.savinov_vu.model.goods.status;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import ru.inbox.savinov_vu.model.goods.Product;
 import ru.inbox.savinov_vu.model.personal.User;
+import ru.inbox.savinov_vu.util.json.JsonDateSerializer;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "currentstatus")
-public class StatusProduct {
+public class StatusProduct  {
 
     @Id
     @Column(name = "statusId")
@@ -18,23 +21,26 @@ public class StatusProduct {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int status_id;
 
-    @JsonProperty("group")
-    private int group;
+
 
     @Enumerated(EnumType.STRING)
     @Column(name = "statusName")
     @JsonProperty("statusName")
     private EnumStatusProduct statusName;
 
+    @Column(name = "statusGroup")
+    @JsonProperty("statusGroup")
+    private int statusGroup;
 
     @Column(name = "statusDate")
     @JsonProperty("statusDate")
+    @JsonSerialize(using = JsonDateSerializer.class)
     private LocalDate date;
 
-
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "product_id", nullable = false)
-    @JsonProperty("product")
+
     private Product product;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -42,10 +48,12 @@ public class StatusProduct {
     @JsonProperty("user")
     private User user;
 
+
+
     public StatusProduct() {
+
     }
 
-    ;
 
     public int getStatus_id() {
         return status_id;
@@ -56,40 +64,19 @@ public class StatusProduct {
     }
 
     public EnumStatusProduct getStatusName() {
-
         return statusName;
     }
 
     public void setStatusName(EnumStatusProduct statusName) {
-
-        switch (statusName) {
-            case Обработан:
-            case Не_обработан:
-            case Отменен:
-                group = 1;
-                break;
-            case Заказан:
-            case Не_заказан:
-                group = 2;
-                break;
-            case Выявлен_дефект:
-            case Проверен_и_отложен:
-            case Отсутствует:
-                group = 3;
-                break;
-            case Дозвон:
-            case Перезвонить:
-            case Не_Звонили:
-
-                group = 4;
-            break;
-            case Выдан:
-            case Не_выдан:
-                group = 5;
-            break;
-        }
-
         this.statusName = statusName;
+    }
+
+    public int getStatusGroup() {
+        return statusGroup;
+    }
+
+    public void setStatusGroup(int statusGroup) {
+        this.statusGroup = statusGroup;
     }
 
     public LocalDate getDate() {
@@ -125,4 +112,6 @@ public class StatusProduct {
                 ", user=" + user +
                 '}';
     }
+
+
 }
