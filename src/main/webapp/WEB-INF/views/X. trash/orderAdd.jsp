@@ -8,8 +8,14 @@
 
 </head>
 <body>
+<%--всплывающее оповестительное окно--%>
+<%--<div class="container">
+    <div class="alert alert-success hidden" id="success-alert">
+        <div>Ваши данные были успешно отправлены.</div>
+    </div>
 
-добавление заказа
+</div>--%>
+
 
 
 

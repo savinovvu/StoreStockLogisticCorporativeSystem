@@ -22,10 +22,6 @@ public class Product {
     @Column(name = "product_name")
     private String product_name;
 
-    /*@ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "product_id", nullable = false)
-    private Product product;*/
-
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;

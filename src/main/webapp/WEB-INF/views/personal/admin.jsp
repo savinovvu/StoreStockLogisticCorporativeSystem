@@ -16,12 +16,7 @@
     <script src="/static/js/util/util.js" type="text/javascript"></script>
 </head>
 <body onload="getActive()">
-<%--<div class="container">
-    <div class="alert alert-success hidden" id="success-alert">
-        <div>Ваши данные были успешно отправлены.</div>
-    </div>
 
-</div>--%>
 
 
 <div class="view-box">

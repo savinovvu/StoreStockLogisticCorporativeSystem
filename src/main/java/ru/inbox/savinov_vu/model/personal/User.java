@@ -1,10 +1,8 @@
 package ru.inbox.savinov_vu.model.personal;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import ru.inbox.savinov_vu.model.goods.status.StatusProduct;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -29,8 +27,10 @@ public class User {
     @Column(name = "active")
     private boolean active;
 
+/*
     @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER, mappedBy = "user")
     private List<StatusProduct> status;
+*/
 
 
 

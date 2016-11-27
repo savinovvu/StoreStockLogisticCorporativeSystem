@@ -18,6 +18,9 @@ public class StatusProduct {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int status_id;
 
+    @JsonProperty("group")
+    private int group;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "statusName")
     @JsonProperty("statusName")
@@ -53,10 +56,39 @@ public class StatusProduct {
     }
 
     public EnumStatusProduct getStatusName() {
+
         return statusName;
     }
 
     public void setStatusName(EnumStatusProduct statusName) {
+
+        switch (statusName) {
+            case Обработан:
+            case Не_обработан:
+            case Отменен:
+                group = 1;
+                break;
+            case Заказан:
+            case Не_заказан:
+                group = 2;
+                break;
+            case Выявлен_дефект:
+            case Проверен_и_отложен:
+            case Отсутствует:
+                group = 3;
+                break;
+            case Дозвон:
+            case Перезвонить:
+            case Не_Звонили:
+
+                group = 4;
+            break;
+            case Выдан:
+            case Не_выдан:
+                group = 5;
+            break;
+        }
+
         this.statusName = statusName;
     }
 

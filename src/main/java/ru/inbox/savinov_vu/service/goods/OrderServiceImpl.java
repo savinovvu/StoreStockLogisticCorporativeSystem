@@ -3,7 +3,10 @@ package ru.inbox.savinov_vu.service.goods;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ru.inbox.savinov_vu.model.goods.Order;
 import ru.inbox.savinov_vu.repository.OrderRepository;
+
+import java.util.List;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -12,15 +15,7 @@ public class OrderServiceImpl implements OrderService {
     private OrderRepository orderRepository;
 
     @Override
-    public boolean getAllOrders() {
-        System.out.println("orderService");
-        System.out.println("orderService");
-        System.out.println("orderService");
-        System.out.println("orderService");
-        System.out.println("orderService");
-        System.out.println("orderService");
-
-        System.out.println(orderRepository.findAll());
-        return false;
+    public List<Order> getAllOrders() {
+        return orderRepository.findAll();
     }
 }
