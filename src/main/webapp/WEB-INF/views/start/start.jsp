@@ -23,9 +23,9 @@
         <input class="btn btn-primary" class="btn" type="submit" name="viewAllUsers" value="Управление заказами">
     </form>
 
-    <form action="/addOrder" method="get">
+<%--    <form action="/addOrder" method="get">
         <input class="btn btn-primary" type="submit" name="viewAllUsers" value="Добавить заказ">
-    </form>
+    </form>--%>
 
     <form action="/editLocal" method="get">
         <input class="btn btn-primary" type="submit" name="viewAllUsers" value="Управление местом">

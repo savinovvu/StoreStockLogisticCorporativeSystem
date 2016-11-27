@@ -7,12 +7,12 @@ DELETE FROM currentstatus;
 
 
 INSERT INTO users (id, userName, roles, active) VALUES
-  (1000, 'name1', 'ADMIN', TRUE),
-  (1001, 'name2', 'COMMANDER', TRUE),
-  (1002, 'name3', 'LOGISTIC', TRUE),
-  (1003, 'name4', 'VENDOR', TRUE),
-  (1005, 'Имя4', 'VENDOR', TRUE),
-  (1004, 'name4', 'VENDOR', FALSE);
+  (1000, 'name1', 'Руководитель', TRUE),
+  (1001, 'name2', 'Руководитель', TRUE),
+  (1002, 'name3', 'Снабженец', TRUE),
+  (1003, 'name4', 'Продавец', TRUE),
+  (1005, 'Имя4', 'Продавец', TRUE),
+  (1004, 'name4', 'Продавец', FALSE);
 
 
 INSERT INTO orders (order_id, startDateTime) VALUES

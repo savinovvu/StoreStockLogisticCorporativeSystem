@@ -18,7 +18,7 @@ function getAll() {
 function changeAllToActiveButton() {
     $("#showUser").remove();
     var output = '<form id="showUser"  action="javascript:void(null);" onsubmit="getActive()">';
-    output += '<input type="submit" class="btn btn-info" id="showUsers" value="Показать активных пользователей"></form> ';
+    output += '<input type="submit" class="btn btn-lg btn-info custombtn" id="showUsers" value="Показать активных пользователей"></form> ';
     $(".showUserDiv").append(output);
 }
 
@@ -30,21 +30,28 @@ function getActive() {
 function changeActiveToALLButton() {
     $("#showUser").remove();
     var output = '<form id="showUser"    action="javascript:void(null);" onsubmit="getAll()">';
-    output += '<input type="submit" id="showUsers" class="btn btn-info" value="Показать всех пользователей"></form> ';
+    output += '<input type="submit" id="showUsers" class="btn btn-lg btn-info custombtn" value="Показать всех пользователей"></form> ';
     $(".showUserDiv").append(output);
 }
 
 
-function putUser() {
+function putUser(id) {
     var data = {};
-    data["id"] = $("#userId").val();
+    if (id > 0) {
+        data["id"] = id;
+    } else {
+        data["id"] = $("#userId").val();
+    }
+
     data["userName"] = $("#name").val();
     data["roles"] = $("#roles").val();
     data["active"] = $("#active").val();
 
 
     send("/users", "PUT", data);
+    addBlock('none');
     changeActiveToALLButton();
+
 
 }
 
@@ -106,9 +113,18 @@ function view(data) {
                 "<input type=\"button\" value=\"Разрешить\" class=\"btn btn-success\" onclick=\"changeActive(" + val.id + ", true)\">" +
                 "</td>";
         }
+
+
+        /*  output += "<td>" +
+         "<input type=\"button\" value=\"Обновить\" class=\"btn btn-success\" onclick=\"addBlock( 'block'," + val.id + ")\">" +
+         "</td>";*/
+        output += '<td>' +
+            '<button type="button" class="btn btn-success" onclick="addBlock(' + val.id + ')"  data-toggle="modal"  data-target="#myModal"' +
+            '>Обновить</button>' +
+            '</td>';
+
         output += "</form> " +
             "</tr>";
-
 
         $("#userT").append(output);
 

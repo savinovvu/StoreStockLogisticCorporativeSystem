@@ -15,12 +15,6 @@ public class OrderController {
 
 
 
-    @GetMapping(value = "/editOrder")
-    public String editOrder(Model model) {
-        
-            return "goods/orderManage";
 
-
-    }
 
 }
