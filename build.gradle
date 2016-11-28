@@ -1,10 +1,24 @@
 group 'ru.inbox.savinov_vu'
 version '1.0-SNAPSHOT'
 
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.bmuschko:gradle-tomcat-plugin:2.2.5'
+    }
+}
+
+apply plugin: "com.bmuschko.tomcat"
+
+
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'application'
 apply plugin: 'war'
+apply plugin: 'com.bmuschko.tomcat'
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
@@ -15,7 +29,9 @@ repositories {
     mavenCentral()
 }
 
-
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.11'
+}
 
 
 
@@ -31,7 +47,6 @@ dependencies {
     def postgresVersion = '9.1-901-1.jdbc4'
     def jUnitVersion = '4.5'
     def tomcatJdbc = '9.0.0.M11'
-
 
     /*Jackson*/
     compile 'com.fasterxml.jackson.core:jackson-core:' + jacksonVersion
@@ -63,8 +78,12 @@ dependencies {
     //compile 'org.webjars:noty:2.3.8'
     compile 'org.webjars:datatables:1.10.12-1'
 
-
     testCompile 'junit:junit:' + jUnitVersion
 
-
+    def tomcatVersion = '7.0.73'
+    tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
+            "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}",
+            "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
 }
+tomcatRun.contextPath = '/'
+tomcatRunWar.contextPath = '/'
