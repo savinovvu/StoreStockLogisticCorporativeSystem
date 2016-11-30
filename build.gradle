@@ -91,7 +91,7 @@ dependencies {
 
     testCompile 'junit:junit:' + jUnitVersion
 
-    def tomcatVersion = '8.0.32'
+    def tomcatVersion = '7.0.73'
     tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
             "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}",
             "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
