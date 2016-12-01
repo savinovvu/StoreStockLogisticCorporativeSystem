@@ -115,9 +115,7 @@ function view(data) {
         }
 
 
-        /*  output += "<td>" +
-         "<input type=\"button\" value=\"Обновить\" class=\"btn btn-success\" onclick=\"addBlock( 'block'," + val.id + ")\">" +
-         "</td>";*/
+       
         output += '<td>' +
             '<button type="button" class="btn btn-success" onclick="addBlock(' + val.id + ')"  data-toggle="modal"  data-target="#myModal"' +
             '>Обновить</button>' +

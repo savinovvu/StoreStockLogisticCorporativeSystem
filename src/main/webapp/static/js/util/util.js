@@ -12,16 +12,21 @@
 
 /*  document.getElementById('window').style.display = state;
  document.getElementById('wrap').style.display = state;*/
+function addBlockAndNullinput() {
+    document.getElementById('userId').value = "";
+    document.getElementById('name').value = "";
+    addBlock();
+}
+
 function addBlock(id) {
     document.getElementById('divId').style.display = 'block';
     if (id >= 0) {
         document.getElementById('divId').style.display = 'none';
         document.getElementById('userId').value = id;
-   
-    }
-    
-}
 
+    }
+
+}
 
 
 $(function () {

@@ -18,16 +18,14 @@
 <body onload="getActive()">
 
 
-
 <div class="view-box">
     <div class="menu">
 
         <!-- Кнопка для открытия модального окна -->
         <button type="button" class="btn btn-lg btn-success custombtn" data-toggle="modal"
-                data-target="#myModal" onclick="addBlock()">
+                data-target="#myModal" onclick="addBlockAndNullinput()">
             Добавить пользователя
         </button>
-
 
 
         <div class="showUserDiv">
@@ -56,7 +54,7 @@
             <!-- Заголовок модального окна -->
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">×</button>
-                <h4 class="modal-title" id="myModalLabel">Добавление пользователя</h4>
+                <h4 class="modal-title" id="myModalLabel">Добавление/Обновление пользователя</h4>
             </div>
             <!-- Основная часть модального окна, содержащая форму для регистрации -->
             <div class="modal-body">
@@ -130,64 +128,5 @@
 </div>
 
 
-
-
-<%--
-<!-- Задний прозрачный фон-->
-<div onclick="addBlock('none')" id="wrap"></div>
-
-<!-- Само окно-->
-<div id="window" class="window">
-
-    &lt;%&ndash;method="post"&ndash;%&gt;
-    <form:form class="form-horizontal" id="detailsForm">
-        <div class="center">
-
-            <div class="changeDivId">
-                <div class="form-group" id="divId">
-                    <label for="userId" class="control-label col-xs-3">id</label>
-
-                    <div class="col-xs-9">
-                        <input type="text" class="form-control" id="userId" name="id">
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="form-group">
-                <label for="name" class="control-label col-xs-3">ФИО</label>
-
-                <div class="col-xs-9">
-                    <input type="text" class="form-control" id="name" name="name" required/>
-                </div>
-            </div>
-
-
-
-            <div class="form-group">
-                <label for="roles" class="control-label col-xs-3">Должность</label>
-
-                <div class="col-xs-9">
-                    <select id="roles" class="form-control" name="roles">
-                        <option disabled>Введите роль</option>
-                        <option value="Руководитель">Руководитель</option>
-                        <option value="Снабженец">Снабженец</option>
-                        <option value="Продавец">Продавец</option>
-                    </select>
-                </div>
-            </div>
-
-
-
-            <div class="form-group">
-                <div class="col-xs-offset-3 col-xs-9">
-                    <button class="btn btn-success" type="button" onclick="putUser()">Сохранить</button>
-                    <button class="btn btn-danger" type="button" onclick="addBlock('none')">Отменить</button>
-                </div>
-            </div>
-        </div>
-    </form:form>
-</div>--%>
 </body>
 </html>
