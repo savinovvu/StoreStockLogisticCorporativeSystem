@@ -117,7 +117,7 @@ function view(data) {
 
        
         output += '<td>' +
-            '<button type="button" class="btn btn-success" onclick="addBlock(' + val.id + ')"  data-toggle="modal"  data-target="#myModal"' +
+            '<button type="button" class="btn btn-success" onclick="addBlockAndNullName(' + val.id + ')"  data-toggle="modal"  data-target="#myModal"' +
             '>Обновить</button>' +
             '</td>';
 

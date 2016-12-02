@@ -14,8 +14,12 @@
  document.getElementById('wrap').style.display = state;*/
 function addBlockAndNullinput() {
     document.getElementById('userId').value = "";
+    addBlockAndNullName()
+}
+
+function addBlockAndNullName(id) {
     document.getElementById('name').value = "";
-    addBlock();
+    addBlock(id);
 }
 
 function addBlock(id) {
@@ -32,6 +36,8 @@ function addBlock(id) {
 $(function () {
     //при нажатии на кнопку с id="save"
     $('#save').click(function () {
+
+
         //переменная formValid
         var formValid = true;
         //перебрать все элементы управления input
