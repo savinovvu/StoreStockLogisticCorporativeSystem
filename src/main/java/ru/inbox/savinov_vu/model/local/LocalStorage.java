@@ -4,11 +4,10 @@ package ru.inbox.savinov_vu.model.local;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
 @Table(name = "locals")
-public class LocalStorage implements Serializable {
+public class LocalStorage  {
 
     @Id
     @JsonProperty("id")
