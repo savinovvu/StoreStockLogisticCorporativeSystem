@@ -18,7 +18,6 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public List<Order> getAllOrders() {
         PrepareProductForSend prepare = new PrepareProductForSend();
-
         return prepare.prepareOrders(orderRepository.findAll());
     }
 }
