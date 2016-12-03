@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.inbox.savinov_vu.model.goods.Order;
+import ru.inbox.savinov_vu.model.goods.ProductOrder;
 import ru.inbox.savinov_vu.service.goods.OrderService;
 
 import java.util.List;
@@ -22,7 +22,7 @@ public class OrderController {
 
 
     @GetMapping(value = "/all")
-    public List<Order> getAllOrders(Model model) throws JsonProcessingException {
+    public List<ProductOrder> getAllOrders(Model model) throws JsonProcessingException {
         System.out.println(service.getAllOrders());
         return service.getAllOrders();
 

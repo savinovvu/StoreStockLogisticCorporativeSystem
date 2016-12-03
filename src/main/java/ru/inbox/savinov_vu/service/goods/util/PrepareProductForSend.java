@@ -1,6 +1,6 @@
 package ru.inbox.savinov_vu.service.goods.util;
 
-import ru.inbox.savinov_vu.model.goods.Order;
+import ru.inbox.savinov_vu.model.goods.ProductOrder;
 import ru.inbox.savinov_vu.model.goods.Product;
 import ru.inbox.savinov_vu.model.goods.status.StatusProduct;
 
@@ -12,13 +12,13 @@ public class PrepareProductForSend {
 
 
 
-    public List<Order> prepareOrders(List<Order> orders) {
+    public List<ProductOrder> prepareOrders(List<ProductOrder> orders) {
         orders.forEach(order -> prepare(order));
         return orders;
     }
 
 
-    public Order prepare(Order order){
+    public ProductOrder prepare(ProductOrder order){
         prepare(order.getProducts());
         return order;
     }

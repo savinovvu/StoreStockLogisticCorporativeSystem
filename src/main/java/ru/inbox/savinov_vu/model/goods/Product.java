@@ -29,7 +29,7 @@ public class Product {
     @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "order_id", nullable = false)
-    private Order order;
+    private ProductOrder order;
 
 
 
@@ -73,11 +73,11 @@ public class Product {
         this.product_name = product_name;
     }
 
-    public Order getOrder() {
+    public ProductOrder getOrder() {
         return order;
     }
 
-    public void setOrder(Order order) {
+    public void setOrder(ProductOrder order) {
         this.order = order;
     }
 

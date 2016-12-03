@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "orders")
-public class Order {
+public class ProductOrder {
     /*Сделать 12 цифр*/
 
     @Id
@@ -38,7 +38,7 @@ public class Order {
 
 
 
-    public Order() {}
+    public ProductOrder() {}
 
     public boolean isActive() {
         return active;

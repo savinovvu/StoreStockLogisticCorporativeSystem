@@ -1,6 +1,6 @@
 package ru.inbox.savinov_vu.service.goods.util;
 
-import ru.inbox.savinov_vu.model.goods.Order;
+import ru.inbox.savinov_vu.model.goods.ProductOrder;
 import ru.inbox.savinov_vu.model.goods.Product;
 import ru.inbox.savinov_vu.model.goods.status.EnumStatusProduct;
 
@@ -17,8 +17,8 @@ public class CheckActiveOrder {
 
 
 
-    public List<Order> getActiveOrders(List<Order> orders){
-        List<Order> activeOrders = new ArrayList<>();
+    public List<ProductOrder> getActiveOrders(List<ProductOrder> orders){
+        List<ProductOrder> activeOrders = new ArrayList<>();
         orders.forEach(order -> {
             if (getActiveOrder(order) != null) {
                 activeOrders.add(order);
@@ -27,7 +27,7 @@ public class CheckActiveOrder {
         return activeOrders;
     }
 
-    public Order getActiveOrder(Order order) {
+    public ProductOrder getActiveOrder(ProductOrder order) {
         Set<EnumStatusProduct> terminatedStatuses = new HashSet<>();
         terminatedStatuses.add(Отменен);
         terminatedStatuses.add(Выдан);
