@@ -28,9 +28,6 @@ public class LocalController {
 
     @PutMapping
     public List<LocalStorage> putLocal(Model model, @RequestBody LocalStorage localStorage) throws JsonProcessingException {
-        System.out.println(localStorage);
-        System.out.println(localStorage);
-        System.out.println(localStorage);
         service.addLocal(localStorage);
         return service.getAllLocal();
     }

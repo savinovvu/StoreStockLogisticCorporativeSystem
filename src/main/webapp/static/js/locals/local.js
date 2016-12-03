@@ -8,8 +8,7 @@ function putLocal(id) {
     if (id > 0) {
         data["id"] = id;
     } else {
-      /*  data["localId"] = $("#localId").val();*/
-        data["id"] = 0;
+        data["id"] = -1;
     }
     data["localName"] = $("#localName").val();
 
@@ -67,7 +66,7 @@ function view(data) {
         output += "</td>";
 
         output += "<td>";
-        output += "<input type=\"text\"  name=\"localName\" id=\"userName-" + val.id + "\" value=\"" + val.localName + "\"  readonly/>";
+        output += "<input type=\"text\"  name=\"localName\" id=\"localName-" + val.id + "\" value=\"" + val.localName + "\"  readonly/>";
         output += "</td>";
 
 
@@ -77,8 +76,8 @@ function view(data) {
 
 
         output += '<td>' +
-            '<button type="button" class="btn btn-success" onclick="setLocal(' + val.id + ')"  data-toggle="modal"  data-target="#myModal"' +
-            '>Обновить</button>' +
+            '<button type="button" class="btn btn-success" onclick="setLocal(' + val.id + ')"  data-toggle="modal" ' +
+            '>Выбрать</button>' +
             '</td>';
 
         output += "</form> " +

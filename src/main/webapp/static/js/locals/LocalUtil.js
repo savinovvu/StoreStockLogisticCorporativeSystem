@@ -1,23 +1,5 @@
 
-function addBlockAndNullinput() {
-    document.getElementById('localId').value = "";
-    addBlockAndNullName()
-}
 
-function addBlockAndNullName(id) {
-    document.getElementById('localName').value = "";
-    addBlock(id);
-}
-
-function addBlock(id) {
-    document.getElementById('divId').style.display = 'block';
-    if (id >= 0) {
-        document.getElementById('divId').style.display = 'none';
-        document.getElementById('localId').value = id;
-
-    }
-
-}
 
 
 $(function () {

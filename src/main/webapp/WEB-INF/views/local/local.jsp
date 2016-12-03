@@ -15,7 +15,7 @@
     <link href="/static/css/local/local.css" rel="stylesheet">
     <script src="/static/js/plugins/jquery.cookie.js"></script>
     <script src="/static/js/locals/local.js"></script>
-    <script src="/static/js/locals/localCookie.js.js"></script>
+    <script src="/static/js/locals/localCookie.js"></script>
 </head>
 <body onload="getAll()">
 
@@ -23,8 +23,9 @@
     <div class="menu">
 
         <!-- Кнопка для открытия модального окна -->
-        <button type="button" onclick="addBlockAndNullinput()" class="btn btn-lg btn-success custombtn" data-toggle="modal"
-                data-target="#myModal" >
+        <button type="button" onclick="addBlockAndNullinput()" class="btn btn-lg btn-success custombtn"
+                data-toggle="modal"
+                data-target="#myModal">
             Добавить Место
         </button>
 
@@ -54,7 +55,7 @@
             <!-- Заголовок модального окна -->
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">×</button>
-                <h4 class="modal-title" id="myModalLabel">Добавление/Обновление пользователя</h4>
+                <h4 class="modal-title" id="myModalLabel">Добавление места</h4>
             </div>
             <!-- Основная часть модального окна, содержащая форму для регистрации -->
             <div class="modal-body">
@@ -82,17 +83,15 @@
                     </div>
                     <!-- Конец блока для ввода места-->
 
-
-                    <%--Признак активного пользователя--%>
-
             </div>
-            <%--Конец признака активного пользователя--%>
             </form>
 
             <!-- Нижняя часть модального окна -->
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Отмена</button>
-                <button id="save" type="button" onclick="putLocal()" class="btn btn-primary">Готово</button>
+                <button id="save" type="button" onclick="putLocal()" class="btn btn-primary" data-dismiss="modal">
+                    Готово
+                </button>
             </div>
         </div>
     </div>
