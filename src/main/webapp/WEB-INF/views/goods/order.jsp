@@ -10,7 +10,7 @@
     <script src="/static/js/goods/order.js" type="text/javascript"></script>
     <script src="/static/js/plugins/jquery.min.js"></script>
     <script src="/static/js/plugins/bootstrap/bootstrap.min.js"></script>
-    <script src="/static/js/util/util.js" type="text/javascript"></script>
+    <script src="/static/js/personal/util.js" type="text/javascript"></script>
 </head>
 <body onload="getAll()">
 

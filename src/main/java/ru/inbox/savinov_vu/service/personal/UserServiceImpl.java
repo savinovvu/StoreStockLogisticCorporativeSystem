@@ -24,7 +24,8 @@ public class UserServiceImpl implements UserService {
     }
     @Override
     public void addUser(User user) {
-        repository.saveAndFlush(user);
-
+        if(String.valueOf(user.getId()).length() == 4) {
+            repository.saveAndFlush(user);
+        }
     }
 }
