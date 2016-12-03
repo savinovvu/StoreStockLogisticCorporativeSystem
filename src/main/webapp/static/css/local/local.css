@@ -34,6 +34,8 @@ td {
 input {
     text-align: center;
     font-size: 14px;
+    background: white;
+    border: transparent;
 }
 
 input:read-only {
@@ -52,6 +54,15 @@ input:read-only {
     background: green;
 }
 
+.menu {
+
+    margin: auto;
+    background-color: transparent;
+
+    width: 50%;
+
+}
+
 .btn {
 
     color: white;
@@ -61,10 +72,14 @@ input:read-only {
     margin-right: 5%;
 }
 
-.btn:hover {
-    color: yellow;
-    background: blue;
-    transform: scale(1.2);
+
+
+.custombtn {
+    text-align: center;
+    font-size: 14px;
+    width: 100%;
+    margin: 5% auto;
+    box-shadow: 2px 2px 10px 2px black;
 
 }
 

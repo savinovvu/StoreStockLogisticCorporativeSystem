@@ -8,38 +8,101 @@
 <head>
     <meta charset="UTF-8">
     <title>LocalManage</title>
+    <script src="/static/js/plugins/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/css/plugins/bootstrap.css">
+    <script src="/static/js/plugins/bootstrap/bootstrap.min.js"></script>
+
     <link href="/static/css/local/local.css" rel="stylesheet">
-    <script src="<c:url value="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"/>"></script>
     <script src="/static/js/plugins/jquery.cookie.js"></script>
     <script src="/static/js/locals/local.js"></script>
+    <script src="/static/js/locals/localCookie.js.js"></script>
 </head>
-<body>
-<table class="table">
-    <thead>
-    <tr>
-        <th>id</th>
-        <th>Место</th>
-        <th>Действие</th>
-     <%--   <th>удалить</th>--%>
-    </tr>
-    </thead>
-    <c:forEach items="${locals}" var="local">
+<body onload="getAll()">
 
-        <jsp:useBean id="local" scope="page" type="ru.inbox.savinov_vu.model.local.LocalStorage"/>
+<div class="view-box">
+    <div class="menu">
+
+        <!-- Кнопка для открытия модального окна -->
+        <button type="button" onclick="addBlockAndNullinput()" class="btn btn-lg btn-success custombtn" data-toggle="modal"
+                data-target="#myModal" >
+            Добавить Место
+        </button>
+
+
+        <div class="showUserDiv">
+            <form id="showUser"></form>
+
+        </div>
+    </div>
+
+    <table id="LocalT">
+
+        <thead>
         <tr>
-        <form method="get" action="/deleteLocal">
-            <td><input name="localId" value="${local.localId}" readonly></td>
-            <td><input type="text" name="localName" class="localName-${local.localId}" value="${local.localName}" readonly> </td>
-            <td>
-                <div>
-                <input type="button" class="btn selectButton" onclick="setLocal(${local.localId})" value="Выбрать">
-
-                <input type="submit" class="btn deleteButton"  value="Удалить">
-                </div>
-        </td>
-        </form>
+            <td>id</td>
+            <td>Место</td>
+            <td>Действие</td>
         </tr>
-    </c:forEach>
+        </thead>
+    </table>
+</div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Заголовок модального окна -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title" id="myModalLabel">Добавление/Обновление пользователя</h4>
+            </div>
+            <!-- Основная часть модального окна, содержащая форму для регистрации -->
+            <div class="modal-body">
+                <!-- Форма для регистрации -->
+                <form role="form" class="form-horizontal">
+
+                    <!-- Блок для ввода id -->
+
+                    <div class="form-group">
+                        <input type="hidden" class="form-control" id="localId" name="localId" required/>
+                    </div>
+
+
+                    <!-- Блок для ввода места -->
+
+                    <div class="form-group has-feedback">
+                        <label for="localName" class="control-label col-xs-3">Место:</label>
+                        <div class="col-xs-6">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input type="text" class="form-control" id="localName" name="localName" required/>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Конец блока для ввода места-->
+
+
+                    <%--Признак активного пользователя--%>
+
+            </div>
+            <%--Конец признака активного пользователя--%>
+            </form>
+
+            <!-- Нижняя часть модального окна -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Отмена</button>
+                <button id="save" type="button" onclick="putUser()" class="btn btn-primary">Готово</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+</body>
+</html>
+
 </table>
 </body>
 </html>

@@ -1,11 +1,11 @@
 
 function addBlockAndNullinput() {
-    document.getElementById('userId').value = "";
+    document.getElementById('localId').value = "";
     addBlockAndNullName()
 }
 
 function addBlockAndNullName(id) {
-    document.getElementById('name').value = "";
+    document.getElementById('localName').value = "";
     addBlock(id);
 }
 
@@ -13,7 +13,7 @@ function addBlock(id) {
     document.getElementById('divId').style.display = 'block';
     if (id >= 0) {
         document.getElementById('divId').style.display = 'none';
-        document.getElementById('userId').value = id;
+        document.getElementById('localId').value = id;
 
     }
 

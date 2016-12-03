@@ -1,7 +1,6 @@
 package ru.inbox.savinov_vu.controller.start;
 
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,17 +20,15 @@ public class StartController {
         return "personal/admin";
     }
 
-    @GetMapping(value = "/addOrder")
-    public String OrderAdd(Model model) throws JsonProcessingException {
-
-        return "goods/orderAdd";
-    }
 
     @GetMapping(value = "/editOrder")
     public String editOrder(Model model) {
         return "goods/order";
+    }
 
-
+    @GetMapping(value = "/editLocal" )
+    public String editLocal(Model model){
+        return "local/local";
     }
 
 
