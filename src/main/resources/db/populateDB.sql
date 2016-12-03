@@ -14,12 +14,12 @@ INSERT INTO users (id, userName, roles, active) VALUES
   (1004, 'name4', 'Продавец', FALSE);
 
 
-INSERT INTO orders (order_id, startDateTime) VALUES
-  (10000, '2016-05-10 10:00:00'),
-  (10001, '2016-05-11 10:00:00'),
-  (10002, '2016-05-12 10:00:00'),
-  (10003, '2016-05-13 10:00:00'),
-  (10004, '2016-05-13 10:00:00');
+INSERT INTO orders (order_id, startDateTime, active) VALUES
+  (10000, '2016-05-10 10:00:00', TRUE ),
+  (10001, '2016-05-11 10:00:00', TRUE ),
+  (10002, '2016-05-12 10:00:00', TRUE ),
+  (10003, '2016-05-13 10:00:00', TRUE ),
+  (10004, '2016-05-13 10:00:00', TRUE );
 
 INSERT INTO products (product_id,vendorCode, product_name,  order_id) VALUES
   (10000,1, 'product1',  10000),

@@ -20,7 +20,7 @@ public class Product {
 
     @Column(name = "vendorCode")
     @JsonProperty("vendorCode")
-    public int vendorCode;
+    private int vendorCode;
 
     @Column(name = "product_name")
     @JsonProperty("product_name")
@@ -47,6 +47,14 @@ public class Product {
 
     public Product() {
 
+    }
+
+    public int getVendorCode() {
+        return vendorCode;
+    }
+
+    public void setVendorCode(int vendorCode) {
+        this.vendorCode = vendorCode;
     }
 
     public int getProduct_id() {

@@ -24,6 +24,10 @@ public class Order {
     @JsonSerialize(using = JsonDateTimeSerializer.class)
     private LocalDateTime startDateTime;
 
+    @Column(name = "active")
+    @JsonProperty("active")
+    private boolean active;
+
 
     @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER, mappedBy = "order")
     @JsonProperty("products")
@@ -31,7 +35,18 @@ public class Order {
 
 
 
+
+
+
     public Order() {}
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
 
     public int getOrder_id() {
         return order_id;
