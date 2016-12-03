@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface LocalService {
 
-    void deleteLocal(LocalStorage local);
+    void deleteLocal(int id);
     void addLocal(LocalStorage local);
     List<LocalStorage> getAllLocal();
     void updateLocal(LocalStorage local);

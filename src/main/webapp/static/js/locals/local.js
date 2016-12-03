@@ -1,29 +1,32 @@
 function getAll() {
-    send("/local/all", "GET");
+    send("/locals/all", "GET");
 }
 
 
-function putUser(id) {
+function putLocal(id) {
     var data = {};
     if (id > 0) {
         data["id"] = id;
     } else {
-        data["id"] = $("#localId").val();
+      /*  data["localId"] = $("#localId").val();*/
+        data["id"] = 4;
     }
-
-    data["userName"] = $("#name").val();
-    data["roles"] = $("#roles").val();
-    data["active"] = $("#active").val();
+    data["localName"] = $("#localName").val();
 
 
-    send("/local", "PUT", data);
-    addBlock('none');
+
+    send("/locals", "PUT", data);
+
 
 
 }
 
 function deleteLocal(id) {
-    alert("удаляем" + id);
+    var data = {};
+    alert("удаляем " + id);
+    data["id"] = id;
+    data["localName"] = "name";
+    send("/locals", "DELETE", data);
 }
 
 
@@ -61,11 +64,11 @@ function view(data) {
             "<form id=\"form-" + val.id + "\">";
 
         output += "<td>";
-        output += "<input type=\"text\"  name=\"localId\" id=\"id-" + val.localId + "\" value=\"" + val.id + "\" readonly />";
+        output += "<input type=\"text\"  name=\"localId\" id=\"id-" + val.id + "\" value=\"" + val.id + "\" readonly />";
         output += "</td>";
 
         output += "<td>";
-        output += "<input type=\"text\"  name=\"localName\" id=\"userName-" + val.localId + "\" value=\"" + val.localName + "\"  readonly/>";
+        output += "<input type=\"text\"  name=\"localName\" id=\"userName-" + val.id + "\" value=\"" + val.localName + "\"  readonly/>";
         output += "</td>";
 
 
@@ -75,7 +78,7 @@ function view(data) {
 
 
         output += '<td>' +
-            '<button type="button" class="btn btn-success" onclick="setLocal(' + val.localId + ')"  data-toggle="modal"  data-target="#myModal"' +
+            '<button type="button" class="btn btn-success" onclick="setLocal(' + val.id + ')"  data-toggle="modal"  data-target="#myModal"' +
             '>Обновить</button>' +
             '</td>';
 

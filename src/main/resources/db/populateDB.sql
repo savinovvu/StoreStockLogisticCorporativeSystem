@@ -29,7 +29,7 @@ INSERT INTO products (product_id, product_name, startDateTime, order_id) VALUES
 /*  (10004, 'product5', '2016-05-13 10:00:00', 10003),
   (10006, 'product6', '2016-05-13 10:00:00', 10003);*/
 
-INSERT INTO locals (localId, localname) VALUES
+INSERT INTO locals (id, localname) VALUES
   (1, 'Local1'),
   (2, 'Local2'),
   (3, 'место3');

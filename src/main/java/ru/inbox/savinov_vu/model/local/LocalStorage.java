@@ -10,22 +10,23 @@ import javax.persistence.*;
 public class LocalStorage {
 
     @Id
-    @Column(name = "localId")
     @JsonProperty("id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int localId;
+    private int id;
 
     @Column(name = "localname")
     @JsonProperty("localName")
     private String localName;
 
+   public LocalStorage() {}
 
-    public int getLocalId() {
-        return localId;
+
+    public int getId() {
+        return id;
     }
 
-    public void setLocalId(int localId) {
-        this.localId = localId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getLocalName() {
@@ -39,7 +40,7 @@ public class LocalStorage {
     @Override
     public String toString() {
         return "LocalStorage{" +
-                "localId=" + localId +
+                "id=" + id +
                 ", localName='" + localName + '\'' +
                 '}';
     }

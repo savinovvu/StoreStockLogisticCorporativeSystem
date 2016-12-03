@@ -14,8 +14,8 @@ public class LocalServiceImpl implements LocalService {
     LocalRepository repository;
 
     @Override
-    public void deleteLocal(LocalStorage local) {
-        repository.delete(local.getLocalId());
+    public void deleteLocal(int id) {
+        repository.delete(id);
     }
 
     @Override
