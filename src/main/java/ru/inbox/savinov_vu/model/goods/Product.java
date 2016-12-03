@@ -18,6 +18,10 @@ public class Product {
     @JsonProperty("product_id")
     private int product_id;
 
+    @Column(name = "vendorCode")
+    @JsonProperty("vendorCode")
+    public int vendorCode;
+
     @Column(name = "product_name")
     @JsonProperty("product_name")
     private String product_name;

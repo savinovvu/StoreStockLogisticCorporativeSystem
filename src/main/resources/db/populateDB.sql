@@ -21,11 +21,11 @@ INSERT INTO orders (order_id, startDateTime) VALUES
   (10003, '2016-05-13 10:00:00'),
   (10004, '2016-05-13 10:00:00');
 
-INSERT INTO products (product_id, product_name,  order_id) VALUES
-  (10000, 'product1',  10000),
-  (10001, 'product2',  10001),
-  (10002, 'product3',  10002),
-  (10003, 'product4',  10003);
+INSERT INTO products (product_id,vendorCode, product_name,  order_id) VALUES
+  (10000,1, 'product1',  10000),
+  (10001,2, 'product2',  10001),
+  (10002,3, 'product3',  10002),
+  (10003,4, 'product4',  10003);
 /*  (10004, 'product5', '2016-05-13 10:00:00', 10003),
   (10006, 'product6', '2016-05-13 10:00:00', 10003);*/
 
