@@ -29,10 +29,6 @@ public class StatusProduct implements Comparable<StatusProduct>  {
     private EnumStatusProduct statusName;
 
 
-    @Column(name = "statusGroup")
-    @JsonProperty("statusGroup")
-    private int statusGroup;
-
     @Column(name = "statusDate")
     @JsonProperty("statusDate")
     @JsonSerialize(using = JsonDateSerializer.class)
@@ -72,13 +68,6 @@ public class StatusProduct implements Comparable<StatusProduct>  {
         this.statusName = statusName;
     }
 
-    public int getStatusGroup() {
-        return statusGroup;
-    }
-
-    public void setStatusGroup(int statusGroup) {
-        this.statusGroup = statusGroup;
-    }
 
     public LocalDate getDate() {
         return date;

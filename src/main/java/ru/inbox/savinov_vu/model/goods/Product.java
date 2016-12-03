@@ -3,12 +3,9 @@ package ru.inbox.savinov_vu.model.goods;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import ru.inbox.savinov_vu.model.goods.status.StatusProduct;
-import ru.inbox.savinov_vu.util.json.JsonDateTimeSerializer;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,10 +27,7 @@ public class Product {
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;
 
-    @Column(name = "startDateTime")
-    @JsonProperty("startDateTime")
-    @JsonSerialize(using = JsonDateTimeSerializer.class)
-    private LocalDateTime startDateTime;
+
 
     @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER, mappedBy = "product")
     @JsonProperty("status")
@@ -75,13 +69,7 @@ public class Product {
         this.order = order;
     }
 
-    public LocalDateTime getStartDateTime() {
-        return startDateTime;
-    }
 
-    public void setStartDateTime(LocalDateTime startDateTime) {
-        this.startDateTime = startDateTime;
-    }
 
     public List<StatusProduct> getStatus() {
         return status;
@@ -105,8 +93,7 @@ public class Product {
         return "Product{" +
                 "product_id=" + product_id +
                 ", product_name='" + product_name + '\'' +
-                ", startDateTime=" + startDateTime +
-                ", status=" + status +
+                ", status=" + actualStatus +
                 '}';
     }
 }

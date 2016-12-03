@@ -21,22 +21,9 @@ public class OrderController {
     OrderService service;
 
 
-
-
     @GetMapping(value = "/all")
     public List<Order> getAllOrders(Model model) throws JsonProcessingException {
-        System.out.println("в теле");
-        System.out.println("в теле");
-        System.out.println("в теле");
-        System.out.println("в теле");
-        System.out.println("в теле");
-
         System.out.println(service.getAllOrders());
-        System.out.println("конец");
-        System.out.println("конец");
-        System.out.println("конец");
-        System.out.println("конец");
-        System.out.println("конец");
         return service.getAllOrders();
 
     }
@@ -66,7 +53,6 @@ public class OrderController {
         return service.getAllUsers();
     }
     */
-
 
 
 }
