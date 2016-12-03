@@ -9,6 +9,7 @@ import ru.inbox.savinov_vu.util.json.JsonDateTimeSerializer;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -37,6 +38,14 @@ public class Product {
     @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER, mappedBy = "product")
     @JsonProperty("status")
     private List<StatusProduct> status;
+
+
+
+    @Transient
+    @JsonProperty("actualStatus")
+    private List<StatusProduct> actualStatus = new ArrayList<>();
+
+
 
     public Product() {
 
@@ -80,6 +89,15 @@ public class Product {
 
     public void setStatus(List<StatusProduct> status) {
         this.status = status;
+    }
+
+
+    public List<StatusProduct> getActualStatus() {
+        return actualStatus;
+    }
+
+    public void setActualStatus(List<StatusProduct> actualStatus) {
+        this.actualStatus = actualStatus;
     }
 
     @Override

@@ -13,7 +13,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "currentstatus")
-public class StatusProduct  {
+public class StatusProduct implements Comparable<StatusProduct>  {
 
     @Id
     @Column(name = "statusId")
@@ -27,6 +27,7 @@ public class StatusProduct  {
     @Column(name = "statusName")
     @JsonProperty("statusName")
     private EnumStatusProduct statusName;
+
 
     @Column(name = "statusGroup")
     @JsonProperty("statusGroup")
@@ -114,4 +115,10 @@ public class StatusProduct  {
     }
 
 
+    @Override
+    public int compareTo(StatusProduct o) {
+        if (date == null) return 1;
+        if (o.getDate() == null) return -1;
+        return getStatus_id()>o.getStatus_id()? 1 : -1;
+    }
 }
