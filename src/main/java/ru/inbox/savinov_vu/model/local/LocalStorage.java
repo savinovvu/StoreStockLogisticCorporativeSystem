@@ -4,14 +4,16 @@ package ru.inbox.savinov_vu.model.local;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "locals")
-public class LocalStorage {
+public class LocalStorage implements Serializable {
 
     @Id
     @JsonProperty("id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "LOCAL_SEQ", sequenceName = "LOCAL_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "LOCAL_SEQ")
     private int id;
 
     @Column(name = "localname")

@@ -9,7 +9,7 @@ function putLocal(id) {
         data["id"] = id;
     } else {
       /*  data["localId"] = $("#localId").val();*/
-        data["id"] = 4;
+        data["id"] = 0;
     }
     data["localName"] = $("#localName").val();
 
@@ -23,7 +23,6 @@ function putLocal(id) {
 
 function deleteLocal(id) {
     var data = {};
-    alert("удаляем " + id);
     data["id"] = id;
     data["localName"] = "name";
     send("/locals", "DELETE", data);

@@ -40,6 +40,10 @@ public class UserController {
 
     @PutMapping
     public List<User> putUser(Model model, @RequestBody User user) throws IOException {
+        System.out.println(user);
+        System.out.println(user);
+        System.out.println(user);
+        System.out.println(user);
         service.addUser(user);
         return service.getAllActiveUsers();
 
