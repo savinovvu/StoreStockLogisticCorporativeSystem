@@ -39,7 +39,6 @@ public class OrderController {
     public List<ProductOrder> getActiveOrders(Model model, @RequestBody ProductOrder order) throws JsonProcessingException {
         service.putOrder(order);
         return service.getActiveOrders();
-
     }
 
 
