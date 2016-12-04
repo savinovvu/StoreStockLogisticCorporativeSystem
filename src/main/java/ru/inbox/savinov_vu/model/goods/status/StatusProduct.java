@@ -15,11 +15,14 @@ import java.time.LocalDate;
 @Table(name = "currentstatus")
 public class StatusProduct implements Comparable<StatusProduct>  {
 
+
+
     @Id
-    @Column(name = "statusId")
     @JsonProperty("id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int status_id;
+    @Column(name = "statusId")
+    @SequenceGenerator(name = "STATUS_SEQ", sequenceName = "STATUS_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "STATUS_SEQ")
+    private int statusId;
 
 
 
@@ -52,12 +55,13 @@ public class StatusProduct implements Comparable<StatusProduct>  {
     }
 
 
-    public int getStatus_id() {
-        return status_id;
+
+    public int getStatusId() {
+        return statusId;
     }
 
-    public void setStatus_id(int status_id) {
-        this.status_id = status_id;
+    public void setStatusId(int statusId) {
+        this.statusId = statusId;
     }
 
     public EnumStatusProduct getStatusName() {
@@ -96,7 +100,7 @@ public class StatusProduct implements Comparable<StatusProduct>  {
     @Override
     public String toString() {
         return "StatusProduct{" +
-                "status_id=" + status_id +
+                "status_id=" + statusId +
                 ", statusName=" + statusName +
                 ", date=" + date +
 
@@ -108,6 +112,6 @@ public class StatusProduct implements Comparable<StatusProduct>  {
     public int compareTo(StatusProduct o) {
         if (date == null) return 1;
         if (o.getDate() == null) return -1;
-        return getStatus_id()>o.getStatus_id()? 1 : -1;
+        return getStatusId()>o.getStatusId()? 1 : -1;
     }
 }
