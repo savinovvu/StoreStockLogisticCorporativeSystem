@@ -21,11 +21,11 @@ INSERT INTO orders (order_id, startDate, active, customerName, customerPhone, or
   (4, '2016-05-13', TRUE, 'customerName4', '8(000)000-0004', 'хороший товар4'),
   (5, '2016-05-13', TRUE, 'customerName5', '8(000)000-0005', 'хороший товар5');
 
-INSERT INTO products (product_id, vendorCode, product_name, countProducts, prepayment, order_id) VALUES
-  (1, 1, 'product1', 1, 10001, 1),
-  (2, 2, 'product2', 2, 20002, 2),
-  (3, 3, 'product3', 3, 30003, 3),
-  (4, 4, 'product4', 4, 40004, 4);
+INSERT INTO products (vendorCode, product_name, countProducts, prepayment, order_id) VALUES
+  ( 1, 'product1', 1, 10001, 1),
+  ( 2, 'product2', 2, 20002, 2),
+  ( 3, 'product3', 3, 30003, 3),
+  ( 4, 'product4', 4, 40004, 4);
 /*  (10004, 'product5', '2016-05-13 10:00:00', 10003),
   (10006, 'product6', '2016-05-13 10:00:00', 10003);*/
 
