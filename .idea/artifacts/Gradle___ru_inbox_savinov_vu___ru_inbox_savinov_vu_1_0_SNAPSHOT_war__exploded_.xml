@@ -28,9 +28,8 @@
           <element id="library" level="project" name="Gradle: postgresql:postgresql:9.1-901-1.jdbc4" />
           <element id="library" level="project" name="Gradle: org.hsqldb:hsqldb:2.3.4" />
           <element id="library" level="project" name="Gradle: org.apache.tomcat:tomcat-jdbc:9.0.0.M11" />
-          <element id="library" level="project" name="Gradle: org.webjars:bootstrap:3.3.7-1" />
-          <element id="library" level="project" name="Gradle: org.webjars:jquery:2.2.4" />
-          <element id="library" level="project" name="Gradle: org.webjars:datatables:1.10.12-1" />
+          <element id="library" level="project" name="Gradle: com.itextpdf:itextpdf:5.5.10" />
+          <element id="library" level="project" name="Gradle: org.bouncycastle:bcprov-jdk15on:1.55" />
           <element id="library" level="project" name="Gradle: org.jboss.logging:jboss-logging:3.3.0.Final" />
           <element id="library" level="project" name="Gradle: org.javassist:javassist:3.20.0-GA" />
           <element id="library" level="project" name="Gradle: antlr:antlr:2.7.7" />

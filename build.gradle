@@ -82,15 +82,14 @@ dependencies {
     compile 'postgresql:postgresql:' + postgresVersion
     compile 'org.hsqldb:hsqldb:' + hsqldbVersion
     compile 'org.apache.tomcat:tomcat-jdbc:' + tomcatJdbc
-    /*Webjars (static dependencies distributed as JAR files*/
-    compile 'org.webjars:bootstrap:3.3.7-1'
-    compile 'org.webjars:jquery:2.2.4'
-    //compile 'org.webjars:datetimepicker:2.4.7'
-    //compile 'org.webjars:noty:2.3.8'
-    compile 'org.webjars:datatables:1.10.12-1'
+
+    /*pdf Generation*/
+    compile 'com.itextpdf:itextpdf:5.5.10'
+    compile 'org.bouncycastle:bcprov-jdk15on:1.55'
 
     testCompile 'junit:junit:' + jUnitVersion
 
+    /*tomcat*/
     def tomcatVersion = '7.0.73'
     tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
             "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}",
