@@ -5,9 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.inbox.savinov_vu.model.goods.ProductOrder;
 import ru.inbox.savinov_vu.service.goods.OrderService;
 
@@ -35,6 +33,18 @@ public class OrderController {
         return service.getActiveOrders();
 
     }
+
+
+    @PutMapping
+    public List<ProductOrder> getActiveOrders(Model model, @RequestBody ProductOrder order) throws JsonProcessingException {
+        service.putOrder(order);
+        return service.getActiveOrders();
+
+    }
+
+
+
+
 /*
 
     @ResponseBody

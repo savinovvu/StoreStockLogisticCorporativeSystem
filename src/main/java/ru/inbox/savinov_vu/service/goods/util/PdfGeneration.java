@@ -10,9 +10,18 @@ import ru.inbox.savinov_vu.model.goods.ProductOrder;
 import java.io.FileOutputStream;
 
 public class PdfGeneration {
-    static int FONT_SIZE_SMALL = 16;
-    static int FONT_SIZE_BIG = 32;
-    static int OFFSET = 40;
+    static final int FONT_SIZE_SMALL = 16;
+    static final int FONT_SIZE_BIG = 32;
+    static final int OFFSET = 40;
+
+    public PdfGeneration(ProductOrder order)  {
+        try {
+            createPDF(order);
+        } catch (Exception e) {
+            System.out.println("ОШИБКА ФОРМИРОВАНИЯ PDF");
+            e.printStackTrace();
+        }
+    }
 
 
 

@@ -8,4 +8,6 @@ public interface OrderService {
     List<ProductOrder> getAllOrders();
 
     List<ProductOrder> getActiveOrders();
+
+    void putOrder(ProductOrder order);
 }

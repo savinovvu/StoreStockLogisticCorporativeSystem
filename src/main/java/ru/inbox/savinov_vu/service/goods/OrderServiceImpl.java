@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import ru.inbox.savinov_vu.model.goods.ProductOrder;
 import ru.inbox.savinov_vu.repository.OrderRepository;
 import ru.inbox.savinov_vu.service.goods.util.CheckActiveOrder;
+import ru.inbox.savinov_vu.service.goods.util.PdfGeneration;
 import ru.inbox.savinov_vu.service.goods.util.PrepareProductForSend;
 
 import java.util.List;
@@ -44,6 +45,13 @@ public class OrderServiceImpl implements OrderService {
 
     }
 
+    @Override
+    public synchronized void putOrder(ProductOrder order) {
+
+        orderRepository.saveAndFlush(order);
+        new PdfGeneration(orderRepository.findOne(orderRepository.getMaxOrderId()));
+
+    }
 
 
 }
