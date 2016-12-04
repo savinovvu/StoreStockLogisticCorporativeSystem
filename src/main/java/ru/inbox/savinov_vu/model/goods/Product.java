@@ -54,6 +54,15 @@ public class Product {
 
 
     public Product() {
+    }
+
+    public Product(int vendorCode, String product_name, ProductOrder order,
+                   int countProducts, int prepayment) {
+        this.vendorCode = vendorCode;
+        this.product_name = product_name;
+        this.order = order;
+        this.countProducts = countProducts;
+        this.prepayment = prepayment;
 
     }
 

@@ -56,6 +56,14 @@ public class ProductOrder {
 
     public ProductOrder() {}
 
+    public ProductOrder(LocalDate startDate, boolean active, String customerName,
+                        String customerPhone, String orderComment) {
+        this.startDate = startDate;
+        this.active = active;
+        this.customerName = customerName;
+        this.customerPhone = customerPhone;
+        this.orderComment = orderComment;
+    }
 
     public String getCustomerName() {
         return customerName;

@@ -54,7 +54,12 @@ public class StatusProduct implements Comparable<StatusProduct>  {
 
     }
 
+    public StatusProduct(EnumStatusProduct statusName, LocalDate date, Product product) {
+        this.statusName = statusName;
+        this.date = date;
+        this.product = product;
 
+    }
 
     public int getStatusId() {
         return statusId;
