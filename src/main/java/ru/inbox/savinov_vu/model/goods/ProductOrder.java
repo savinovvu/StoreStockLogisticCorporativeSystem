@@ -14,8 +14,9 @@ import java.util.List;
 public class ProductOrder {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @JsonProperty("order_id")
+    @SequenceGenerator(name = "ORDER_SEQ", sequenceName = "ORDER_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ORDER_SEQ")
     private int order_id;
 
     @Column(name = "startDate")
