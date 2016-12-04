@@ -51,11 +51,11 @@ public class PdfGeneration {
         BarcodeEAN barcodeEAN = new BarcodeEAN();
         barcodeEAN.setCodeType(BarcodeEAN.EAN13);
 
-        /*функция составления кода начало*/
+        /*build code for barcode- start*/
          String barcode ="0000000000000";
         int lengthId = String.valueOf(order.getOrder_id()).length();
         barcode = barcode.substring(0,barcode.length()-lengthId) + order.getOrder_id();
-        /*функция составления кода - кончало*/
+        /*build code for barcode - end*/
 
         barcodeEAN.setCode(String.valueOf(barcode));
         Image codeEANImage = barcodeEAN.createImageWithBarcode(pdfContentByte, null, null);
