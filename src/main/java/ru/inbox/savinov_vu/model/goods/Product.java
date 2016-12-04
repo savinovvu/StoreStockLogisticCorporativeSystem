@@ -31,6 +31,13 @@ public class Product {
     @JoinColumn(name = "order_id", nullable = false)
     private ProductOrder order;
 
+    @Column(name = "countProducts")
+    @JsonProperty("countProducts")
+    private int countProducts;
+
+    @Column(name = "prepayment")
+    @JsonProperty("prepayment")
+    private int prepayment;
 
 
     @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER, mappedBy = "product")
@@ -47,6 +54,22 @@ public class Product {
 
     public Product() {
 
+    }
+
+    public int getCountProducts() {
+        return countProducts;
+    }
+
+    public void setCountProducts(int countProducts) {
+        this.countProducts = countProducts;
+    }
+
+    public int getPrepayment() {
+        return prepayment;
+    }
+
+    public void setPrepayment(int prepayment) {
+        this.prepayment = prepayment;
     }
 
     public int getVendorCode() {
