@@ -13,13 +13,22 @@ INSERT INTO users (id, userName, roles, active) VALUES
   (1005, 'Имя4', 'Продавец', TRUE),
   (1004, 'name4', 'Продавец', FALSE);
 
+/* @Column(name = "customerName")
+    @JsonProperty("customerName")
+    private String customerName;
 
-INSERT INTO orders (order_id, startDateTime, active) VALUES
-  (10000, '2016-05-10 10:00:00', TRUE ),
-  (10001, '2016-05-11 10:00:00', TRUE ),
-  (10002, '2016-05-12 10:00:00', TRUE ),
-  (10003, '2016-05-13 10:00:00', TRUE ),
-  (10004, '2016-05-13 10:00:00', TRUE );
+    @Column(name = "customerPhone")
+    @JsonProperty("customerPhone")
+    private String customerPhone;
+
+    @Column(name = "comment")
+    @JsonProperty("comment")*/
+INSERT INTO orders (order_id, startDate, active, customerName,customerPhone ,orderComment) VALUES
+  (10000, '2016-05-10', TRUE,'customerName1','8(000)000-0001','хороший товар1'),
+  (10001, '2016-05-11', TRUE,'customerName2','8(000)000-0002','хороший товар2'),
+  (10002, '2016-05-12', TRUE,'customerName3','8(000)000-0003','хороший товар3'),
+  (10003, '2016-05-13', TRUE,'customerName4','8(000)000-0004','хороший товар4'),
+  (10004, '2016-05-13', TRUE,'customerName5','8(000)000-0005','хороший товар5');
 
 INSERT INTO products (product_id,vendorCode, product_name,  order_id) VALUES
   (10000,1, 'product1',  10000),

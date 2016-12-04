@@ -2,31 +2,42 @@ package ru.inbox.savinov_vu.model.goods;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import ru.inbox.savinov_vu.util.json.JsonDateTimeSerializer;
+import ru.inbox.savinov_vu.util.json.JsonDateSerializer;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 
 @Entity
 @Table(name = "orders")
 public class ProductOrder {
-    /*Сделать 12 цифр*/
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @JsonProperty("order_id")
     private int order_id;
 
-    @Column(name = "startDateTime")
-    @JsonProperty("startDateTime")
-    @JsonSerialize(using = JsonDateTimeSerializer.class)
-    private LocalDateTime startDateTime;
+    @Column(name = "startDate")
+    @JsonProperty("startDate")
+    @JsonSerialize(using = JsonDateSerializer.class)
+    private LocalDate startDate;
 
     @Column(name = "active")
     @JsonProperty("active")
     private boolean active;
+
+    @Column(name = "customerName")
+    @JsonProperty("customerName")
+    private String customerName;
+
+    @Column(name = "customerPhone")
+    @JsonProperty("customerPhone")
+    private String customerPhone;
+
+    @Column(name = "orderComment")
+    @JsonProperty("orderComment")
+    private String orderComment;
 
 
     @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER, mappedBy = "order")
@@ -38,7 +49,36 @@ public class ProductOrder {
 
 
 
+
+
+
+
     public ProductOrder() {}
+
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public String getCustomerPhone() {
+        return customerPhone;
+    }
+
+    public void setCustomerPhone(String customerPhone) {
+        this.customerPhone = customerPhone;
+    }
+
+    public String getOrderComment() {
+        return orderComment;
+    }
+
+    public void setOrderComment(String orderComment) {
+        this.orderComment = orderComment;
+    }
 
     public boolean getActive() {
         return active;
@@ -56,12 +96,16 @@ public class ProductOrder {
         this.order_id = order_id;
     }
 
-    public LocalDateTime getStartDateTime() {
-        return startDateTime;
+    public LocalDate getStartDate() {
+        return startDate;
     }
 
-    public void setStartDateTime(LocalDateTime startDateTime) {
-        this.startDateTime = startDateTime;
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+
+    public boolean isActive() {
+        return active;
     }
 
     public List<Product> getProducts() {
