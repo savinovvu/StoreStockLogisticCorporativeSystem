@@ -15,8 +15,8 @@ public class Product {
 
     @Id
     @JsonProperty("product_id")
-    @SequenceGenerator(name = "STATUS_SEQ", sequenceName = "STATUS_SEQ", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "STATUS_SEQ")
+    @SequenceGenerator(name = "PRODUCT_SEQ", sequenceName = "PRODUCT_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PRODUCT_SEQ")
     private int product_id;
 
     @Column(name = "vendorCode")
