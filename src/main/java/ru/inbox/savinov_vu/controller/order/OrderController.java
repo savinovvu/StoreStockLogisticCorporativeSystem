@@ -27,7 +27,6 @@ public class OrderController {
     }
 
 
-
     @GetMapping
     public List<ProductOrder> getActiveOrders(Model model) throws JsonProcessingException {
         return service.getActiveOrders();
