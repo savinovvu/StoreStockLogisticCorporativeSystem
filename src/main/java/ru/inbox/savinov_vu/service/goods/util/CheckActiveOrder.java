@@ -16,36 +16,36 @@ import static ru.inbox.savinov_vu.model.goods.status.EnumStatusProduct.Отме�
 public class CheckActiveOrder {
 
 
-
-    public List<ProductOrder> getActiveOrders(List<ProductOrder> orders){
+    public List<ProductOrder> getNOtActiveOrders(List<ProductOrder> orders) {
         List<ProductOrder> activeOrders = new ArrayList<>();
         orders.forEach(order -> {
-            if (getActiveOrder(order) != null) {
+            if (getNotActiveOrder(order) != null) {
                 activeOrders.add(order);
             }
         });
         return activeOrders;
     }
 
-    public ProductOrder getActiveOrder(ProductOrder order) {
+    public ProductOrder getNotActiveOrder(ProductOrder order) {
         Set<EnumStatusProduct> terminatedStatuses = new HashSet<>();
         terminatedStatuses.add(Отменен);
         terminatedStatuses.add(Выдан);
         Set<Product> terminatedProduct = new HashSet<>();
         order.getProducts().forEach(product -> {
             product.getStatus().forEach(statusProduct -> {
-                        if (terminatedStatuses.contains(statusProduct)) {
+                        if (terminatedStatuses.contains(statusProduct.getStatusName())) {
                             terminatedProduct.add(product);
                         }
+
                     }
             );
         });
-        if (terminatedProduct.size() == order.getProducts().size()){
+
+        if (terminatedProduct.size() == order.getProducts().size()) {
             order.setActive(false);
-       /*     orderRepository.saveAndFlush(order);*/
-            return null;
+            return order;
         }
-        return order;
+        return null;
     }
 
 

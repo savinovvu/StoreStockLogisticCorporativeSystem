@@ -99,7 +99,7 @@ public class StatusProduct implements Comparable<StatusProduct>  {
                 "status_id=" + status_id +
                 ", statusName=" + statusName +
                 ", date=" + date +
-                ", user=" + user +
+
                 '}';
     }
 

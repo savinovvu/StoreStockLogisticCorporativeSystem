@@ -28,14 +28,14 @@ public class OrderController {
 
     }
 
-/*
-    @ResponseBody
+
+
     @GetMapping
-    public List<User> getAllActiveUsers(Model model) throws JsonProcessingException {
-        return service.getAllActiveUsers();
+    public List<ProductOrder> getActiveOrders(Model model) throws JsonProcessingException {
+        return service.getActiveOrders();
 
     }
-
+/*
 
     @ResponseBody
     @PutMapping

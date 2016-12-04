@@ -40,7 +40,7 @@ public class ProductOrder {
 
     public ProductOrder() {}
 
-    public boolean isActive() {
+    public boolean getActive() {
         return active;
     }
 
@@ -73,13 +73,12 @@ public class ProductOrder {
     }
 
 
-
     @Override
     public String toString() {
-        return "Order{" +
+        return "ProductOrder{" +
                 "order_id=" + order_id +
-                ", startDateTime=" + startDateTime +
-                ", products=" + products +
+                ", active=" + active +
                 '}';
     }
 }
+
