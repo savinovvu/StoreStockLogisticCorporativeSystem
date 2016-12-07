@@ -21,28 +21,28 @@ import java.util.List;
 public class OrderController {
     @Qualifier("orderServiceImpl")
     @Autowired
-    OrderService service;
+    OrderService orderService;
 
 
     @GetMapping(value = "/all")
     public List<ProductOrder> getAllOrders(Model model) throws JsonProcessingException {
-        System.out.println(service.getAllOrders());
-        return service.getAllOrders();
+        System.out.println(orderService.getAllOrders());
+        return orderService.getAllOrders();
 
     }
 
 
     @GetMapping
     public List<ProductOrder> getActiveOrders(Model model) throws JsonProcessingException {
-        return service.getActiveOrders();
+        return orderService.getActiveOrders();
 
     }
 
 
     @PutMapping
     public List<ProductOrder> getActiveOrders(Model model, @RequestBody ProductOrder order) throws JsonProcessingException {
-        service.putOrder(order);
-        return service.getActiveOrders();
+        orderService.putOrder(order);
+        return orderService.getActiveOrders();
     }
 
     /*        this.startDate = startDate;
@@ -81,9 +81,13 @@ public class OrderController {
         List<Product> products = new ArrayList<>();
         products.add(product);
 
+
+
         order.setProducts(products);
-        service.putOrder(order);
-        return service.getActiveOrders();
+        orderService.putOrder(order);
+
+
+        return orderService.getActiveOrders();
     }
 
 
@@ -94,8 +98,8 @@ public class OrderController {
     @ResponseBody
     @PutMapping
     public List<User> putUser(Model model, @RequestBody User user) throws IOException {
-        service.addUser(user);
-        return service.getAllActiveUsers();
+        orderService.addUser(user);
+        return orderService.getAllActiveUsers();
 
     }
 
@@ -103,8 +107,8 @@ public class OrderController {
     @ResponseBody
     @PostMapping
     public List<User> changeActiveUser(Model model, @RequestBody User user) throws IOException {
-        service.addUser(user);
-        return service.getAllUsers();
+        orderService.addUser(user);
+        return orderService.getAllUsers();
     }
     */
 

@@ -6,13 +6,13 @@ import org.springframework.stereotype.Service;
 import ru.inbox.savinov_vu.model.goods.ProductOrder;
 import ru.inbox.savinov_vu.repository.OrderRepository;
 import ru.inbox.savinov_vu.service.goods.util.CheckActiveOrder;
-import ru.inbox.savinov_vu.service.goods.util.PdfGeneration;
 import ru.inbox.savinov_vu.service.goods.util.PrepareProductForSend;
 
 import java.util.List;
 
 @Service
 public class OrderServiceImpl implements OrderService {
+
 
     @Autowired
     private OrderRepository orderRepository;
@@ -49,8 +49,12 @@ public class OrderServiceImpl implements OrderService {
     public synchronized void putOrder(ProductOrder order) {
 
         orderRepository.saveAndFlush(order);
-        new PdfGeneration(orderRepository.findOne(orderRepository.getMaxOrderId()));
+       // get id to saved order and redirect to pdf or send back.
+        }
 
+    @Override
+    public ProductOrder getOrderById(int id) {
+        return orderRepository.findOne(id);
     }
 
 

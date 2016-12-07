@@ -14,8 +14,16 @@
 </head>
 <body onload="getAll()">
 
+<form method="get" action="/pdf" >
+    <input type="text" name="id">
+    <label for="button">кнопка</label>
+    <input id="button" type="submit">
+
+</form>
+
 <div class="view-box">
     <div class="menu">
+
 
         <!-- Кнопка для открытия модального окна -->
         <button type="button" class="btn btn-lg btn-success custombtn" data-toggle="modal"

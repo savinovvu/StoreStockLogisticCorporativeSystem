@@ -9,5 +9,7 @@ public interface OrderService {
 
     List<ProductOrder> getActiveOrders();
 
+    ProductOrder getOrderById(int id);
+
     void putOrder(ProductOrder order);
 }

@@ -13,7 +13,6 @@ INSERT INTO users (id, userName, roles, active) VALUES
   (1005, 'Имя4', 'Продавец', TRUE),
   (1004, 'name4', 'Продавец', FALSE);
 
-
 INSERT INTO orders (startDate, active, customerName, customerPhone, orderComment) VALUES
   ('2016-05-10', TRUE, 'customerName1', '8(000)000-0001', 'хороший товар1'),
   ('2016-05-11', TRUE, 'customerName2', '8(000)000-0002', 'хороший товар2'),
@@ -26,8 +25,7 @@ INSERT INTO products (vendorCode, product_name, countProducts, prepayment, order
   (2, 'product2', 2, 20002, 2),
   (3, 'product3', 3, 30003, 3),
   (4, 'product4', 4, 40004, 4);
-/*  (10004, 'product5', '2016-05-13 10:00:00', 10003),
-  (10006, 'product6', '2016-05-13 10:00:00', 10003);*/
+
 
 INSERT INTO locals (localname) VALUES
   ('Local1'),
@@ -39,7 +37,6 @@ INSERT INTO currentstatus (statusName, statusDate, product_id, id) VALUES
   ('Обработан', '2016-05-10', 1, 1000),
   ('Заказан', '2016-05-11', 2, 1001),
   ('Проверен_и_отложен', '2016-05-12', 3, 1002),
-
   ('Обработан', '2016-05-13', 4, 1003),
   ('Не_заказан', '2016-05-13', 4, 1003),
   ('Заказан', '2016-05-13', 4, 1003),
