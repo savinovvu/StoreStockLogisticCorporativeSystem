@@ -31,6 +31,12 @@ public class OrderServiceImpl implements OrderService {
 
     }
 
+    private ProductOrder preparedProduct(ProductOrder productOrders) {
+        PrepareProductForSend prepare = new PrepareProductForSend();
+        return prepare.prepare(productOrders);
+
+    }
+
     @Override
     public List<ProductOrder> getAllOrders() {
         beforeGet();
@@ -54,7 +60,8 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public ProductOrder getOrderById(int id) {
-        return orderRepository.findOne(id);
+        beforeGet();
+        return preparedProduct(orderRepository.findById(id));
     }
 
 
