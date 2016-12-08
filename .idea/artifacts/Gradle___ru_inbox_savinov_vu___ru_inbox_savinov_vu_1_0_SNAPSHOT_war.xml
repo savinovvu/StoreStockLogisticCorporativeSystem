@@ -25,7 +25,6 @@
           <element id="library" level="project" name="Gradle: org.springframework.data:spring-data-jpa:1.2.0.RELEASE" />
           <element id="library" level="project" name="Gradle: jstl:jstl:1.2" />
           <element id="library" level="project" name="Gradle: javax.servlet:javax.servlet-api:3.0.1" />
-          <element id="library" level="project" name="Gradle: postgresql:postgresql:9.1-901-1.jdbc4" />
           <element id="library" level="project" name="Gradle: org.hsqldb:hsqldb:2.3.4" />
           <element id="library" level="project" name="Gradle: org.apache.tomcat:tomcat-jdbc:9.0.0.M11" />
           <element id="library" level="project" name="Gradle: com.itextpdf:itextpdf:5.5.10" />
