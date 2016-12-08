@@ -1,14 +1,14 @@
 package ru.inbox.savinov_vu.util.pdf;
 
 import com.itextpdf.text.*;
-import com.itextpdf.text.pdf.BarcodeEAN;
-import com.itextpdf.text.pdf.BaseFont;
-import com.itextpdf.text.pdf.PdfContentByte;
-import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.pdf.*;
+import ru.inbox.savinov_vu.model.goods.Product;
 import ru.inbox.savinov_vu.model.goods.ProductOrder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 
@@ -20,56 +20,36 @@ public class ItextPdfView extends AbstractITextPdfView {
     static final int FONT_SIZE_SMALL = 16;
     static final int FONT_SIZE_BIG = 32;
     static final int OFFSET = 40;
+    static final String FONT_LOCATION = "/Fonts/TIMCYR_TTF/TIMCYR.TTF";
+
+    final BaseFont timesNewRoman =
+            BaseFont.createFont(
+                    FONT_LOCATION,
+                    BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+
+    final Font fontBig = new Font(timesNewRoman, FONT_SIZE_BIG);
+    final Font fontSmall = new Font(timesNewRoman, 14);
+    final Font font12 = new Font(timesNewRoman, 12);
+    final Font font8 = new Font(timesNewRoman, 8);
+
+    final int sizeSpacingAfter = 8;
+    final Font font1 = new Font(timesNewRoman,
+            FONT_SIZE_BIG, Font.BOLD);
+    final Font font2 = new Font(timesNewRoman,
+            FONT_SIZE_SMALL, Font.ITALIC | Font.UNDERLINE);
+
+    public ItextPdfView() throws IOException, DocumentException {
+    }
 
 
     @Override
     protected void buildPdfDocument(Map<String, Object> model, Document document, PdfWriter writer, HttpServletRequest request, HttpServletResponse response) throws Exception {
         ProductOrder order = (ProductOrder) model.get("order");
 
-        String FONT_LOCATION = "/Fonts/TIMCYR_TTF/TIMCYR.TTF";
-        // String FONT_LOCATION = "dsfsdf/Fonts/TIMCYR_TTF/TIMCYR.TTF";
+        // Font font1 = FontFactory.getFont(FontFactory.COURIER, 14, Font.BOLD,	new CMYKColor(0, 255, 0, 0));
 
 
-   /*     String FONT_LOCATION_BOLD = "/Fonts/TIMCYR_TTF/TIMCYRB.TTF";
-        String FONT_LOCATION_ITALICS= "/Fonts/TIMCYR_TTF/TIMCYRI.TTF";
-        String FONT_LOCATION_BOLD_ITALICS= "/Fonts/TIMCYR_TTF/TIMCYRBI.TTF";*/
-
-        BaseFont timesNewRoman =
-                BaseFont.createFont(
-                        FONT_LOCATION,
-                        BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
-
-        @SuppressWarnings("unchecked")
-        //List<Course> courses = (List<Course>) model.get("courses");
-
-       /* PdfPTable table = new PdfPTable(3);
-        table.setWidths(new int[]{10, 60, 30});
-
-        table.addCell("ID");
-        table.addCell("Name");
-        table.addCell("Date");*/
-
-    /*    for (Course course : courses){
-            table.addCell(String.valueOf(course.getId()));
-            table.addCell(course.getName());
-            table.addCell(DATE_FORMAT.format(course.getDate()));
-        }
-*/
-       // Font font1 = FontFactory.getFont(FontFactory.COURIER, 14, Font.BOLD,	new CMYKColor(0, 255, 0, 0));
-                Font fontBig = new Font(timesNewRoman, FONT_SIZE_BIG);
-        Font fontSmall = new Font(timesNewRoman, 14);
-        Font font12 = new Font(timesNewRoman, 12);
-        int sizeSpacingAfter = 8;
-        Font font1 = new Font(timesNewRoman,
-                FONT_SIZE_BIG, Font.BOLD);
-        Font font2 = new Font(timesNewRoman,
-                FONT_SIZE_SMALL, Font.ITALIC | Font.UNDERLINE);
-/*order.getOrder_id()+*/
-
-
-/*        document.add(table);*/
-
-        Paragraph title = new Paragraph("order", font1);
+        Paragraph title = new Paragraph("Заказ №"+ order.getOrder_id(), font1);
         title.setAlignment(Element.ALIGN_CENTER);
         document.add(title);
 
@@ -78,10 +58,10 @@ public class ItextPdfView extends AbstractITextPdfView {
         barcodeEAN.setCodeType(BarcodeEAN.EAN13);
 
         //build code for barcode- start
-         String barcode ="0000000000000";
+        String barcode = "0000000000000";
         int lengthId = String.valueOf(order.getOrder_id()).length();
-        barcode = barcode.substring(0,barcode.length()-lengthId) + order.getOrder_id();
-      //  build code for barcode - end
+        barcode = barcode.substring(0, barcode.length() - lengthId) + order.getOrder_id();
+        //  build code for barcode - end
         PdfContentByte pdfContentByte = writer.getDirectContent();
         barcodeEAN.setCode(String.valueOf(barcode));
         Image codeEANImage = barcodeEAN.createImageWithBarcode(pdfContentByte, null, null);
@@ -102,24 +82,64 @@ public class ItextPdfView extends AbstractITextPdfView {
         customerPhonePr.setSpacingAfter(sizeSpacingAfter);
         document.add(customerPhonePr);
 
-        order.getProducts().forEach(product -> {
-            Paragraph productList = new Paragraph(String.valueOf(product), font12);
-            productList.setSpacingAfter(sizeSpacingAfter);
-            try {
-                document.add(productList);
-            } catch (DocumentException e) {
-                e.printStackTrace();
-            }
-        });
+
+        PdfPTable table = new PdfPTable(4);
+        table.setWidths(new int[]{30, 60, 30, 30});
 
 
+        table.addCell(getNormalCell("Артикул",10));
+        table.addCell(getNormalCell("Наименование",60));
+        table.addCell(getNormalCell("Кол-во",30));
+        table.addCell(getNormalCell("Предоплата",30));
+
+        List<Product> products = order.getProducts();
+
+        System.out.println(products.size());
+        System.out.println(products.size());
+        System.out.println(products.size());
+        System.out.println(products.size());
+        System.out.println(products.size());
+        System.out.println(products.size());
+        System.out.println(products.size());
+        System.out.println(products.size());
+        System.out.println(products.size());
 
 
+        for (Product product : products) {
+            table.addCell(getNormalCell(String.valueOf(product.getVendorCode()),10));
+            table.addCell(getNormalCell(product.getProduct_name(),60));
+            table.addCell(getNormalCell(String.valueOf(product.getCountProducts()),30));
+            table.addCell(getNormalCell(String.valueOf(product.getPrepayment()), 30));
+        }
 
+    
+
+        document.add(table);
+
+
+        Paragraph comment = new Paragraph("Примечание: " + order.getOrderComment(), fontSmall);
+        customerPhonePr.setSpacingAfter(sizeSpacingAfter);
+        document.add(comment);
 
 
     }
 
+    private PdfPCell getNormalCell(String string,  float size)
+            throws DocumentException, IOException {
+        if (string != null && "".equals(string)) {
+            return new PdfPCell();
+        }
+        Font f = font12;
+        if (size < 0) {
+            f.setColor(BaseColor.RED);
+            size = -size;
+        }
+       /* f.setSize(size);*/
+        PdfPCell cell = new PdfPCell(new Phrase(string, f));
+        cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+        cell.setVerticalAlignment(Element.ALIGN_CENTER);
+        return cell;
+    }
 
 
 }

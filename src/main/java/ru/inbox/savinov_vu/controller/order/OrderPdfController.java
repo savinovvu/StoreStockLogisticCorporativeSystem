@@ -19,7 +19,7 @@ public class OrderPdfController {
 
 /*
     Еo get pdf page need send request to URL: orders/page/{id}.pdf
-*   for example: http://localhost:8080/orders/page/5.pdf
+*   for example: http://localhost:8080/orders/page/4.pdf
 * */
 
     @GetMapping(value = "/orders/page/{id}")
