@@ -1,0 +1,49 @@
+// crossbrowser flex
+@mixin FLEX($param) {
+	@if $param == disp {
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -webkit-box;
+		display: flex;
+	}
+	@else if $param == wrap {
+		-webkit-box-lines: multiple;
+		-ms-flex-wrap: wrap;
+		-webkit-flex-wrap: wrap;
+		flex-wrap: wrap;
+		white-space: normal;
+	}
+}
+
+//square element
+@mixin SQR($value) {
+	width: $value;
+	height: $value;
+}
+
+//rem font
+@function calculateRem($size) {
+  	$remSize: $size / 14px;
+  	@return $remSize * 1rem;
+}
+
+@mixin FZ($size) {
+	font-size: $size;
+  	font-size: calculateRem($size);
+}
+
+@mixin GRADIENT($deg,$from,$start,$to,$end) {
+	background: $from;
+	background: -moz-linear-gradient($deg, $from $start, $to $end);
+	background: -webkit-linear-gradient($deg, $from $start, $to $end);
+	background: -o-linear-gradient($deg, $from $start, $to $end);
+	background: -ms-linear-gradient($deg, $from $start, $to $end);
+	background: linear-gradient($deg, $from $start, $to $end);
+}
+
+@mixin SHADOW($distance,$blur,$color,$opacity) {
+	-webkit-box-shadow: 0px $distance $blur 0px rgba($color, $opacity);
+	   -moz-box-shadow:    0px $distance $blur 0px rgba($color, $opacity);
+		    box-shadow:         0px $distance $blur 0px rgba($color, $opacity);
+}

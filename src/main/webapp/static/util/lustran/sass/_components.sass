@@ -1,0 +1,604 @@
+@charset "UTF-8"
+
+.lustran-page
+	+FLEX(disp)
+	min-height: 100vh
+
+.lustran-nav
+	width: 65px
+	background-color: #2f2032
+	.lustran-nav-item
+		display: block
+		padding: 10px 0
+		text-transform: lowercase
+		font-size: 11px
+		line-height: 1
+		text-align: center
+		color: #5dd39e
+		transition: all .3s ease-in
+		i
+			margin-bottom: 5px
+			font-size: 30px
+		&:hover
+			background-color: #3c2940
+
+.lustran-main
+	width: 100%
+
+.lustran-navbar
+	background-color: #553f5a
+	color: #fff
+
+.lustran-container
+	width: 99%
+	+MQ(lg)
+		max-width: 1600px
+
+.lustran-container-nav
+	width: 96%
+
+.lustran-search-form
+	margin: 0
+	padding: 0
+	+MQ(md)
+		width: 45%
+	.form-group
+		width: 100%
+		height: 81px
+		input
+			width: 100%
+			height: 100%
+			border-radius: 0
+			border: none
+			background-color: #59425e
+			color: #fff
+			&:focus
+				box-shadow: none
+
+.nav > li > .lustran-dropdown
+	background-color: #5b4660
+	color: #fff
+	font-weight: 700
+	transition: all .3s ease-in-out
+	&:hover,
+	&:active,
+	&:focus
+		background-color: #614a66
+
+.lustran-dropdown-menu,
+.status-menu-dropdown
+	padding: 0
+	border-radius: 0
+	background-color: #6b4f71
+	box-shadow: none
+	border: none
+	> li > a
+		padding: 10px 25px
+		color: #fff
+		background-color: #614a66
+		&:hover,
+		&:active
+			background-color: #735a79
+			color: #fff
+
+.status-menu
+	position: relative
+	&:hover
+		.status-menu-dropdown
+			+FLEX(disp)
+			+FLEX(wrap)
+
+.status-menu-dropdown
+	display: none
+	// +FLEX(disp)
+	// +FLEX(wrap)
+	position: absolute
+	top: 100%
+	left: 0
+	padding: 20px
+	width: 600px
+	background-color: #614a66
+	.dropdown
+		margin: 0 20px 20px 0
+		width: 168px
+		&:nth-child(3)
+			margin-right: 0
+		> button
+			width: 100%
+	.status-menu-check
+		label
+			margin-right: 10px
+			margin-bottom: 0
+			vertical-align: top
+			line-height: 1
+			font-weight: 300
+		input
+			margin: 0
+
+
+.order
+	+FLEX(disp)
+	margin-bottom: 5px
+	.order-header
+		padding: 0 10px
+		width: 80px
+	.order-body
+		width: 100%
+
+.order-id
+	margin-bottom: 8px
+	font-size: 11px
+	text-align: center
+	line-height: 1
+	color: #fff
+	span
+		display: block
+		font-size: 19px
+		font-weight: 700
+
+.order-basket
+	position: relative
+	margin-bottom: 8px
+	padding: 3px
+	padding-left: 28px
+	border-radius: 5px
+	background-color: #624868
+	color: #fff
+	&::after
+		content: '\f291'
+		font: normal normal normal 12px/1 FontAwesome
+		position: absolute
+		top: 6px
+		left: 9px
+
+.order-add
+	display: block
+	background-color: #5dd39e
+	color: #fff
+	border-radius: 5px
+	transition: all .3 ease-in-out
+	&:hover
+		background-color: darken(#5dd39e,10%)
+		color: #fff
+
+
+.order-list-item
+	margin-bottom: 5px
+	padding: 5px
+	border-radius: 5px
+	background-color: #fff
+	&.status-removed
+		opacity: .3
+
+	.order-list-item-header
+		position: relative
+		margin-bottom: 5px
+		span
+			margin: 0 12px
+			font-weight: 700
+			&:first-child
+				margin: 0
+			&:nth-child(2)
+				margin-left: 6px
+				font-weight: 300
+
+		.order-count
+			i
+				font-style: normal
+			&::before
+				content: 'Количество: '
+				font-weight: 300
+		.order-float-date::before
+			content: 'Ориентировочная дата: '
+			font-weight: 300
+
+.remove-order-status
+	position: absolute
+	top: 2px
+	right: 5px
+	line-height: 1
+	&::after
+		content: '\f057'
+		font: normal normal normal 14px/1 FontAwesome
+		color: #d35d5d
+
+
+.sep-dot
+	position: relative
+	&::after
+		content: '\f111'
+		position: absolute
+		top: 6px
+		right: -13px
+		font: normal normal normal 5px/1 FontAwesome
+
+.badge-pur
+	background-color: #513b56
+	color: #fff
+.badge-pur-light
+	background-color: #7c5d83
+	color: #fff
+
+.btn-success
+	border-radius: 5px
+	background-color: #5dd39e
+	border: 1px solid #5dd39e
+	color: #fff
+	line-height: 1
+	transition: all .3s ease-in-out
+	&:hover
+		background-color: darken(#5dd39e, 10%)
+		color: #fff
+
+.order-status
+	+FLEX(disp)
+	justify-content: space-between
+	border-radius: 5px
+
+	.order-status-body
+		padding: 5px
+		width: 100%
+		border: 1px solid #ddd
+		border-right: none
+		border-top-left-radius: 5px
+		border-bottom-left-radius: 5px
+	.order-status-edit
+		position: relative
+		display: inline-block
+		width: 35px
+		border-top-right-radius: 5px
+		border-bottom-right-radius: 5px
+		background-color: #5dd39e
+		transition: all .3s ease-in-out
+		&::after
+			content: '\f044'
+			font: normal normal normal 14px/1 FontAwesome
+			color: #fff
+			position: absolute
+			top: 50%
+			left: 50%
+			margin-left: -7px
+			margin-top: -7px
+		&:hover
+			background-color: darken(#5dd39e, 10%)
+
+	.status-top
+		+FLEX(disp)
+		+FLEX(wrap)
+		justify-content: space-between
+		margin-bottom: 3px
+	.status
+		display: inline-block
+		text-transform: uppercase
+		font-weight: 700
+	.status-date
+		display: inline-block
+		font-size: 11px
+	.status-bottom
+		font-size: 11px
+		.edit
+			color: #5dd39e
+			cursor: pointer
+
+	&.status-danger
+		.order-status-body
+			border: 1px solid #d35d5d
+			border-right: none
+		.order-status-edit
+			background-color: #d35d5d
+			&:hover
+				background-color: darken(#d35d5d, 10%)
+		.status-bottom
+			.edit
+				color: #d35d5d
+
+	&.status-null
+		opacity: .3
+
+.new-order-wrapper
+	+FLEX(disp)
+	+FLEX(wrap)
+	padding: 80px 0
+
+.new-order
+	margin: auto
+	border-radius: 5px
+	background-color: #fff
+	.new-order-header
+		+FLEX(disp)
+		justify-content: space-between
+		padding: 25px
+		border-bottom: 1px solid #f2eaf4
+	.new-order-body
+		padding: 25px
+
+.new-order-info
+	.new-order-id,
+	.new-order-date,
+	.new-order-iter
+		font-weight: 700
+
+.new-order-barcode
+	width: 130px
+	height: 65px
+	background:
+		size: contain
+		repeat: no-repeat
+		position: center center
+
+.new-order-form
+	.new-order-form-row
+		position: relative
+		+FLEX(disp)
+		align-items: flex-end
+		margin-bottom: 20px
+		&:hover
+			.new-row.remove
+				visibility: visible
+				opacity: 1
+		fieldset
+			margin-bottom: 10px
+		&.bottom
+			align-items: flex-start
+
+		.new-row
+			+FLEX(disp)
+			align-items: center
+			position: absolute
+			bottom: 15px
+			right: 0
+			text-transform: lowercase
+			font-size: 12px
+			cursor: pointer
+			transition: all .3s ease-in-out				
+			i
+				font-size: 30px
+			&.add
+				color: #5dd39e
+				&:hover
+					color: lighten(#5dd39e,8%)
+			&.remove
+				visibility: hidden
+				opacity: 0
+				color: #d35d5d
+				&:hover
+					color: lighten(#d35d5d,8%)
+
+	.btn-wrapper
+		text-align: center
+		.btn
+			text-transform: uppercase
+			font-size: 14px
+			font-weight: 700
+
+.check-in-wrapper
+	+FLEX(disp)
+	min-height: 100vh
+	.check-in-inner
+		margin: auto
+
+.pin-wrapper,
+.wellcome-wrapper,
+.checking-in-wrapper
+	width: 100%
+	+FLEX(disp)
+	+FLEX(wrap)
+	justify-content: center
+
+.pin
+	padding: 20px
+	width: 410px
+	border-radius: 5px
+	background-color: #fff
+
+
+.btn-pin
+	background-color: #5dd39e
+	color: #fff
+	font-weight: 700
+	border-radius: 5px
+	border: 1px solid #5dd39e
+	transition: all .3 ease-in-out
+	&:hover
+		background-color: darken(#5dd39e,10%)
+		color: #fff
+
+.wellcome
+	width: 410px
+	text-align: center
+	color: #fff
+	line-height: 1.2
+	i
+		margin-bottom: 20px
+		font-size: 121px
+		color: #5dd39e
+	.wellcome-top
+		margin-bottom: 20px
+		text-transform: uppercase
+		font-weight: 700
+		font-size: 22px
+
+.checking-in
+	width: 790px
+	border-radius: 5px
+	background-color: #fff
+	.checking-in-body
+		padding: 20px
+	.checking-in-footer
+		padding: 20px
+		border-top: 1px solid #f2eaf4
+
+.checking-in-period
+	.period-top
+		margin-bottom: 10px
+		font-weight: 700
+		text-transform: uppercase
+
+.checking-in-list-item
+	margin-bottom: 5px
+	&.lateness
+		padding: 3px 5px
+		border-radius: 5px
+		background-color: #d35d5d
+		color: #fff
+	span
+		margin: 0 12px
+		&:first-child
+			margin: 0 
+	.badge.lateness
+		float: right
+
+
+.badge.lateness
+	background-color: #b14f4f
+	color: #fff
+	text-transform: lowercase
+
+.checking-in-footer
+	.form-horizontal label
+		float: left
+		font-weight: 100
+	.btn-success
+		padding: 8px 12px
+
+label.check
+	+FLEX(disp)
+	align-items: flex-end
+	line-height: 1
+
+.layout-dark,
+.modal-layout
+	display: none
+	position: absolute
+	top: 0
+	right: 0
+	bottom: 0
+	left: 0
+	z-index: 1100
+	background-color: rgba(#000,.7)
+
+.modal-layout
+	position: fixed
+	// display: block
+	overflow-y: auto
+
+.action
+	visibility: hidden
+	opacity: 0
+	position: absolute
+	z-index: 1101
+	width: 300px
+	background-color: #fff
+	border-radius: 5px
+	transition: all .3s ease-in-out .3s
+	&.show
+		visibility: visible
+		opacity: 1
+	&::after
+		content: ''
+		position: absolute
+		top: -40px
+		right: 50%
+		margin-right: -20px
+		border: 20px solid transparent	
+		border-bottom: 20px solid #fff
+	.action-header
+		position: relative
+		padding: 10px
+		border-bottom: 1px solid #f2eaf4
+		.action-date,
+		.action-order,
+		.action-shop
+			font-weight: 700
+	.action-body
+		padding: 10px
+
+.action-row
+	margin-bottom: 10px
+
+.close-action
+	position: absolute
+	top: 5px
+	right: 5px
+	color: #646464
+	cursor: pointer
+
+.auth
+	font-size: 12px
+	line-height: 1.2
+.auth-like
+	color: #5dd39e
+
+.lustran-drop
+	position: relative
+	&::after
+		content: '\f13a'
+		font: normal normal normal 14px/1 FontAwesome
+		position: absolute
+		top: 50%
+		right: 10px
+		margin-top: -7px
+		color: #5dd39e
+
+.btn-done
+	background-color: #5dd39e
+	color: #fff
+	trancition: all .3s ease-in-out
+	&:hover
+		color: #fff
+		background-color: darken(#5dd39e,10%)
+
+.btn-cancel
+	background-color: #d35d5d
+	color: #fff
+	trancition: all .3s ease-in-out
+	&:hover
+		color: #fff
+		background-color: darken(#d35d5d,10%)
+
+.modal-log
+	position: absolute
+	top: 100px
+	left: 50%
+	margin-left: -792px/2
+	margin-bottom: 100px
+	width: 792px
+	background-color: #fff
+	border-radius: 5px
+	.modal-log-header
+		position: relative
+		padding: 10px
+		border-bottom: 1px solid #f2eaf4
+	.modal-log-body
+		padding: 10px
+		height: 330px
+		overflow: auto
+	.modal-log-footer
+		padding: 10px
+		border-top: 1px solid #f2eaf4
+	.log-product,
+	.log-order,
+	.log-editor
+		font-weight: 700
+
+.log
+	margin-bottom: 10px
+	border: 1px solid #f2eaf4
+	border-radius: 5px
+	.log-header
+		+FLEX(disp)
+		align-items: center
+		justify-content: space-between
+		padding: 5px
+		border-bottom: 1px solid #f2eaf4
+		.log-info 
+			width: 50%
+	.log-body
+		padding: 5px
+
+.log-status
+	float: right
+	text-transform: uppercase
+	font-weight: 700
+	.log-status-end
+		color: #5dd39e

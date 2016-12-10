@@ -43,7 +43,7 @@ public class StartController {
 
     @GetMapping(value = "/editOrder")
     public String editOrder(Model model) {
-        return "goods/order";
+        return "goods/index";
     }
 
     @GetMapping(value = "/editLocal")
