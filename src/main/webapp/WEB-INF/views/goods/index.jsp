@@ -6,19 +6,22 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<link rel="stylesheet" href="../../../static/util/lustran/vendor/perfect-scrollbar/css/perfect-scrollbar.min.css">
-	<link rel="stylesheet" href="../../../static/util/lustran/css/style.css">
-	<script src="/static/util/lustran/js/jquery-3.1.1.min.js"></script>
-	<script src="/static/util/lustran/vendor/bootstrap/assets/javascripts/bootstrap.min.js"></script>
-	<script src="/static/util/lustran/vendor/Inputmask-3.x/dist/jquery.inputmask.bundle.js"></script>
-	<script src="/static/util/lustran/vendor/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
-	<script src="/static/util/lustran/js/main.js"></script>
+	<link rel="stylesheet" href="../../..//static/util/lustran/vendor/perfect-scrollbar/css/perfect-scrollbar.min.css">
+	<link rel="stylesheet" href="../../..//static/util/lustran/css/style.css">
+	<script src="../../..//static/util/lustran/js/jquery-3.1.1.min.js"></script>
+	<script src="../../..//static/util/lustran/vendor/bootstrap/assets/javascripts/bootstrap.min.js"></script>
+	<script src="../../..//static/util/lustran/vendor/Inputmask-3.x/dist/jquery.inputmask.bundle.js"></script>
+	<script src="../../..//static/util/lustran/vendor/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
+	<script src="../../..//static/util/lustran/js/main.js"></script>
 </head>
 <body>
 	<div class="lustran-page">
 		<nav class="lustran-nav">
-			<a href="addnew.html" class="lustran-nav-item"><i class="fa fa-plus-circle" aria-hidden="true"></i>Добавить заказ</a>
-			<a href="index.html" class="lustran-nav-item"><i class="fa fa-list-alt" aria-hidden="true"></i>Заказы и товары</a>
+
+
+			<a href="#" onclick="" class="lustran-nav-item"><i class="fa fa-plus-circle" aria-hidden="true"></i>Добавить заказ</a>
+
+				<a href="index.html" class="lustran-nav-item"><i class="fa fa-list-alt" aria-hidden="true"></i>Заказы и товары</a>
 			<a href="../../../static/util/lustran/checkin.html" class="lustran-nav-item"><i class="fa fa-user-plus" aria-hidden="true"></i>Отметиться</a>
 		</nav>
 		<main class="lustran-main">
