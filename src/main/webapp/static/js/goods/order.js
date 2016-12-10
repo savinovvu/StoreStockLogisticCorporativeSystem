@@ -10,6 +10,7 @@
  }*/
 
 
+
 function getAll() {
     send("/orders/all", "GET");
     /*    changeAllToActiveButton();*/

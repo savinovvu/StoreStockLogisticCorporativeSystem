@@ -9,17 +9,47 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<link rel="stylesheet" href="../../../static/util/lustran/css/style.css">
+	<link rel="stylesheet" href="../../../static/css/util/hidden.css">
+
 	<script src="../../../static/util/lustran/js/jquery-3.1.1.min.js"></script>
 	<script src="../../../static/util/lustran/vendor/bootstrap/assets/javascripts/bootstrap.min.js"></script>
 	<script src="../../../static/util/lustran/vendor/Inputmask-3.x/dist/jquery.inputmask.bundle.js"></script>
 	<script src="../../../static/util/lustran/js/main.js"></script>
+	<script src="../../../static/js/util/navigation.js"></script>
+
 </head>
 <body>
 	<div class="lustran-page">
 		<nav class="lustran-nav">
-			<a href="addnew.html" class="lustran-nav-item"><i class="fa fa-plus-circle" aria-hidden="true"></i>Добавить заказ</a>
-			<a href="index.html" class="lustran-nav-item"><i class="fa fa-list-alt" aria-hidden="true"></i>Заказы и товары</a>
-			<a href="../../../static/util/lustran/checkin.html" class="lustran-nav-item"><i class="fa fa-user-plus" aria-hidden="true"></i>Отметиться</a>
+			<a href="#" onclick="getNavigation('addNewNav')" class="lustran-nav-item"><i class="fa fa-plus-circle"
+																						 aria-hidden="true"></i>Добавить
+				заказ</a>
+
+			<div class="displayNone">
+				<form action="/addOrder" method="get">
+					<input id="addNewNav" class="btn btn-primary" class="btn" type="submit" name="viewAllUsers">
+				</form>
+			</div>
+
+
+			<a href="#" onclick="getNavigation('indexNav')" class="lustran-nav-item"><i class="fa fa-list-alt" aria-hidden="true"></i>Заказы и
+				товары</a>
+
+			<div class="displayNone">
+				<form action="/editOrder" method="get">
+					<input id="indexNav" class="btn btn-primary" class="btn" type="submit" name="viewAllUsers">
+				</form>
+			</div>
+
+
+			<a href="#" onclick="getNavigation('checkInNav')"  class="lustran-nav-item"><i class="fa fa-user-plus" aria-hidden="true"></i>Отметиться</a>
+
+			<div class="displayNone">
+				<form action="/checkUser" method="get">
+					<input id="checkInNav" class="btn btn-primary" class="btn" type="submit" name="viewAllUsers">
+				</form>
+			</div>
+
 		</nav>
 		<main class="lustran-main">
 			<nav class="navbar lustran-navbar navbar-static-top">

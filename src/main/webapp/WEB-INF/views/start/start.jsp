@@ -20,7 +20,7 @@
     </form>
 
     <form action="/editOrder" method="get">
-        <input class="btn btn-primary" class="btn" type="submit" name="viewAllUsers" value="Управление заказами">
+        <input class="btn btn-primary" type="submit" name="viewAllUsers" value="Управление заказами">
     </form>
 
 <%--    <form action="/addOrder" method="get">

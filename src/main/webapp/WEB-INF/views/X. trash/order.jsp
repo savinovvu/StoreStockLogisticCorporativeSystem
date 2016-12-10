@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <title>OrderManage</title>
     <link rel="stylesheet" href="/static/css/plugins/bootstrap.css">
-    <link href="/static/css/goods/order.css" rel="stylesheet">
+    <link href="/static/css/util/order.css" rel="stylesheet">
     <script src="/static/js/goods/order.js" type="text/javascript"></script>
     <script src="/static/js/plugins/jquery.min.js"></script>
     <script src="/static/js/plugins/bootstrap/bootstrap.min.js"></script>

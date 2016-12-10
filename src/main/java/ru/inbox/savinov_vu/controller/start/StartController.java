@@ -40,10 +40,21 @@ public class StartController {
         return "personal/admin";
     }
 
+    @GetMapping(value = "/checkUser")
+    public String checkUser(Model model) {
+        return "personal/checkin";
+    }
+
 
     @GetMapping(value = "/editOrder")
     public String editOrder(Model model) {
+
         return "goods/index";
+    }
+
+    @GetMapping(value = "/addOrder")
+    public String addOrder(Model model) {
+        return "goods/addnew";
     }
 
     @GetMapping(value = "/editLocal")
