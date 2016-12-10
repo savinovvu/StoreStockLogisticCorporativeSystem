@@ -7,7 +7,7 @@
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>Добавить заказ</title>
 	<link rel="stylesheet" href="../../../static/util/lustran/css/style.css">
 	<link rel="stylesheet" href="../../../static/css/util/hidden.css">
 
@@ -26,7 +26,7 @@
 				заказ</a>
 
 			<div class="displayNone">
-				<form action="/addOrder" method="get">
+				<form action="addOrder" method="get">
 					<input id="addNewNav" class="btn btn-primary" class="btn" type="submit" name="viewAllUsers">
 				</form>
 			</div>
@@ -36,7 +36,7 @@
 				товары</a>
 
 			<div class="displayNone">
-				<form action="/editOrder" method="get">
+				<form action="editOrder" method="get">
 					<input id="indexNav" class="btn btn-primary" class="btn" type="submit" name="viewAllUsers">
 				</form>
 			</div>
@@ -45,7 +45,7 @@
 			<a href="#" onclick="getNavigation('checkInNav')"  class="lustran-nav-item"><i class="fa fa-user-plus" aria-hidden="true"></i>Отметиться</a>
 
 			<div class="displayNone">
-				<form action="/checkUser" method="get">
+				<form action="checkUser" method="get">
 					<input id="checkInNav" class="btn btn-primary" class="btn" type="submit" name="viewAllUsers">
 				</form>
 			</div>
