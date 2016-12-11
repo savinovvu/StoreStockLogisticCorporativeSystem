@@ -35,7 +35,7 @@ public class OrderController {
 
 
     @PutMapping
-    public List<ProductOrder> getActiveOrders(Model model, @RequestBody ProductOrder order) throws JsonProcessingException {
+    public List<ProductOrder> putOrders(Model model, @RequestBody ProductOrder order) throws JsonProcessingException {
         orderService.putOrder(order);
         return orderService.getActiveOrders();
     }

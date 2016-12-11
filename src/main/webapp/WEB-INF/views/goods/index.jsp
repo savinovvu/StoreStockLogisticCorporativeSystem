@@ -9,15 +9,17 @@
     <link rel="stylesheet" href="../../../static/util/lustran/vendor/perfect-scrollbar/css/perfect-scrollbar.min.css">
     <link rel="stylesheet" href="../../../static/util/lustran/css/style.css">
     <link rel="stylesheet" href="../../../static/css/util/hidden.css">
+    <link rel="stylesheet" href="../../../static/css/goods/goods.css">
     <script src="../../../static/util/lustran/js/jquery-3.1.1.min.js"></script>
     <script src="../../../static/util/lustran/vendor/bootstrap/assets/javascripts/bootstrap.min.js"></script>
     <script src="../../../static/util/lustran/vendor/Inputmask-3.x/dist/jquery.inputmask.bundle.js"></script>
     <script src="../../../static/util/lustran/vendor/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
     <script src="../../../static/util/lustran/js/main.js"></script>
     <script src="../../../static/js/util/navigation.js"></script>
+    <script src="../../../static/js/goods/order.js"></script>
 
 </head>
-<body>
+<body onload="getActive()" >
 <div class="lustran-page">
     <nav class="lustran-nav">
 
@@ -69,6 +71,7 @@
                                 <li><a href="#">Ориентировочная дата</a></li>
                             </ul>
                         </li>
+
                         <li class="status-menu">
                             <a href="#" class="lustran-dropdown" role="button">Выберите статус&nbsp<span
                                     class="caret"></span></a>
@@ -159,7 +162,7 @@
                 </header>
                 <section class="order-body">
                     <ul class="order-list">
-                        <li class="order-list-item status-removed"> <!-- удаленный заказ staus-removed -->
+                        <li class="order-list-item status-removed"> <!-- удаленный заказ status-removed -->
                             <header class="order-list-item-header"><span class="badge badge-pur">1</span><span
                                     class="order-date sep-dot">11.12.16</span><span class="order-name sep-dot">Название товара</span><span
                                     class="order-count sep-dot"><i>1</i> шт</span><span class="order-float-date">16.12.16</span>
@@ -230,6 +233,9 @@
                                 </ul>
                             </div>
                         </li>
+
+                        <%--                      --%>
+
                         <li class="order-list-item">
                             <header class="order-list-item-header"><span class="badge badge-pur">2</span><span
                                     class="order-date sep-dot">11.12.16</span><span class="order-name sep-dot">Название товара</span><span
@@ -306,6 +312,8 @@
                                 </ul>
                             </div>
                         </li>
+             <%--                      --%>
+
                         <li class="order-list-item">
                             <header class="order-list-item-header"><span class="badge badge-pur">3</span><span
                                     class="order-date sep-dot">11.12.16</span><span class="order-name sep-dot">Название товара</span><span

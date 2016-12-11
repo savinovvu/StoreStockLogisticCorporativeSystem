@@ -1,62 +1,6 @@
-/*function changeActive(id, active) {
- var data = {};
-
- data["id"] = $("#id-" + id).val();
- data["userName"] = $("#userName-" + id).val();
- data["roles"] = $("#roles-" + id).val();
- data["active"] = active;
- send("/users", "POST", data);
- changeAllToActiveButton();
- }*/
-
-
-
-function getAll() {
-    send("/orders/all", "GET");
-    /*    changeAllToActiveButton();*/
+function getActive() {
+    send("/orders", "GET");
 }
-
-/*
- function changeAllToActiveButton() {
- $("#showUser").remove();
- var output = '<form id="showUser"  action="javascript:void(null);" onsubmit="getActive()">';
- output += '<input type="submit" class="btn btn-lg btn-info custombtn" id="showUsers" value="Показать активных пользователей"></form> ';
- $(".showUserDiv").append(output);
- }
-
- function getActive() {
- send("/users", "GET");
- changeActiveToALLButton();
- }
-
- function changeActiveToALLButton() {
- $("#showUser").remove();
- var output = '<form id="showUser"    action="javascript:void(null);" onsubmit="getAll()">';
- output += '<input type="submit" id="showUsers" class="btn btn-lg btn-info custombtn" value="Показать всех пользователей"></form> ';
- $(".showUserDiv").append(output);
- }
- */
-
-/*
- function putUser(id) {
- var data = {};
- if (id > 0) {
- data["id"] = id;
- } else {
- data["id"] = $("#userId").val();
- }
-
- data["userName"] = $("#name").val();
- data["roles"] = $("#roles").val();
- data["active"] = $("#active").val();
-
-
- send("/users", "PUT", data);
- addBlock('none');
- changeActiveToALLButton();
-
-
- }*/
 
 
 function send(url, type, jsonData) {
@@ -80,104 +24,76 @@ function send(url, type, jsonData) {
     return false;
 }
 
-/*    @Id
- @GeneratedValue(strategy = GenerationType.AUTO)
- @JsonProperty("product_id")
- private int product_id;
-
- @Column(name = "product_name")
- @JsonProperty("product_name")
- private String product_name;*/
 
 function view(data) {
 
-    $(".data").remove();
+    $(".order").remove();
+
+    var output = '<div class="lustran-container">';
+
+
     $.each(data, function (key, order) {
 
-        var output = "";
+/*form for navigation get pdf*/
+        output += '<div class="displayNone">' +
+            ' <form action="orders/page/'+order.order_id+'.pdf" method="get">' +
+            '<input id="getPdf-'+order.order_id+'"  class="btn btn-primary" class="btn" type="submit" name="viewAllUsers">' +
+            '</form>' +
+            '</div>';
 
-        output = "<tr class='data'>" +
-            "<form id=\"form-" + order.order_id + "\">";
+         output += '<article class="order">' +
+            '<header class="order-header">' +
+            '<a href="#" onclick="getNavigation(\'getPdf-\'+'+order.order_id+')"><div class="order-id">заказ<span>'+order.order_id+'</span></div></a>' +
+            '<div class="order-basket">'+order.products.length +'</div>' +
+            '<a href="#order-add" class="btn btn-sm order-add"><i class="fa fa-plus-circle" aria-hidden="true"></i></a>' +
+            '</header>';
 
-        output += "<td>";
-        output += "<input type=\"text\"  name=\"id\" id=\"id-" + order.order_id + "\" value=\"" + order.order_id + "\" readonly />";
-        output += "</td>";
 
-        output += "<td>";
-        output += "<input type=\"text\"  name=\"startDateTime\" id=\"startDateTime-" + order.order_id + "\" value=\"" + order.startDateTime + "\"  readonly/>";
-        output += "</td>";
 
-        output +="<td><table id=\"productT-"+order.order_id+"\" >" +
-            " <thead> ";
+        $.each(order.products, function (productKey, product) {
 
-        output += "<tr>";
-        output += "<td>";
-        output += "Артикул";
-        output += "</td>"
+           output +='<section class="order-body">' +
+            '<ul class="order-list">';
+            output += '<li class="order-list-item">' +
 
-        output += "<td>";
-        output += "Товар";
-        output += "</td>"
 
-        output += "</tr>";
-        output += "</thead>"
-        output +="</table></td>";
 
-        $.each(order.products, function (key2, product) {
+             '<header class="order-list-item-header"><span class="badge badge-pur">2</span>' +
+                '<span class="order-date sep-dot">11.12.16</span><span class="order-name sep-dot">Название товара</span>' +
+                '<span class="order-count sep-dot"><i>1</i> шт</span> <span class="order-float-date">16.12.16</span>' +
+                '<a href="#" class="btn btn-success btn-xs" data-toggle="open-log">История действий</a>' +
+                '<a href="#" class="remove-order-status" data-toggle="remove-order"></a></header>' +
+                '<div class="container-fluid">' +
+                '<ul class="order-status-list row">';
 
-            var productOutput = "";
-            productOutput = "<tr class='dataProduct'>" +
-                "<form id=\"formProduct-" + product.product_id+ "\">";
 
-            productOutput += "<tr>";
+            $.each(product.actualStatus, function (statusKey, statusValue){
+                output +='<li class="col-sm-2">' +
+                '<div class="order-status">' +
+                '<div class="order-status-body">' +
+                '<div class="status-top"><span class="status">Дозвон</span>' +
+                '<span class="status-date">12.12.16</span></div>' +
+                '<div class="status-bottom"><span>Фамилия Имя Отчество</span></div>' +
+                '</div>' +
+                '<a href="#" class="order-status-edit"></a>' +
+                '</div>' +
+                '</li>' ;
 
-            productOutput += "<td>";
-            productOutput += "<input type=\"text\"  name=\"product_id\" id=\"product_id-" + product.product_id + "\" value=\"" + product.product_id + "\"  readonly/>";
-            productOutput += "</td>"
+                });
 
-            productOutput += "<td>";
-            productOutput += "<input type=\"text\"  name=\"product_name\" id=\"product_name-" + product.product_id + "\" value=\"" + product.product_name + "\"  readonly/>";
-            productOutput += "</td>"
-            productOutput += "</tr> ";
-            productOutput += "</form> " +
-                "</tr>";
-
-            $("#productT-"+10003).append(productOutput);
+            output +='</ul>' +
+                '</div>' +
+                '</li>' +
+                '</ul>' +
+                '</section>';
 
         });
 
-
-        output += "<td>";
-        output += "<input type=\"text\"  name=\"roles\" id=\"roles-" + order.id + "\" value=\"" + order.roles + "\"  readonly/>";
-        output += "</td>";
-
-
-        if (order.active == true) {
-            output += "<td>" +
-                "<input type=\"button\" value=\"Запретить\" class=\"btn btn-danger\" onclick=\"changeActive(" + order.id + " , false)\">" +
-                "</td>";
-        }
-
-        if (order.active == false) {
-            output += "<td>" +
-                "<input type=\"button\" value=\"Разрешить\" class=\"btn btn-success\" onclick=\"changeActive(" + order.id + ", true)\">" +
-                "</td>";
-        }
-
-
-        /*  output += "<td>" +
-         "<input type=\"button\" value=\"Обновить\" class=\"btn btn-success\" onclick=\"addBlock( 'block'," + val.id + ")\">" +
-         "</td>";*/
-        output += '<td>' +
-            '<button type="button" class="btn btn-success" onclick="addBlock(' + order.id + ')"  data-toggle="modal"  data-target="#myModal"' +
-            '>Обновить</button>' +
-            '</td>';
-
-        output += "</form> " +
-            "</tr>";
-
-        $("#orderT").append(output);
-
+        output +='</article>';
 
     });
+    output += '</div>';
+
+    $(".lustran-container").append(output);
+
 }
