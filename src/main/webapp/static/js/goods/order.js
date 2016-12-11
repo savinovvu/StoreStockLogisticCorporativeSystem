@@ -1,5 +1,59 @@
+
+
+
 function getActive() {
     send("/orders", "GET");
+}
+
+function getCount(entity) {
+
+   //sendForGetNumber("/orders/"+entity, "GET");
+
+    return sendForGetNumber("/orders/"+entity, "GET");
+
+}
+
+function sendForGetNumber(url, type, textData) {
+
+   return $.ajax({
+
+        url: url,
+        type: type,
+       async:false,
+        contentType: 'application/json',
+        data: JSON.stringify(textData),
+        success: function (data) {
+            //returnValue(data);
+
+        },
+        error: function (x) {
+            alert("error");
+
+        }
+
+    }).responseText;
+}
+
+
+function send(url, type, jsonData) {
+
+    $.ajax({
+
+        url: url,
+        type: type,
+        contentType: 'application/json',
+        data: JSON.stringify(jsonData),
+        success: function (data) {
+            view(data);
+
+        },
+        error: function (x) {
+            alert("error");
+
+        }
+
+    });
+    return false;
 }
 
 
@@ -28,60 +82,73 @@ function send(url, type, jsonData) {
 function view(data) {
 
     $(".order ").remove();
+      $(".del ").remove();
+/*'+data.length+'*/
+     var navOutput = '<li class="navbar-text">Заказов всего <span class="badge badge-pur-light">'+getCount("countAllOrder")+'</span></li>' +
+     '<li class="navbar-text">В обработке <span class="badge badge-pur-light">'+ getCount("countActiveOrder") +'</span></li>' +
+     '<li class="navbar-text">Выдано <span class="badge badge-pur-light">6</span></li>' +
+     '<li class="navbar-text">Дефект <span class="badge badge-pur-light">0</span></li>';
+
+
+     $(".myAddTop").append(navOutput);
+
 
     var output = '';
-
-
     $.each(data, function (key, order) {
 
-/*form for navigation get pdf*/
-        output += '<div class="displayNone">' +
-            ' <form action="orders/page/'+order.order_id+'.pdf" method="get">' +
-            '<input id="getPdf-'+order.order_id+'"  class="btn btn-primary" class="btn" type="submit" name="viewAllUsers">' +
-            '</form>' +
-            '</div>';
 
-         output += '<article class="order">' +
+
+
+
+        /*form for navigation get pdf*/
+
+
+        output += '<article class="order">' +
             '<header class="order-header">' +
-            '<a href="#" onclick="getNavigation(\'getPdf-\'+'+order.order_id+')"><div class="order-id">заказ<span>'+order.order_id+'</span></div></a>' +
-            '<div class="order-basket">'+order.products.length +'</div>' +
+            '<a href="#" onclick="getNavigation(\'getPdf-\'+' + order.order_id + ')"><div class="order-id">заказ<span>' + order.order_id + '</span></div></a>' +
+            '<div class="order-basket">' + order.products.length + '</div>' +
             '<a href="#order-add" class="btn btn-sm order-add"><i class="fa fa-plus-circle" aria-hidden="true"></i></a>' +
             '</header>';
 
+        output += '<div class="displayNone">' +
+            ' <form action="orders/page/' + order.order_id + '.pdf" method="get">' +
+            '<input id="getPdf-' + order.order_id + '"  class="btn btn-primary" class="btn" type="submit" name="viewAllUsers">' +
+            '</form>' +
+            '</div>';
 
 
         $.each(order.products, function (productKey, product) {
 
-           output +='<section class="order-body">' +
-            '<ul class="order-list">';
+            output += '<section class="order-body">' +
+                '<ul class="order-list">';
             output += '<li class="order-list-item">' +
 
 
-
-             '<header class="order-list-item-header"><span class="badge badge-pur">2</span>' +
-                '<span class="order-date sep-dot">'+ product.getProductDate +'</span><span class="order-name sep-dot">Название товара</span>' +
-                '<span class="order-count sep-dot"><i>product</i> шт</span> <span class="order-float-date">16.12.16</span>' +
+                /*Ссылка на историю дейтсвий тут*/
+                '<header class="order-list-item-header"><span class="badge badge-pur">2</span>' +
+                '<span class="order-date sep-dot">' + order.startDate + '</span><span class="order-name sep-dot">' + product.product_name + '</span>' +
+                '<span class="order-count sep-dot"><i>' + product.countProducts + '</i> шт</span> <span class="order-float-date">' + product.deliveryProductDate + '</span>' +
                 '<a href="#" class="btn btn-success btn-xs" data-toggle="open-log">История действий</a>' +
                 '<a href="#" class="remove-order-status" data-toggle="remove-order"></a></header>' +
                 '<div class="container-fluid">' +
                 '<ul class="order-status-list row">';
 
 
-            $.each(product.actualStatus, function (statusKey, statusValue){
-                output +='<li class="col-sm-2">' +
-                '<div class="order-status">' +
-                '<div class="order-status-body">' +
-                '<div class="status-top"><span class="status">Дозвон</span>' +
-                '<span class="status-date">12.12.16</span></div>' +
-                '<div class="status-bottom"><span>Фамилия Имя Отчество</span></div>' +
-                '</div>' +
-                '<a href="#" class="order-status-edit"></a>' +
-                '</div>' +
-                '</li>' ;
+            $.each(product.actualStatus, function (statusKey, actualStatus) {
+                output += '<li class="col-sm-2">' +
+                    '<div class="order-status">' +
+                    '<div class="order-status-body">' +
+                    '<div class="status-top"><span class="status">' + actualStatus.statusName + '</span>' +
+                    '<span class="status-date">' + actualStatus.statusDate + '</span></div>' +
+                    '<div class="status-bottom"><span>' + actualStatus.user.userName + '</span></div>' +
+                    '</div>' +
+                    '<a href="#" class="order-status-edit"></a>' +
+                    '</div>' +
+                    '</li>';
 
-                });
+            });
 
-            output +='</ul>' +
+            output += '</ul>' +
                 '</div>' +
                 '</li>' +
                 '</ul>' +
@@ -89,7 +156,7 @@ function view(data) {
 
         });
 
-        output +='</article>';
+        output += '</article>';
 
     });
     output += '</div>';

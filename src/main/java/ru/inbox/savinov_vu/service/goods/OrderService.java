@@ -12,4 +12,9 @@ public interface OrderService {
     ProductOrder getOrderById(int id);
 
     void putOrder(ProductOrder order);
+
+    long countAllOrder();
+
+    long countActiveOrder();
+
 }

@@ -49,7 +49,7 @@ public class PrepareProductForSend {
                     group2.add(statusProduct);
                     break;
                 case Выявлен_дефект:
-                case Проверен_и_отложен:
+                case Отложен:
                 case Отсутствует:
                     group3.add(statusProduct);
                     break;

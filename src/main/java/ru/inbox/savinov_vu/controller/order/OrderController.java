@@ -30,7 +30,6 @@ public class OrderController {
     @GetMapping
     public List<ProductOrder> getActiveOrders(Model model) throws JsonProcessingException {
         return orderService.getActiveOrders();
-
     }
 
 
@@ -44,29 +43,18 @@ public class OrderController {
     http://localhost:8080/orders/test
 */
 
-    @GetMapping (value = "/test")
-    public ProductOrder test(Model model) throws JsonProcessingException {
-   /*     ProductOrder order = new ProductOrder(LocalDate.now(), true, "customerName", "287346837", "comment");
-
-        Product product = new Product(1232,"productname1",order,2,10000);
 
 
-        List<StatusProduct> statusProducts = new ArrayList<>();
-        statusProducts.add(new StatusProduct(EnumStatusProduct.Дозвон, LocalDate.now(),product));
-        statusProducts.add(new StatusProduct(EnumStatusProduct.Комментарий, LocalDate.now(),product));
-        statusProducts.add(new StatusProduct(EnumStatusProduct.Не_обработан, LocalDate.now(),product));
-
-                product.setStatus(statusProducts);
-        List<Product> products = new ArrayList<>();
-        products.add(product);
+    @GetMapping (value = "/countAllOrder")
+    public long сountAllOrder(Model model) throws JsonProcessingException {
+        return  orderService.countAllOrder();
+    }
 
 
-
-        order.setProducts(products);
-        orderService.putOrder(order);*/
-
-
-        return  orderService.getOrderById(1);
+    @GetMapping (value = "/countActiveOrder")
+    public long сountActiveOrder(Model model) throws JsonProcessingException {
+       // return  orderService.countActiveOrder();
+        return  orderService.countActiveOrder();
     }
 
 

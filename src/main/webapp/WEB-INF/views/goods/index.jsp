@@ -99,10 +99,10 @@
                                 <div class="dropdown">
                                     <button class="btn btn-default dropdown-toggle lustran-drop" type="button"
                                             id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="true">Проверен и отложен
+                                            aria-expanded="true">Отложен
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
-                                        <li><a href="#">Проверен и отложен</a></li>
+                                        <li><a href="#">Отложен</a></li>
                                         <li><a href="#">Отсутствует</a></li>
                                     </ul>
                                 </div>
@@ -142,11 +142,11 @@
                             <input type="text" class="form-control" placeholder="Поиск...">
                         </div>
                     </form>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="navbar-text">Заказов всего <span class="badge badge-pur-light">1</span></li>
-                        <li class="navbar-text">В обработке <span class="badge badge-pur-light">2</span></li>
-                        <li class="navbar-text">Выдано <span class="badge badge-pur-light">6</span></li>
-                        <li class="navbar-text">Дефект <span class="badge badge-pur-light">0</span></li>
+                    <ul class="nav navbar-nav navbar-right myAddTop">
+                        <li class="navbar-text del">Заказов всего <span class="badge badge-pur-light">1</span></li>
+                        <li class="navbar-text del">В обработке <span class="badge badge-pur-light">2</span></li>
+                        <li class="navbar-text del">Выдано <span class="badge badge-pur-light">6</span></li>
+                        <li class="navbar-text del">Дефект <span class="badge badge-pur-light">0</span></li>
                     </ul>
                 </div>
             </div>

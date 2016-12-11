@@ -41,6 +41,11 @@ public class ProductOrder {
     private String orderComment;
 
 
+
+
+
+
+
     @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER, mappedBy = "order")
     @JsonProperty("products")
     private List<Product> products;

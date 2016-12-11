@@ -59,6 +59,16 @@ public class OrderServiceImpl implements OrderService {
         }
 
     @Override
+    public long countAllOrder() {
+        return orderRepository.countAllOrder();
+    }
+
+    @Override
+    public long countActiveOrder() {
+        return orderRepository.countActiveOrder();
+    }
+
+    @Override
     public ProductOrder getOrderById(int id) {
         beforeGet();
         return preparedProduct(orderRepository.findById(id));
