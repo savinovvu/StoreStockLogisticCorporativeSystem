@@ -20,11 +20,11 @@ INSERT INTO orders (startDate, active, customerName, customerPhone, orderComment
   ('2016-05-13', TRUE, 'customerName4', '8(000)000-0004', 'хороший товар4'),
   ('2016-05-13', TRUE, 'customerName5', '8(000)000-0005', 'хороший товар5');
 
-INSERT INTO products (vendorCode, product_name, countProducts, prepayment, order_id) VALUES
-  (1, 'product1', 1, 10001, 1),
-  (2, 'product2', 2, 20002, 2),
-  (3, 'product3', 3, 30003, 3),
-  (4, 'product4', 4, 40004, 4);
+INSERT INTO products (vendorCode, product_name, countProducts, prepayment,deliveryProductDate, order_id) VALUES
+  (1, 'product1', 1, 10001,'2016-05-10', 1),
+  (2, 'product2', 2, 20002,'2016-05-11', 2),
+  (3, 'product3', 3, 30003,'2016-05-12', 3),
+  (4, 'product4', 4, 40004,'2016-05-13', 4);
 
 
 INSERT INTO locals (localname) VALUES

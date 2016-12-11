@@ -27,9 +27,9 @@ function send(url, type, jsonData) {
 
 function view(data) {
 
-    $(".order").remove();
+    $(".order ").remove();
 
-    var output = '<div class="lustran-container">';
+    var output = '';
 
 
     $.each(data, function (key, order) {
@@ -59,8 +59,8 @@ function view(data) {
 
 
              '<header class="order-list-item-header"><span class="badge badge-pur">2</span>' +
-                '<span class="order-date sep-dot">11.12.16</span><span class="order-name sep-dot">Название товара</span>' +
-                '<span class="order-count sep-dot"><i>1</i> шт</span> <span class="order-float-date">16.12.16</span>' +
+                '<span class="order-date sep-dot">'+ product.getProductDate +'</span><span class="order-name sep-dot">Название товара</span>' +
+                '<span class="order-count sep-dot"><i>product</i> шт</span> <span class="order-float-date">16.12.16</span>' +
                 '<a href="#" class="btn btn-success btn-xs" data-toggle="open-log">История действий</a>' +
                 '<a href="#" class="remove-order-status" data-toggle="remove-order"></a></header>' +
                 '<div class="container-fluid">' +

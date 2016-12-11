@@ -3,9 +3,12 @@ package ru.inbox.savinov_vu.model.goods;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import ru.inbox.savinov_vu.model.goods.status.StatusProduct;
+import ru.inbox.savinov_vu.util.json.JsonDateSerializer;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,6 +47,11 @@ public class Product {
     @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER, mappedBy = "product")
     @JsonProperty("status")
     private List<StatusProduct> status;
+
+    @Column(name = "deliveryProductDate")
+    @JsonProperty("deliveryProductDate")
+    @JsonSerialize(using = JsonDateSerializer.class)
+    private LocalDate deliveryProductDate;
 
 
 

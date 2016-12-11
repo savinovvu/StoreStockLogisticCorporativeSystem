@@ -69,6 +69,7 @@ CREATE TABLE products
   product_name  VARCHAR(255),
   countProducts   INTEGER,
   prepayment  INTEGER,
+  deliveryProductDate DATE NOT NULL,
   order_id      INTEGER,
   FOREIGN KEY (order_id) REFERENCES ORDERS (order_id)
     ON DELETE CASCADE
