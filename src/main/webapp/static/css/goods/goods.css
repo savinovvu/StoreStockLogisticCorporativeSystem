@@ -1,0 +1,21 @@
+.delnav {
+    display:inline;
+    color:white;
+    background: transparent;
+    border-color: transparent;
+}
+
+.delnav:hover {
+    display:inline;
+    color:white;
+    background: transparent;
+    border-color: transparent;
+}
+
+.delnav:active+a {
+    display:inline;
+    color:white;
+    background: transparent;
+
+    border-color: transparent;
+}

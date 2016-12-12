@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.inbox.savinov_vu.model.goods.ProductOrder;
 import ru.inbox.savinov_vu.service.goods.OrderService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -39,23 +40,25 @@ public class OrderController {
         return orderService.getActiveOrders();
     }
 
-/*
-    http://localhost:8080/orders/test
-*/
 
 
-
-    @GetMapping (value = "/countAllOrder")
-    public long сountAllOrder(Model model) throws JsonProcessingException {
-        return  orderService.countAllOrder();
+   // for example: http://localhost:8080/orders/analytics
+    @GetMapping (value = "/analytics")
+    public List<Long> сountAllOrder(Model model) throws JsonProcessingException {
+        List<Long> list = new ArrayList<>();
+        list.add(orderService.countAllOrder());
+        list.add(orderService.countActiveOrder());
+        System.out.println(list);
+        return list ;
     }
 
 
-    @GetMapping (value = "/countActiveOrder")
+  /*  @GetMapping (value = "/countActiveOrder")
     public long сountActiveOrder(Model model) throws JsonProcessingException {
        // return  orderService.countActiveOrder();
-        return  orderService.countActiveOrder();
-    }
+        return  ;
+    }*/
+
 
 
 

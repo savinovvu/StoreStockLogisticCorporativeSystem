@@ -60,11 +60,13 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public long countAllOrder() {
+        beforeGet();
         return orderRepository.countAllOrder();
     }
 
     @Override
     public long countActiveOrder() {
+        beforeGet();
         return orderRepository.countActiveOrder();
     }
 

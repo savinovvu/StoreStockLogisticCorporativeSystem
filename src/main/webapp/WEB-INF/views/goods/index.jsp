@@ -18,8 +18,9 @@
     <script src="../../../static/js/util/navigation.js"></script>
     <script src="../../../static/js/goods/order.js"></script>
 
+
 </head>
-<body onload="getActive()" >
+<body onload="updatePage()" >
 <div class="lustran-page">
     <nav class="lustran-nav">
 
@@ -143,10 +144,10 @@
                         </div>
                     </form>
                     <ul class="nav navbar-nav navbar-right myAddTop">
-                        <li class="navbar-text del">Заказов всего <span class="badge badge-pur-light">1</span></li>
-                        <li class="navbar-text del">В обработке <span class="badge badge-pur-light">2</span></li>
-                        <li class="navbar-text del">Выдано <span class="badge badge-pur-light">6</span></li>
-                        <li class="navbar-text del">Дефект <span class="badge badge-pur-light">0</span></li>
+                        <li class="navbar-text delnav">Заказов всего <span class="badge badge-pur-light">1</span></li>
+                        <li class="navbar-text delnav">В обработке <span class="badge badge-pur-light">2</span></li>
+                        <li class="navbar-text delnav">Выдано <span class="badge badge-pur-light">6</span></li>
+                        <li class="navbar-text delnav">Дефект <span class="badge badge-pur-light">0</span></li>
                     </ul>
                 </div>
             </div>

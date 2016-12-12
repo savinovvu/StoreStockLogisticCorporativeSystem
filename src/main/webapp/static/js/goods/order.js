@@ -1,37 +1,56 @@
 
+function updatePage() {
+    getCount();
+    getActive();
 
+}
+
+function getAll() {
+    send("/orders/all", "GET");
+}
 
 function getActive() {
     send("/orders", "GET");
 }
 
-function getCount(entity) {
-
-   //sendForGetNumber("/orders/"+entity, "GET");
-
-    return sendForGetNumber("/orders/"+entity, "GET");
-
+function getCount() {
+     sendForGetNumber("/orders/analytics" , "GET");
 }
+
 
 function sendForGetNumber(url, type, textData) {
 
-   return $.ajax({
+    // return $.ajax({
+     return $.ajax({
 
         url: url,
         type: type,
-       async:false,
+        //  async:false,
         contentType: 'application/json',
         data: JSON.stringify(textData),
         success: function (data) {
-            //returnValue(data);
+            viewAnalitics(data)
+
 
         },
         error: function (x) {
-            alert("error");
+            alert("error viewAnalitics");
 
         }
+     });
+   //  }).responseText;
+}
 
-    }).responseText;
+function viewAnalitics(data) {
+
+    $(".delnav ").remove();
+
+    var output = '<li  class="navbar-text delnav"><a class="delnav" style="display: inline; background: transparent; color: white;"   class="delnav" href="#" onclick="getAll()">Заказов всего</a><span class="badge badge-pur-light">' + data[0] + '</span></li>' +
+        '<li class="navbar-text delnav"><a class="delnav" style="display: inline; background: transparent; color: white; border-color: transparent" class="delnav" href="#" onclick="getActive()">В обработке</a><span class="badge badge-pur-light">' + data[1] + '</span></li>' +
+        '<li class="navbar-text delnav">Выдано <span class="badge badge-pur-light">6</span></li>' +
+        '<li class="navbar-text delnav">Дефект <span class="badge badge-pur-light">0</span></li>';
+    $(".myAddTop").append(output);
+
 }
 
 
@@ -57,40 +76,13 @@ function send(url, type, jsonData) {
 }
 
 
-function send(url, type, jsonData) {
 
-    $.ajax({
-
-        url: url,
-        type: type,
-        contentType: 'application/json',
-        data: JSON.stringify(jsonData),
-        success: function (data) {
-            view(data);
-
-        },
-        error: function (x) {
-            alert("error");
-
-        }
-
-    });
-    return false;
-}
 
 
 function view(data) {
 
     $(".order ").remove();
-      $(".del ").remove();
-/*'+data.length+'*/
-     var navOutput = '<li class="navbar-text">Заказов всего <span class="badge badge-pur-light">'+getCount("countAllOrder")+'</span></li>' +
-     '<li class="navbar-text">В обработке <span class="badge badge-pur-light">'+ getCount("countActiveOrder") +'</span></li>' +
-     '<li class="navbar-text">Выдано <span class="badge badge-pur-light">6</span></li>' +
-     '<li class="navbar-text">Дефект <span class="badge badge-pur-light">0</span></li>';
-
-
-     $(".myAddTop").append(navOutput);
+  
 
 
     var output = '';
