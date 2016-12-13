@@ -134,12 +134,12 @@
 					<div class="new-order">
 						<div class="new-order-header">
 							<div class="new-order-info">
-								<div class="new-order-info-row">ID заказа&nbsp<span class="new-order-id">0001</span>&nbspот&nbsp<span class="new-order-date">12.12.16</span></div>
+								<%--<div class="new-order-info-row">ID заказа&nbsp<span class="new-order-id">0001</span>&nbspот&nbsp<span class="new-order-date">12.12.16</span></div>--%>
 								<div class="new-order-info-row"><span class="new-order-shop">Название магазина</span></div>
 								<div class="new-order-info-row"><span class="new-order-person">ФИО сотрудника</span></div>
 								<div class="new-order-info-row">Порядковай номер&nbsp<span class="new-order-iter">1</span></div>
 							</div>
-							<div class="new-order-barcode" style="background-image: url(../../../static/util/lustran/img/shtrihcod.png);"></div>
+							<%--<div class="new-order-barcode" style="background-image: url(../../../static/util/lustran/img/shtrihcod.png);"></div>--%>
 						</div>
 						<div class="new-order-body">
 							<form action="" class="new-order-form">
