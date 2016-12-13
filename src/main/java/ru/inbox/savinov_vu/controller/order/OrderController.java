@@ -35,8 +35,17 @@ public class OrderController {
 
 
     @PutMapping
-    public List<ProductOrder> putOrders(Model model, @RequestBody ProductOrder order) throws JsonProcessingException {
-        orderService.putOrder(order);
+    public List<ProductOrder> putOrders(Model model, @RequestBody String s) throws JsonProcessingException {
+        System.out.println(s);
+        System.out.println(s);
+        System.out.println(s);
+        System.out.println(s);
+        System.out.println(s);
+        System.out.println(s);
+        System.out.println(s);
+        System.out.println(s);
+        System.out.println(s);
+       // orderService.putOrder(order);
         return orderService.getActiveOrders();
     }
 
@@ -48,7 +57,7 @@ public class OrderController {
         List<Long> list = new ArrayList<>();
         list.add(orderService.countAllOrder());
         list.add(orderService.countActiveOrder());
-        System.out.println(list);
+
         return list ;
     }
 
