@@ -1,15 +1,17 @@
 
 function updatePage() {
-    getCount();
+
     getActive();
 
 }
 
 function getAll() {
+    getCount();
     send("/orders/all", "GET");
 }
 
 function getActive() {
+    getCount();
     send("/orders", "GET");
 }
 

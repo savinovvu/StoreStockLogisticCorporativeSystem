@@ -52,13 +52,13 @@
 
 		</nav>
 		<main class="lustran-main">
-			<nav class="navbar lustran-navbar navbar-static-top">
-			  	<div class="lustran-container-nav">
-			  		<div class="collapse navbar-collapse">
-			  			<ul class="nav navbar-nav">
+			<%--<nav class="navbar lustran-navbar navbar-static-top">--%>
+			  	<%--<div class="lustran-container-nav">--%>
+			  	<%--	<div class="collapse navbar-collapse">--%>
+			  			<%--<ul class="nav navbar-nav">
 			    			<li class="dropdown">
-			      			<a href="#" class="dropdown-toggle lustran-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Фильтр&nbsp<span class="caret"></span></a>
-			      			<ul class="dropdown-menu lustran-dropdown-menu">
+			      			<a href="#" class="dropdown-toggle lustran-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Фильтр&nbsp<span class="caret"></span></a>--%>
+			      			<%--<ul class="dropdown-menu lustran-dropdown-menu">
 		        				<li><a href="#">ID заказа</a></li>
 		        				<li><a href="#">Наименование</a></li>
 					        	<li><a href="#">Артикул</a></li>
@@ -113,33 +113,35 @@
 			      				</div>
 			      			</div>
 			    			</li>
-			   		</ul>	
-			   		<form class="navbar-form navbar-left lustran-search-form">
+			   		</ul>--%>
+			 <%--  		<form class="navbar-form navbar-left lustran-search-form">
 			   			<div class="form-group">
 			   				<input type="text" class="form-control" placeholder="Поиск...">
 			   			</div>
-			   		</form>
-			   		<ul class="nav navbar-nav navbar-right">
+			   		</form>--%>
+			   		<%--<ul class="nav navbar-nav navbar-right">
 			   			<li class="navbar-text">Заказов всего <span class="badge badge-pur-light">1</span></li>
 			   			<li class="navbar-text">В обработке <span class="badge badge-pur-light">2</span></li>
 			   			<li class="navbar-text">Выдано <span class="badge badge-pur-light">6</span></li>
 			   			<li class="navbar-text">Дефект <span class="badge badge-pur-light">0</span></li>
-			   		</ul>
-			   	</div>
-			  	</div>
-			</nav>
+			   		</ul>--%>
+			  <%-- 	</div>--%>
+			  <%--	</div>--%>
+
+
+			<%--</nav>--%>
 			<div class="lustran-container">
 				<div class="new-order-wrapper">
 					<h2>Добавление нового заказа</h2>
 					<div class="new-order">
 						<div class="new-order-header">
 							<div class="new-order-info">
-								<%--<div class="new-order-info-row">ID заказа&nbsp<span class="new-order-id">0001</span>&nbspот&nbsp<span class="new-order-date">12.12.16</span></div>--%>
+							<%--	<div class="new-order-info-row">ID заказа&nbsp<span class="new-order-id">0001</span>&nbspот&nbsp<span class="new-order-date">12.12.16</span></div>--%>
 								<div class="new-order-info-row"><span class="new-order-shop">Название магазина</span></div>
 								<div class="new-order-info-row"><span class="new-order-person">ФИО сотрудника</span></div>
-								<div class="new-order-info-row">Порядковай номер&nbsp<span class="new-order-iter">1</span></div>
+								<%--<div class="new-order-info-row">Порядковый номер&nbsp<span class="new-order-iter">1</span></div>--%>
 							</div>
-							<%--<div class="new-order-barcode" style="background-image: url(../../../static/util/lustran/img/shtrihcod.png);"></div>--%>
+						<%--	<div class="new-order-barcode" style="background-image: url(../../../static/util/lustran/img/shtrihcod.png);"></div>--%>
 						</div>
 						<div class="new-order-body">
 							<form action="" class="new-order-form">
