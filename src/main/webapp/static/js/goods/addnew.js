@@ -7,8 +7,8 @@
 
 function sendForm() {
     alert("data");
-    var data = $.('#serializedForm').serializeArray();
-    //alert(data);
+    //var data = $.('#serializedForm').serializeArray();
+    var data = "какие то данные";
     send("/orders", "PUT", data);
 }
 
