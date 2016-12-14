@@ -4,10 +4,23 @@
     alert("sldfkj");
 });*/
 
+function updatePage() {
+    $(".delSpan ").remove();
+    $(".addSpan").append('<span class="new-order-shop delSpan">'+getLocal()+'</span>');
+    getLocal();
+}
+
+function getLocal() {
+    var cookie = $.cookie("cookie_localName");
+    return cookie;
+}
+
 
 function sendForm() {
     alert("data");
     //var data = $.('#serializedForm').serializeArray();
+    var formData = new FormData();
+
     var data = "какие то данные";
     send("/orders", "PUT", data);
 }
@@ -61,6 +74,6 @@ function send(url, type, jsonData) {
 
 function view(data) {
 
-    alert("добавлено")
+    alert("сервер ответил на запрос");
 
 }

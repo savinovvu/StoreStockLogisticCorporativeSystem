@@ -16,9 +16,11 @@
     <script src="../../../static/util/lustran/vendor/Inputmask-3.x/dist/jquery.inputmask.bundle.js"></script>
     <script src="../../../static/util/lustran/js/main.js"></script>
     <script src="../../../static/js/util/navigation.js"></script>
+    <script src="/static/js/plugins/jquery.cookie.js"></script>
     <script src="../../../static/js/goods/addnew.js"></script>
+
 </head>
-<body>
+<body onload="updatePage()">
 <div class="lustran-page">
     <nav class="lustran-nav">
         <a href="#" onclick="getNavigation('addNewNav')" class="lustran-nav-item"><i class="fa fa-plus-circle"
@@ -139,7 +141,7 @@
                     <div class="new-order-header">
                         <div class="new-order-info">
                             <%--	<div class="new-order-info-row">ID заказа&nbsp<span class="new-order-id">0001</span>&nbspот&nbsp<span class="new-order-date">12.12.16</span></div>--%>
-                            <div class="new-order-info-row"><span class="new-order-shop">Название магазина</span></div>
+                            <div class="new-order-info-row addSpan" ><span class="new-order-shop delSpan">Название магазина</span></div>
                             <div class="new-order-info-row"><span class="new-order-person">ФИО сотрудника</span></div>
                             <%--<div class="new-order-info-row">Порядковый номер&nbsp<span class="new-order-iter">1</span></div>--%>
                         </div>
@@ -152,7 +154,7 @@
 
                         <%----------------------------------This Form-------------------------------%>
 
-                        <form id="serializedForm" action="" class="new-order-form">
+                        <form id="serializedForm" action="" class="new-order-form" name="form">
                             <div class="new-order-form-row row">
                                 <fieldset class="col-sm-2">
                                     <label for="">Артикул</label>
